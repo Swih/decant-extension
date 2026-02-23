@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decant — Extract pure, AI-ready content from any page</title>
+    <meta name="description" content="Decant the web. Extract clean Markdown, JSON, or MCP content from any page. 100% local, no data sent anywhere." />
+    <meta property="og:title" content="Decant — Decant the web" />
+    <meta property="og:description" content="Extract pure, AI-ready content from any page. Markdown, JSON, MCP. 100% local." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1f4a7;</text></svg>" />
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+      :root{--accent:#8b5cf6;--accent2:#6366f1;--bg:#0a0a10;--bg2:#12121c;--text:#e8e8ed;--text2:#8b8b9e;--text3:#5c5c6f;--border:rgba(255,255,255,0.06)}
+      body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+      a{color:var(--accent);text-decoration:none}
+      a:hover{text-decoration:underline}
+
+      /* ── Hero ── */
+      .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;position:relative;overflow:hidden}
+      .hero::before{content:'';position:absolute;top:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,0.12),transparent 70%);pointer-events:none}
+      .logo{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+      .logo-icon{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),#4f46e5);border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 50px rgba(139,92,246,0.25)}
+      .logo-icon svg{width:32px;height:32px}
+      .logo-text{font-size:36px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+      .tagline{font-size:20px;color:var(--text2);margin-bottom:40px;max-width:500px}
+      .formats{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap;justify-content:center}
+      .pill{padding:8px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:999px;font-size:13px;font-weight:500;color:var(--text2)}
+      .pill.hl{border-color:var(--accent);color:var(--accent);background:rgba(139,92,246,0.08)}
+      .cta{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:var(--accent);color:#fff;font-size:15px;font-weight:600;border-radius:12px;text-decoration:none;box-shadow:0 0 30px rgba(139,92,246,0.3);transition:all 0.2s}
+      .cta:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,92,246,0.4);text-decoration:none}
+      .cta svg{width:18px;height:18px}
+      .sub-cta{margin-top:16px;font-size:13px;color:var(--text3)}
+
+      /* ── Features ── */
+      .features{max-width:900px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+      .card{padding:28px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;transition:border-color 0.2s}
+      .card:hover{border-color:rgba(139,92,246,0.2)}
+      .card-icon{font-size:28px;margin-bottom:12px}
+      .card h3{font-size:16px;font-weight:600;margin-bottom:8px}
+      .card p{font-size:14px;color:var(--text2);line-height:1.6}
+
+      /* ── Privacy Banner ── */
+      .privacy-banner{max-width:700px;margin:0 auto 80px;padding:28px 32px;background:rgba(139,92,246,0.06);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;text-align:center}
+      .privacy-banner h2{font-size:18px;margin-bottom:8px}
+      .privacy-banner p{font-size:14px;color:var(--text2)}
+
+      /* ── Footer ── */
+      footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--text3)}
+      footer a{color:var(--text2)}
+      .footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:12px}
+
+      @media(max-width:600px){
+        .hero{padding:40px 20px}
+        .logo-text{font-size:28px}
+        .tagline{font-size:17px}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 512 512" fill="none">
+            <g transform="translate(256,256)">
+              <path d="M-55-130C-90-130-108-108-108-75L-108-25C-108-5-118 5-135 5C-118 5-108 15-108 35L-108 85C-108 118-90 140-55 140" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M55-130C90-130 108-108 108-75L108-25C108-5 118 5 135 5C118 5 108 15 108 35L108 85C108 118 90 140 55 140" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M0-65C0-65 50 20 50 55C50 82.6 27.6 105 0 105C-27.6 105-50 82.6-50 55C-50 20 0-65 0-65Z" fill="white"/>
+            </g>
+          </svg>
+        </div>
+        <span class="logo-text">Decant</span>
+      </div>
+      <p class="tagline">Extract pure, AI-ready content from any web page. No servers, no tracking, no accounts.</p>
+      <div class="formats">
+        <span class="pill hl">Markdown</span>
+        <span class="pill">JSON</span>
+        <span class="pill">MCP</span>
+      </div>
+      <a class="cta" id="installBtn" href="#install">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Install for Chrome
+      </a>
+      <p class="sub-cta">Free &amp; open source &middot; 100% local processing</p>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="card">
+        <div class="card-icon">&#x1f4c4;</div>
+        <h3>Three output formats</h3>
+        <p>Markdown for notes, JSON for developers, MCP for AI agents. Switch instantly.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x1f512;</div>
+        <h3>100% Local</h3>
+        <p>Everything runs in your browser. No data leaves your device. No analytics, no tracking, ever.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x26a1;</div>
+        <h3>Smart extraction</h3>
+        <p>Powered by Mozilla Readability. Strips ads, nav, clutter. Keeps the content you need.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x1f4ca;</div>
+        <h3>Tables &amp; data</h3>
+        <p>Detect tables, emails, dates, prices, phone numbers. Structured data, ready to use.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x2328;&#xfe0f;</div>
+        <h3>Keyboard-first</h3>
+        <p>Ctrl+Shift+E to extract, Ctrl+Shift+C to copy, Ctrl+Shift+S to save. Zero clicks needed.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#x1f30d;</div>
+        <h3>16 languages</h3>
+        <p>Full i18n support including RTL. Arabic, Chinese, Japanese, Korean, and 12 more.</p>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <div class="privacy-banner">
+      <h2>Privacy first, always</h2>
+      <p>No accounts. No servers. No analytics. Your data stays on your device. <a href="/privacy">Read our privacy policy</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/help">Help</a>
+      </div>
+      <p>Decant v1.0.0 &mdash; Zoplop Studio</p>
+    </footer>
+
+    <script>
+      // If Chrome Web Store URL is available, update the install button
+      const storeUrl = ''; // TODO: Add Chrome Web Store URL after publication
+      const btn = document.getElementById('installBtn');
+      if (storeUrl) {
+        btn.href = storeUrl;
+      } else {
+        btn.href = '#install';
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Decant will be available on the Chrome Web Store soon!');
+        });
+      }
+    </script>
+  </body>
+</html>

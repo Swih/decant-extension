@@ -1,0 +1,66 @@
+/**
+ * RTL (Right-to-Left) overrides for Arabic locale.
+ * Applied when html[dir="rtl"] is set.
+ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Flex direction adjustments */
+[dir="rtl"] .header,
+[dir="rtl"] .header-left,
+[dir="rtl"] .header-right,
+[dir="rtl"] .panel-header,
+[dir="rtl"] .page-info,
+[dir="rtl"] .checkbox-row,
+[dir="rtl"] .action-row,
+[dir="rtl"] .btn-row,
+[dir="rtl"] .history-item,
+[dir="rtl"] .footer,
+[dir="rtl"] .options-header {
+  direction: rtl;
+}
+
+/* Toast positioning */
+[dir="rtl"] dc-toast {
+  right: auto;
+  left: 16px;
+}
+
+/* Toast border accent: swap left to right */
+[dir="rtl"] .toast.success,
+[dir="rtl"] .toast.error,
+[dir="rtl"] .toast.warning,
+[dir="rtl"] .toast.info {
+  border-left: none;
+}
+
+/* History time alignment */
+[dir="rtl"] .history-time {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Checkbox label gap */
+[dir="rtl"] .checkbox-row {
+  gap: 8px;
+}
+
+/* Progress bar fill direction */
+[dir="rtl"] .progress-fill {
+  right: 0;
+  left: auto;
+}
+
+/* Slide-in animations: mirror for RTL */
+@keyframes slideInRTL {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideOutRTL {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-16px); }
+}

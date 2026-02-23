@@ -134,5 +134,258 @@
   "settings": {
     "message": "設定",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "輸出格式",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "載入中...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "無標題",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "無法讀取頁面",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "尚無擷取紀錄",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "擷取中...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "完成！",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "失敗",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "重試",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "複製失敗",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "切換主題",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "內容",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "表格",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "資料",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "歷史",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "點擊彈出視窗中的擷取內容開始。",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "尚未擷取到表格。",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "尚未擷取到資料。",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "無擷取歷史。",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "未找到結構化資料。",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "電子郵件",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "日期",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "價格",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "電話號碼",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "在內容中偵測到表格。請在預覽中查看。",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "提純網頁。",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "從任何頁面擷取純淨的AI就緒內容。Markdown、JSON或MCP——一鍵完成。",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "使用方式",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "造訪任意網頁",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "點擊Decant圖示或使用快捷鍵",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "擷取、複製或儲存——完成！",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant移除廣告、導覽和雜亂內容。您將獲得乾淨的內容，可用於AI或筆記。",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "快捷鍵",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "擷取內容",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "擷取並複製",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "擷取並儲存",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "您也可以右鍵點擊任何頁面或選取內容，使用Decant進行擷取。",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "略過",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "下一步",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "開始吧！",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "您會推薦Decant嗎？",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = 不太可能 · 10 = 非常可能",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "稍後再說",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "提交",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "感謝您的回饋！",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "謝謝！",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "剛剛"
+  },
+  "timeMinAgo": {
+    "message": "$1分鐘前",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1小時前",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1天前",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "將選取內容擷取為 Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "擷取整個頁面"
+  },
+  "ctxCopyForAI": {
+    "message": "複製給 AI（最佳化）"
+  },
+  "rateNotYet": {
+    "message": "尚未發佈至 Chrome 商店"
+  },
+  "optionsDataTitle": {
+    "message": "你的資料"
+  },
+  "optionsDataDesc": {
+    "message": "匯出或刪除 Decant 儲存的所有資料。"
+  },
+  "optionsExport": {
+    "message": "匯出我的資料"
+  },
+  "optionsDelete": {
+    "message": "刪除所有資料"
+  },
+  "optionsDeleteConfirm": {
+    "message": "確定嗎？所有資料將被永久刪除。"
+  },
+  "optionsCancel": {
+    "message": "取消"
+  },
+  "optionsDeleteYes": {
+    "message": "是的，全部刪除"
+  },
+  "optionsDeleted": {
+    "message": "所有資料已刪除"
+  },
+  "optionsAbout": {
+    "message": "關於"
+  },
+  "optionsPrivacy": {
+    "message": "隱私權政策"
   }
 }

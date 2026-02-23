@@ -134,5 +134,258 @@
   "settings": {
     "message": "Настройки",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Формат вывода",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "Загрузка...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "Без названия",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "Не удалось прочитать страницу",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "Извлечений пока нет",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "Извлечение...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "Готово!",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "Ошибка",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "Повторить",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "Ошибка копирования",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "Сменить тему",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "Контент",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "Таблицы",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "Данные",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "История",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "Нажмите «Извлечь содержимое» во всплывающем окне, чтобы начать.",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "Таблицы ещё не извлечены.",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "Данные ещё не извлечены.",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "Нет истории извлечений.",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "Структурированные данные не найдены.",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "Email-адреса",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "Даты",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "Цены",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "Телефоны",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "В контенте обнаружены таблицы. Посмотрите их в предпросмотре.",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "Декантируйте веб.",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "Извлекайте чистый, готовый для ИИ контент с любой страницы. Markdown, JSON или MCP — в один клик.",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "Как это работает",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "Откройте любую веб-страницу",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "Нажмите на иконку Decant или используйте горячую клавишу",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "Извлеките, скопируйте или сохраните — готово!",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant удаляет рекламу, навигацию и мусор. Вы получаете чистый контент, готовый для ИИ или ваших заметок.",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "Горячие клавиши",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "Извлечь контент",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "Извлечь и скопировать",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "Извлечь и сохранить",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "Вы также можете щёлкнуть правой кнопкой мыши на любой странице или выделении для извлечения через Decant.",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "Пропустить",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "Далее",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "Поехали!",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "Порекомендовали бы вы Decant?",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = Маловероятно · 10 = Очень вероятно",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "Не сейчас",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "Отправить",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "Спасибо за отзыв!",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "Спасибо!",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "только что"
+  },
+  "timeMinAgo": {
+    "message": "$1 мин. назад",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 ч. назад",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 д. назад",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Извлечь выделение как Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "Извлечь всю страницу"
+  },
+  "ctxCopyForAI": {
+    "message": "Скопировать для ИИ (оптимизировано)"
+  },
+  "rateNotYet": {
+    "message": "Ещё не опубликовано в Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "Ваши данные"
+  },
+  "optionsDataDesc": {
+    "message": "Экспорт или удаление всех данных Decant."
+  },
+  "optionsExport": {
+    "message": "Экспортировать данные"
+  },
+  "optionsDelete": {
+    "message": "Удалить все данные"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Вы уверены? Все данные будут удалены."
+  },
+  "optionsCancel": {
+    "message": "Отмена"
+  },
+  "optionsDeleteYes": {
+    "message": "Да, удалить всё"
+  },
+  "optionsDeleted": {
+    "message": "Все данные удалены"
+  },
+  "optionsAbout": {
+    "message": "О программе"
+  },
+  "optionsPrivacy": {
+    "message": "Политика конфиденциальности"
   }
 }

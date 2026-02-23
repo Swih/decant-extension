@@ -134,5 +134,258 @@
   "settings": {
     "message": "设置",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "输出格式",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "加载中...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "无标题",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "无法读取页面",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "暂无提取记录",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "提取中...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "完成！",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "失败",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "重试",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "复制失败",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "切换主题",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "内容",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "表格",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "数据",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "历史",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "点击弹窗中的提取内容开始。",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "尚未提取到表格。",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "尚未提取到数据。",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "无提取历史。",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "未找到结构化数据。",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "邮箱",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "日期",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "价格",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "电话号码",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "在内容中检测到表格。请在预览中查看。",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "提纯网页。",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "从任何页面提取纯净的AI就绪内容。Markdown、JSON或MCP——一键完成。",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "使用方法",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "访问任意网页",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "点击Decant图标或使用快捷键",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "提取、复制或保存——完成！",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant去除广告、导航和杂乱内容。您将获得干净的内容，可用于AI或笔记。",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "快捷键",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "提取内容",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "提取并复制",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "提取并保存",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "您也可以右键点击任何页面或选中内容，使用Decant进行提取。",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "跳过",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "下一步",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "开始吧！",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "您会推荐Decant吗？",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = 不太可能 · 10 = 非常可能",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "以后再说",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "提交",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "感谢您的反馈！",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "谢谢！",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "刚刚"
+  },
+  "timeMinAgo": {
+    "message": "$1分钟前",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1小时前",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1天前",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "将选中内容提取为 Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "提取整个页面"
+  },
+  "ctxCopyForAI": {
+    "message": "复制给 AI（优化版）"
+  },
+  "rateNotYet": {
+    "message": "尚未发布到 Chrome 商店"
+  },
+  "optionsDataTitle": {
+    "message": "你的数据"
+  },
+  "optionsDataDesc": {
+    "message": "导出或删除 Decant 存储的所有数据。"
+  },
+  "optionsExport": {
+    "message": "导出我的数据"
+  },
+  "optionsDelete": {
+    "message": "删除所有数据"
+  },
+  "optionsDeleteConfirm": {
+    "message": "确定吗？所有数据将被永久删除。"
+  },
+  "optionsCancel": {
+    "message": "取消"
+  },
+  "optionsDeleteYes": {
+    "message": "是的，全部删除"
+  },
+  "optionsDeleted": {
+    "message": "所有数据已删除"
+  },
+  "optionsAbout": {
+    "message": "关于"
+  },
+  "optionsPrivacy": {
+    "message": "隐私政策"
   }
 }

@@ -134,5 +134,258 @@
   "settings": {
     "message": "الإعدادات",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "تنسيق الإخراج",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "جارٍ التحميل...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "بدون عنوان",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "تعذر قراءة الصفحة",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "لا توجد عمليات استخراج بعد",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "جارٍ الاستخراج...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "تم!",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "فشل",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "إعادة المحاولة",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "فشل النسخ",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "تبديل المظهر",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "المحتوى",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "الجداول",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "البيانات",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "السجل",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "انقر على استخراج المحتوى في النافذة المنبثقة للبدء.",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "لم يتم استخراج جداول بعد.",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "لم يتم استخراج بيانات بعد.",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "لا يوجد سجل استخراج.",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "لم يتم العثور على بيانات منظمة.",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "البريد الإلكتروني",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "التواريخ",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "الأسعار",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "أرقام الهاتف",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "تم اكتشاف جداول في المحتوى. اطلع عليها في معاينة المحتوى.",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "صفِّ الويب.",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "استخرج محتوى نقي وجاهز للذكاء الاصطناعي من أي صفحة. Markdown أو JSON أو MCP — بنقرة واحدة.",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "كيف يعمل",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "قم بزيارة أي صفحة ويب",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "انقر على أيقونة Decant أو استخدم اختصارًا",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "استخرج أو انسخ أو احفظ — انتهى!",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "يزيل Decant الإعلانات والتنقل والفوضى. تحصل على محتوى نظيف وجاهز للذكاء الاصطناعي أو ملاحظاتك.",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "اختصارات سريعة",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "استخراج المحتوى",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "استخراج ونسخ",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "استخراج وحفظ",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "يمكنك أيضًا النقر بزر الماوس الأيمن على أي صفحة أو تحديد للاستخراج باستخدام Decant.",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "تخطي",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "التالي",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "هيا بنا!",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "ما مدى احتمال أن توصي بـ Decant؟",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = غير محتمل · 10 = محتمل جدًا",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "ليس الآن",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "إرسال",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "شكرًا على ملاحظاتك!",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "شكرًا!",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "الآن"
+  },
+  "timeMinAgo": {
+    "message": "منذ $1 د",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "منذ $1 س",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "منذ $1 ي",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "استخراج التحديد كـ Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "استخراج الصفحة كاملة"
+  },
+  "ctxCopyForAI": {
+    "message": "نسخ للذكاء الاصطناعي (محسّن)"
+  },
+  "rateNotYet": {
+    "message": "لم يُنشر بعد على Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "بياناتك"
+  },
+  "optionsDataDesc": {
+    "message": "تصدير أو حذف جميع البيانات المخزنة بواسطة Decant."
+  },
+  "optionsExport": {
+    "message": "تصدير بياناتي"
+  },
+  "optionsDelete": {
+    "message": "حذف جميع بياناتي"
+  },
+  "optionsDeleteConfirm": {
+    "message": "هل أنت متأكد؟ سيتم حذف جميع بيانات Decant نهائيًا."
+  },
+  "optionsCancel": {
+    "message": "إلغاء"
+  },
+  "optionsDeleteYes": {
+    "message": "نعم، احذف الكل"
+  },
+  "optionsDeleted": {
+    "message": "تم حذف جميع البيانات"
+  },
+  "optionsAbout": {
+    "message": "حول"
+  },
+  "optionsPrivacy": {
+    "message": "سياسة الخصوصية"
   }
 }

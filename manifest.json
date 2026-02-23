@@ -60,6 +60,7 @@
       "description": "__MSG_cmdExtractSave__"
     }
   },
+  "options_page": "src/options/options.html",
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'"
   },

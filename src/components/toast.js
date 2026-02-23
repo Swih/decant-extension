@@ -74,7 +74,16 @@ class DecantToast extends HTMLElement {
     toast.className = `toast ${type}`;
     toast.setAttribute('role', 'alert');
     toast.setAttribute('aria-live', 'polite');
-    toast.innerHTML = `<span class="icon" aria-hidden="true">${icons[type] || ''}</span><span>${message}</span>`;
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'icon';
+    iconSpan.setAttribute('aria-hidden', 'true');
+    iconSpan.textContent = icons[type] || '';
+
+    const msgSpan = document.createElement('span');
+    msgSpan.textContent = message;
+
+    toast.appendChild(iconSpan);
+    toast.appendChild(msgSpan);
 
     container.appendChild(toast);
 

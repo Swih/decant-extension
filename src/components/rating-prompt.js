@@ -8,6 +8,10 @@ class RatingPrompt extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
+  _msg(key, fallback) {
+    return chrome.i18n?.getMessage(key) || fallback;
+  }
+
   connectedCallback() {
     this.render();
     this.setupEvents();
@@ -66,23 +70,23 @@ class RatingPrompt extends HTMLElement {
       </style>
       <div class="prompt" role="dialog" aria-label="Rate Decant">
         <div class="star" aria-hidden="true">\u2B50</div>
-        <div class="title">${chrome.i18n?.getMessage('ratingTitle') || 'Enjoying Decant?'}</div>
-        <div class="body">${chrome.i18n?.getMessage('ratingBody') || 'Your review helps us reach more users!'}</div>
+        <div class="title">${this._msg('ratingTitle', 'Enjoying Decant?')}</div>
+        <div class="body">${this._msg('ratingBody', 'Your review helps us reach more users!')}</div>
         <div class="actions">
-          <button class="btn-later" id="laterBtn">${chrome.i18n?.getMessage('ratingLater') || 'Maybe later'}</button>
-          <button class="btn-rate" id="rateBtn">${chrome.i18n?.getMessage('ratingYes') || 'Rate on Chrome Store'}</button>
+          <button class="btn-later" id="laterBtn">${this._msg('ratingLater', 'Maybe later')}</button>
+          <button class="btn-rate" id="rateBtn">${this._msg('ratingYes', 'Rate on Chrome Store')}</button>
         </div>
       </div>
     `;
   }
 
   setupEvents() {
-    this.shadowRoot.getElementById('rateBtn').addEventListener('click', () => {
+    this.shadowRoot.getElementById('rateBtn').addEventListener('click', async () => {
       this.dispatchEvent(new CustomEvent('rating-accept', { bubbles: true }));
-      // Open Chrome Web Store review page
-      chrome.tabs.create({
-        url: 'https://chrome.google.com/webstore/detail/decant/EXTENSION_ID/reviews',
-      });
+      const { STORE_URL, isPublished } = await import('../utils/config.js');
+      if (isPublished()) {
+        chrome.tabs.create({ url: STORE_URL });
+      }
       this.remove();
     });
 

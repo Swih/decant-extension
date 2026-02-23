@@ -26,6 +26,9 @@
     "mcp",
     "readability"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "author": "Zoplop Studio",
   "license": "MIT",
   "devDependencies": {

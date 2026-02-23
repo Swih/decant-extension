@@ -80,18 +80,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true; // Async
   }
 
+  if (message.action === 'extractionResult') {
+    // Relay extraction result to the side panel (it listens for this message)
+    // No sendResponse needed — fire and forget
+    return;
+  }
+
   if (message.action === 'openSidePanel') {
     chrome.sidePanel.open({ tabId: sender.tab?.id || message.tabId });
     sendResponse({ success: true });
     return true;
   }
 
-  if (message.action === 'selectionComplete') {
-    handleSelectionResult(message.data)
-      .then((result) => sendResponse(result))
-      .catch((err) => sendResponse({ success: false, error: err.message }));
-    return true;
-  }
 });
 
 // ── Side Panel Behavior (synchronous) ──
@@ -124,19 +124,19 @@ chrome.runtime.onInstalled.addListener((details) => {
   chrome.contextMenus.create({
     id: 'decant-extract-selection',
     parentId: 'decant-parent',
-    title: 'Extract selection as Markdown',
+    title: chrome.i18n.getMessage('ctxExtractSelection'),
     contexts: ['selection'],
   });
   chrome.contextMenus.create({
     id: 'decant-extract-page',
     parentId: 'decant-parent',
-    title: 'Extract full page',
+    title: chrome.i18n.getMessage('ctxExtractPage'),
     contexts: ['page', 'selection'],
   });
   chrome.contextMenus.create({
     id: 'decant-copy-for-ai',
     parentId: 'decant-parent',
-    title: 'Copy for AI (optimized)',
+    title: chrome.i18n.getMessage('ctxCopyForAI'),
     contexts: ['page', 'selection'],
   });
 
@@ -315,15 +315,6 @@ async function handleCopyForAI(tab, selectionText, prefs) {
   } catch (error) {
     logError('Context menu copy for AI failed', error);
   }
-}
-
-async function handleSelectionResult(data) {
-  const prefs = await storage.getPreferences();
-  const result = await extractViaOffscreen({
-    ...data,
-    ...prefs,
-  });
-  return { success: true, result };
 }
 
 // ── Error Logging ──

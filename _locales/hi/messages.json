@@ -134,5 +134,258 @@
   "settings": {
     "message": "सेटिंग्स",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "आउटपुट प्रारूप",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "लोड हो रहा है...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "बिना शीर्षक",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "पेज पढ़ने में असमर्थ",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "अभी तक कोई निष्कर्षण नहीं",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "निकाला जा रहा है...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "हो गया!",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "विफल",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "पुनः प्रयास करें",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "कॉपी विफल",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "थीम बदलें",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "सामग्री",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "तालिकाएँ",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "डेटा",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "इतिहास",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "शुरू करने के लिए पॉपअप में सामग्री निकालें पर क्लिक करें।",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "अभी तक कोई तालिका नहीं निकाली गई।",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "अभी तक कोई डेटा नहीं निकाला गया।",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "कोई निष्कर्षण इतिहास नहीं।",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "कोई संरचित डेटा नहीं मिला।",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "ईमेल",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "तारीखें",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "कीमतें",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "फ़ोन नंबर",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "सामग्री में तालिकाएँ पाई गईं। उन्हें सामग्री पूर्वावलोकन में देखें।",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "वेब को छानें।",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "किसी भी पेज से शुद्ध, AI-तैयार सामग्री निकालें। Markdown, JSON या MCP — एक क्लिक में।",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "यह कैसे काम करता है",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "कोई भी वेब पेज खोलें",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "Decant आइकन पर क्लिक करें या शॉर्टकट का उपयोग करें",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "निकालें, कॉपी करें या सेव करें — बस!",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "Decant विज्ञापन, नेविगेशन और अव्यवस्था हटाता है। आपको साफ सामग्री मिलती है, AI या नोट्स के लिए तैयार।",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "पावर शॉर्टकट",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "सामग्री निकालें",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "निकालें और कॉपी करें",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "निकालें और सेव करें",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "आप Decant से निकालने के लिए किसी भी पेज या चयन पर राइट-क्लिक भी कर सकते हैं।",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "छोड़ें",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "अगला",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "चलो शुरू करें!",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "आप Decant की सिफारिश कितनी संभावना से करेंगे?",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = असंभव · 10 = बहुत संभव",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "अभी नहीं",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "जमा करें",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "आपकी प्रतिक्रिया के लिए धन्यवाद!",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "धन्यवाद!",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "अभी"
+  },
+  "timeMinAgo": {
+    "message": "$1 मि. पहले",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 घं. पहले",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 दि. पहले",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "चयन को Markdown के रूप में निकालें"
+  },
+  "ctxExtractPage": {
+    "message": "पूरा पेज निकालें"
+  },
+  "ctxCopyForAI": {
+    "message": "AI के लिए कॉपी करें (अनुकूलित)"
+  },
+  "rateNotYet": {
+    "message": "अभी Chrome Store पर प्रकाशित नहीं हुआ"
+  },
+  "optionsDataTitle": {
+    "message": "आपका डेटा"
+  },
+  "optionsDataDesc": {
+    "message": "Decant द्वारा संग्रहीत सभी डेटा निर्यात या हटाएं।"
+  },
+  "optionsExport": {
+    "message": "मेरा डेटा निर्यात करें"
+  },
+  "optionsDelete": {
+    "message": "मेरा सारा डेटा हटाएं"
+  },
+  "optionsDeleteConfirm": {
+    "message": "क्या आप सुनिश्चित हैं?"
+  },
+  "optionsCancel": {
+    "message": "रद्द करें"
+  },
+  "optionsDeleteYes": {
+    "message": "हां, सब हटाएं"
+  },
+  "optionsDeleted": {
+    "message": "सारा डेटा हटाया गया"
+  },
+  "optionsAbout": {
+    "message": "के बारे में"
+  },
+  "optionsPrivacy": {
+    "message": "गोपनीयता नीति"
   }
 }

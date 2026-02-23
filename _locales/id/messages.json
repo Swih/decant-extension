@@ -134,5 +134,258 @@
   "settings": {
     "message": "Pengaturan",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Format output",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "Memuat...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "Tanpa judul",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "Tidak dapat membaca halaman",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "Belum ada ekstraksi",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "Mengekstrak...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "Selesai!",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "Gagal",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "Coba lagi",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "Gagal menyalin",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "Ubah tema",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "Konten",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "Tabel",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "Data",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "Riwayat",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "Klik Ekstrak Konten di popup untuk memulai.",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "Belum ada tabel yang diekstrak.",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "Belum ada data yang diekstrak.",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "Tidak ada riwayat ekstraksi.",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "Tidak ditemukan data terstruktur.",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "Email",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "Tanggal",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "Harga",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "Nomor telepon",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "Tabel terdeteksi dalam konten. Lihat di pratinjau konten.",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "Dekantasi web.",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "Ekstrak konten murni siap-AI dari halaman mana pun. Markdown, JSON, atau MCP — satu klik.",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "Cara kerjanya",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "Kunjungi halaman web mana pun",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "Klik ikon Decant atau gunakan pintasan",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "Ekstrak, salin, atau simpan — selesai!",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "Decant menghapus iklan, navigasi, dan kekacauan. Anda mendapat konten bersih, siap untuk AI atau catatan Anda.",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "Pintasan cepat",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "Ekstrak konten",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "Ekstrak & salin",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "Ekstrak & simpan",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "Anda juga bisa klik kanan pada halaman atau pilihan untuk mengekstrak dengan Decant.",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "Lewati",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "Berikutnya",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "Ayo mulai!",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "Seberapa besar kemungkinan Anda merekomendasikan Decant?",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = Tidak mungkin · 10 = Sangat mungkin",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "Nanti saja",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "Kirim",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "Terima kasih atas masukan Anda!",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "Terima kasih!",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "baru saja"
+  },
+  "timeMinAgo": {
+    "message": "$1 mnt lalu",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 jam lalu",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 hari lalu",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Ekstrak pilihan sebagai Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "Ekstrak halaman penuh"
+  },
+  "ctxCopyForAI": {
+    "message": "Salin untuk AI (dioptimalkan)"
+  },
+  "rateNotYet": {
+    "message": "Belum diterbitkan di Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "Data Anda"
+  },
+  "optionsDataDesc": {
+    "message": "Ekspor atau hapus semua data yang disimpan Decant."
+  },
+  "optionsExport": {
+    "message": "Ekspor data saya"
+  },
+  "optionsDelete": {
+    "message": "Hapus semua data saya"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Anda yakin? Semua data Decant akan dihapus permanen."
+  },
+  "optionsCancel": {
+    "message": "Batal"
+  },
+  "optionsDeleteYes": {
+    "message": "Ya, hapus semua"
+  },
+  "optionsDeleted": {
+    "message": "Semua data dihapus"
+  },
+  "optionsAbout": {
+    "message": "Tentang"
+  },
+  "optionsPrivacy": {
+    "message": "Kebijakan Privasi"
   }
 }

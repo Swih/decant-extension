@@ -9,6 +9,10 @@ class NPSSurvey extends HTMLElement {
     this._score = null;
   }
 
+  _msg(key, fallback) {
+    return chrome.i18n?.getMessage(key) || fallback;
+  }
+
   connectedCallback() {
     this.render();
     this.setupEvents();
@@ -112,14 +116,14 @@ class NPSSurvey extends HTMLElement {
         }
       </style>
       <div class="nps" id="nps" role="region" aria-label="Net Promoter Score survey">
-        <div class="title" id="nps-title">How likely are you to recommend Decant?</div>
-        <div class="subtitle">0 = Not likely &nbsp;&middot;&nbsp; 10 = Extremely likely</div>
+        <div class="title" id="nps-title">${this._msg('npsTitle', 'How likely are you to recommend Decant?')}</div>
+        <div class="subtitle">${this._msg('npsScale', '0 = Not likely · 10 = Extremely likely')}</div>
         <div class="scale" id="scale" role="radiogroup" aria-labelledby="nps-title">
           ${Array.from({ length: 11 }, (_, i) => `<button class="score-btn" data-score="${i}" role="radio" aria-checked="false" aria-label="Score ${i}">${i}</button>`).join('')}
         </div>
         <div class="actions">
-          <button class="dismiss-btn" id="dismissBtn">Not now</button>
-          <button class="submit-btn" id="submitBtn">Submit</button>
+          <button class="dismiss-btn" id="dismissBtn">${this._msg('npsNotNow', 'Not now')}</button>
+          <button class="submit-btn" id="submitBtn">${this._msg('npsSubmit', 'Submit')}</button>
         </div>
       </div>
     `;
@@ -151,7 +155,7 @@ class NPSSurvey extends HTMLElement {
         }),
       );
       const nps = this.shadowRoot.getElementById('nps');
-      nps.innerHTML = '<div class="thanks">\u2728 Thank you!</div>';
+      nps.innerHTML = `<div class="thanks">\u2728 ${this._msg('npsThanks', 'Thank you!')}</div>`;
       setTimeout(() => this.remove(), 1500);
     });
 

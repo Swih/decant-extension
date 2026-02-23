@@ -9,6 +9,10 @@ class FeedbackWidget extends HTMLElement {
     this._selected = null;
   }
 
+  _msg(key, fallback) {
+    return chrome.i18n?.getMessage(key) || fallback;
+  }
+
   connectedCallback() {
     this.render();
     this.setupEvents();
@@ -127,7 +131,7 @@ class FeedbackWidget extends HTMLElement {
         }
       </style>
       <div class="feedback-container" id="widget" role="region" aria-label="Feedback">
-        <div class="title" id="title">${chrome.i18n?.getMessage('feedbackTitle') || 'How was this extraction?'}</div>
+        <div class="title" id="title">${this._msg('feedbackTitle', 'How was this extraction?')}</div>
         <div class="emojis" id="emojis" role="radiogroup" aria-label="Rate your experience">
           <button class="emoji-btn" data-value="angry" title="Bad" role="radio" aria-checked="false" aria-label="Bad">\uD83D\uDE21</button>
           <button class="emoji-btn" data-value="meh" title="Meh" role="radio" aria-checked="false" aria-label="Okay">\uD83D\uDE10</button>
@@ -135,10 +139,10 @@ class FeedbackWidget extends HTMLElement {
           <button class="emoji-btn" data-value="love" title="Love it" role="radio" aria-checked="false" aria-label="Love it">\uD83E\uDD29</button>
         </div>
         <div class="comment-area" id="commentArea">
-          <textarea id="comment" placeholder="${chrome.i18n?.getMessage('feedbackPlaceholder') || 'Any thoughts? (optional)'}"></textarea>
+          <textarea id="comment" placeholder="${this._msg('feedbackPlaceholder', 'Any thoughts? (optional)')}"></textarea>
           <div class="actions">
             <button class="dismiss-btn" id="dismissBtn">\u2715</button>
-            <button class="send-btn" id="sendBtn">${chrome.i18n?.getMessage('feedbackSend') || 'Send'}</button>
+            <button class="send-btn" id="sendBtn">${this._msg('feedbackSend', 'Send')}</button>
           </div>
         </div>
       </div>
@@ -185,7 +189,7 @@ class FeedbackWidget extends HTMLElement {
 
     // Show thanks
     const widget = this.shadowRoot.getElementById('widget');
-    widget.innerHTML = '<div class="thanks">\u2728 Thanks for your feedback!</div>';
+    widget.innerHTML = `<div class="thanks">\u2728 ${this._msg('feedbackThanks', 'Thanks for your feedback!')}</div>`;
 
     setTimeout(() => this.remove(), 2000);
   }

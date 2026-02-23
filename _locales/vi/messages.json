@@ -134,5 +134,258 @@
   "settings": {
     "message": "Cài đặt",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Định dạng đầu ra",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "Đang tải...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "Không có tiêu đề",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "Không thể đọc trang",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "Chưa có lần trích xuất nào",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "Đang trích xuất...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "Xong!",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "Thất bại",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "Thử lại",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "Sao chép thất bại",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "Đổi giao diện",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "Nội dung",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "Bảng",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "Dữ liệu",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "Lịch sử",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "Nhấn Trích xuất nội dung trong popup để bắt đầu.",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "Chưa có bảng nào được trích xuất.",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "Chưa có dữ liệu nào được trích xuất.",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "Không có lịch sử trích xuất.",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "Không tìm thấy dữ liệu có cấu trúc.",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "Email",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "Ngày tháng",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "Giá cả",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "Số điện thoại",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "Phát hiện bảng trong nội dung. Xem trong phần xem trước.",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "Lọc tinh web.",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "Trích xuất nội dung thuần túy, sẵn sàng cho AI từ bất kỳ trang nào. Markdown, JSON hoặc MCP — một cú nhấp.",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "Cách hoạt động",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "Truy cập bất kỳ trang web nào",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "Nhấn biểu tượng Decant hoặc dùng phím tắt",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "Trích xuất, sao chép hoặc lưu — xong!",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant loại bỏ quảng cáo, điều hướng và lộn xộn. Bạn nhận được nội dung sạch, sẵn sàng cho AI hoặc ghi chú.",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "Phím tắt nhanh",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "Trích xuất nội dung",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "Trích xuất & sao chép",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "Trích xuất & lưu",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "Bạn cũng có thể nhấp chuột phải vào bất kỳ trang hoặc vùng chọn nào để trích xuất với Decant.",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "Bỏ qua",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "Tiếp",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "Bắt đầu!",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "Bạn có giới thiệu Decant không?",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = Không có khả năng · 10 = Rất có khả năng",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "Để sau",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "Gửi",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "Cảm ơn phản hồi của bạn!",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "Cảm ơn!",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "vừa xong"
+  },
+  "timeMinAgo": {
+    "message": "$1 phút trước",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 giờ trước",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 ngày trước",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Trích xuất vùng chọn dạng Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "Trích xuất toàn bộ trang"
+  },
+  "ctxCopyForAI": {
+    "message": "Sao chép cho AI (tối ưu)"
+  },
+  "rateNotYet": {
+    "message": "Chưa xuất bản trên Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "Dữ liệu của bạn"
+  },
+  "optionsDataDesc": {
+    "message": "Xuất hoặc xóa tất cả dữ liệu Decant lưu trữ."
+  },
+  "optionsExport": {
+    "message": "Xuất dữ liệu"
+  },
+  "optionsDelete": {
+    "message": "Xóa tất cả dữ liệu"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Bạn có chắc không?"
+  },
+  "optionsCancel": {
+    "message": "Hủy"
+  },
+  "optionsDeleteYes": {
+    "message": "Có, xóa tất cả"
+  },
+  "optionsDeleted": {
+    "message": "Đã xóa tất cả"
+  },
+  "optionsAbout": {
+    "message": "Giới thiệu"
+  },
+  "optionsPrivacy": {
+    "message": "Chính sách bảo mật"
   }
 }

@@ -8,16 +8,25 @@ import { downloadFile, sanitizeFilename } from '../utils/download.js';
 import * as storage from '../utils/storage.js';
 import { escapeHtml, escapeAttr } from '../utils/html.js';
 import { timeAgo } from '../utils/time.js';
+import { applyI18n } from '../utils/i18n-apply.js';
 
 const $ = (id) => document.getElementById(id);
+const msg = (key) => chrome.i18n?.getMessage(key) || key;
 const toast = $('toast');
 let currentData = null;
 let currentFormat = 'markdown';
 
 // ── Init ──
 async function init() {
+  applyI18n();
   const prefs = await storage.getPreferences();
   currentFormat = prefs.format;
+  // RTL detection
+  const lang = chrome.i18n?.getUILanguage?.() || '';
+  if (lang.startsWith('ar')) {
+    document.documentElement.dir = 'rtl';
+  }
+
   document.documentElement.dataset.theme = prefs.theme;
 
   const formatToggle = $('formatToggle');
@@ -52,7 +61,7 @@ function setupEvents() {
   $('copyBtn')?.addEventListener('click', async () => {
     if (!currentData) return;
     const ok = await copyToClipboard(currentData.output);
-    toast.show(ok ? 'Copied!' : 'Copy failed', ok ? 'success' : 'error');
+    toast.show(ok ? msg('toastCopied') : msg('copyFailed'), ok ? 'success' : 'error');
   });
 
   // Save
@@ -60,7 +69,7 @@ function setupEvents() {
     if (!currentData) return;
     const filename = sanitizeFilename(currentData.metadata?.title || 'decant-export');
     downloadFile(currentData.output, filename, currentFormat);
-    toast.show('File saved!', 'success');
+    toast.show(msg('toastSaved'), 'success');
   });
 
   // Format toggle
@@ -92,7 +101,7 @@ function displayResult(result) {
   if (tablesPanel && result.metadata?.tables > 0) {
     // We'd need to re-parse tables — for now show from JSON output
     tablesPanel.innerHTML =
-      '<p style="padding: 16px; color: var(--text-secondary); font-size: 13px;">Tables detected in content. View them in the content preview.</p>';
+      `<p style="padding: 16px; color: var(--text-secondary); font-size: 13px;">${msg('tablesInContent')}</p>`;
   }
 
   // Data tab
@@ -102,19 +111,19 @@ function displayResult(result) {
     let html = '';
 
     if (sd.emails?.length) {
-      html += buildDataSection('Emails', sd.emails);
+      html += buildDataSection(msg('dataEmails'), sd.emails);
     }
     if (sd.dates?.length) {
-      html += buildDataSection('Dates', sd.dates);
+      html += buildDataSection(msg('dataDates'), sd.dates);
     }
     if (sd.prices?.length) {
-      html += buildDataSection('Prices', sd.prices);
+      html += buildDataSection(msg('dataPrices'), sd.prices);
     }
     if (sd.phones?.length) {
-      html += buildDataSection('Phone Numbers', sd.phones);
+      html += buildDataSection(msg('dataPhones'), sd.phones);
     }
 
-    dataPanel.innerHTML = html || '<div class="empty-state"><p>No structured data found.</p></div>';
+    dataPanel.innerHTML = html || `<div class="empty-state"><p>${msg('noDataFound')}</p></div>`;
   }
 }
 
@@ -135,7 +144,7 @@ async function loadHistory() {
   if (!container) return;
 
   if (history.length === 0) {
-    container.innerHTML = '<div class="empty-state"><p>No extraction history.</p></div>';
+    container.innerHTML = `<div class="empty-state"><p>${msg('emptyHistory')}</p></div>`;
     return;
   }
 
@@ -158,7 +167,7 @@ async function loadHistory() {
     const chip = e.target.closest('.data-chip');
     if (chip) {
       copyToClipboard(chip.textContent);
-      toast.show('Copied!', 'success');
+      toast.show(msg('toastCopied'), 'success');
       return;
     }
     const item = e.target.closest('.history-full-item');

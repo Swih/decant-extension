@@ -134,5 +134,258 @@
   "settings": {
     "message": "Ayarlar",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Çıktı formatı",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "Yükleniyor...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "Başlıksız",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "Sayfa okunamıyor",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "Henüz çıkarma yok",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "Çıkarılıyor...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "Tamam!",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "Başarısız",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "Tekrar dene",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "Kopyalama başarısız",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "Tema değiştir",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "İçerik",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "Tablolar",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "Veri",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "Geçmiş",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "Başlamak için açılır pencerede İçerik Çıkar'a tıklayın.",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "Henüz tablo çıkarılmadı.",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "Henüz veri çıkarılmadı.",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "Çıkarma geçmişi yok.",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "Yapılandırılmış veri bulunamadı.",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "E-postalar",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "Tarihler",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "Fiyatlar",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "Telefon numaraları",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "İçerikte tablolar algılandı. Önizlemede görüntüleyin.",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "Web'i süzün.",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "Herhangi bir sayfadan saf, yapay zekaya hazır içerik çıkarın. Markdown, JSON veya MCP — tek tıklama.",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "Nasıl çalışır",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "Herhangi bir web sayfasını ziyaret edin",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "Decant simgesine tıklayın veya bir kısayol kullanın",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "Çıkarın, kopyalayın veya kaydedin — tamam!",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant reklamları, gezinmeyi ve karmaşayı kaldırır. Yapay zeka veya notlarınız için temiz içerik elde edersiniz.",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "Hızlı kısayollar",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "İçerik çıkar",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "Çıkar ve kopyala",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "Çıkar ve kaydet",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "Decant ile çıkarmak için herhangi bir sayfaya veya seçime sağ tıklayabilirsiniz.",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "Atla",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "İleri",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "Başlayalım!",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "Decant'ı tavsiye eder misiniz?",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = Olası değil · 10 = Çok olası",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "Şimdi değil",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "Gönder",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "Geri bildiriminiz için teşekkürler!",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "Teşekkürler!",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "şimdi"
+  },
+  "timeMinAgo": {
+    "message": "$1 dk önce",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 sa önce",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 gün önce",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Seçimi Markdown olarak çıkar"
+  },
+  "ctxExtractPage": {
+    "message": "Tüm sayfayı çıkar"
+  },
+  "ctxCopyForAI": {
+    "message": "AI için kopyala (optimize)"
+  },
+  "rateNotYet": {
+    "message": "Henüz Chrome Store'da yayınlanmadı"
+  },
+  "optionsDataTitle": {
+    "message": "Verileriniz"
+  },
+  "optionsDataDesc": {
+    "message": "Decant tarafından depolanan tüm verileri dışa aktarın veya silin."
+  },
+  "optionsExport": {
+    "message": "Verilerimi dışa aktar"
+  },
+  "optionsDelete": {
+    "message": "Tüm verilerimi sil"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Emin misiniz? Tüm Decant verileriniz silinecek."
+  },
+  "optionsCancel": {
+    "message": "İptal"
+  },
+  "optionsDeleteYes": {
+    "message": "Evet, hepsini sil"
+  },
+  "optionsDeleted": {
+    "message": "Tüm veriler silindi"
+  },
+  "optionsAbout": {
+    "message": "Hakkında"
+  },
+  "optionsPrivacy": {
+    "message": "Gizlilik Politikası"
   }
 }

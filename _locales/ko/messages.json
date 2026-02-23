@@ -134,5 +134,258 @@
   "settings": {
     "message": "설정",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "출력 형식",
+    "description": "Section label"
+  },
+  "loading": {
+    "message": "로딩 중...",
+    "description": "Loading"
+  },
+  "untitled": {
+    "message": "제목 없음",
+    "description": "Fallback title"
+  },
+  "pageReadError": {
+    "message": "페이지를 읽을 수 없습니다",
+    "description": "Error"
+  },
+  "historyEmpty": {
+    "message": "아직 추출 내역이 없습니다",
+    "description": "Empty history"
+  },
+  "extracting": {
+    "message": "추출 중...",
+    "description": "Extracting"
+  },
+  "done": {
+    "message": "완료!",
+    "description": "Done"
+  },
+  "failed": {
+    "message": "실패",
+    "description": "Failed"
+  },
+  "retry": {
+    "message": "재시도",
+    "description": "Retry"
+  },
+  "copyFailed": {
+    "message": "복사 실패",
+    "description": "Copy failed"
+  },
+  "toggleTheme": {
+    "message": "테마 전환",
+    "description": "Toggle theme"
+  },
+  "tabContent": {
+    "message": "콘텐츠",
+    "description": "Tab"
+  },
+  "tabTables": {
+    "message": "테이블",
+    "description": "Tab"
+  },
+  "tabData": {
+    "message": "데이터",
+    "description": "Tab"
+  },
+  "tabHistory": {
+    "message": "기록",
+    "description": "Tab"
+  },
+  "emptyContent": {
+    "message": "팝업에서 콘텐츠 추출을 클릭하여 시작하세요.",
+    "description": "Empty"
+  },
+  "emptyTables": {
+    "message": "아직 추출된 테이블이 없습니다.",
+    "description": "Empty"
+  },
+  "emptyData": {
+    "message": "아직 추출된 데이터가 없습니다.",
+    "description": "Empty"
+  },
+  "emptyHistory": {
+    "message": "추출 기록이 없습니다.",
+    "description": "Empty"
+  },
+  "noDataFound": {
+    "message": "구조화된 데이터를 찾을 수 없습니다.",
+    "description": "No data"
+  },
+  "dataEmails": {
+    "message": "이메일",
+    "description": "Label"
+  },
+  "dataDates": {
+    "message": "날짜",
+    "description": "Label"
+  },
+  "dataPrices": {
+    "message": "가격",
+    "description": "Label"
+  },
+  "dataPhones": {
+    "message": "전화번호",
+    "description": "Label"
+  },
+  "tablesInContent": {
+    "message": "콘텐츠에서 테이블이 감지되었습니다. 미리보기에서 확인하세요.",
+    "description": "Hint"
+  },
+  "welcomeTagline": {
+    "message": "웹을 정제하세요.",
+    "description": "Welcome"
+  },
+  "welcomeDesc": {
+    "message": "어떤 페이지에서든 순수한 AI-ready 콘텐츠를 추출하세요. Markdown, JSON 또는 MCP — 원클릭.",
+    "description": "Welcome desc"
+  },
+  "howItWorks": {
+    "message": "사용 방법",
+    "description": "Title"
+  },
+  "step1Text": {
+    "message": "원하는 웹 페이지 방문",
+    "description": "Step"
+  },
+  "step2Text": {
+    "message": "Decant 아이콘을 클릭하거나 단축키 사용",
+    "description": "Step"
+  },
+  "step3Text": {
+    "message": "추출, 복사 또는 저장 — 완료!",
+    "description": "Step"
+  },
+  "welcomeClutter": {
+    "message": "Decant는 광고, 내비게이션, 불필요한 요소를 제거합니다. AI나 메모에 사용할 깨끗한 콘텐츠를 얻으세요.",
+    "description": "Desc"
+  },
+  "powerShortcuts": {
+    "message": "단축키",
+    "description": "Title"
+  },
+  "shortcutExtract": {
+    "message": "콘텐츠 추출",
+    "description": "Label"
+  },
+  "shortcutCopy": {
+    "message": "추출 후 복사",
+    "description": "Label"
+  },
+  "shortcutSave": {
+    "message": "추출 후 저장",
+    "description": "Label"
+  },
+  "shortcutRightClick": {
+    "message": "페이지나 선택 영역을 마우스 오른쪽 버튼으로 클릭하여 Decant로 추출할 수도 있습니다.",
+    "description": "Hint"
+  },
+  "btnSkip": {
+    "message": "건너뛰기",
+    "description": "Button"
+  },
+  "btnNext": {
+    "message": "다음",
+    "description": "Button"
+  },
+  "btnLetsGo": {
+    "message": "시작하기!",
+    "description": "Button"
+  },
+  "npsTitle": {
+    "message": "Decant를 추천할 가능성은?",
+    "description": "NPS"
+  },
+  "npsScale": {
+    "message": "0 = 가능성 없음 · 10 = 매우 높음",
+    "description": "NPS scale"
+  },
+  "npsNotNow": {
+    "message": "나중에",
+    "description": "Button"
+  },
+  "npsSubmit": {
+    "message": "제출",
+    "description": "Button"
+  },
+  "feedbackThanks": {
+    "message": "피드백 감사합니다!",
+    "description": "Thanks"
+  },
+  "npsThanks": {
+    "message": "감사합니다!",
+    "description": "Thanks"
+  },
+  "timeJustNow": {
+    "message": "방금"
+  },
+  "timeMinAgo": {
+    "message": "$1분 전",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1시간 전",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1일 전",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "선택 영역을 Markdown으로 추출"
+  },
+  "ctxExtractPage": {
+    "message": "전체 페이지 추출"
+  },
+  "ctxCopyForAI": {
+    "message": "AI용 복사 (최적화)"
+  },
+  "rateNotYet": {
+    "message": "아직 Chrome 스토어에 게시되지 않았습니다"
+  },
+  "optionsDataTitle": {
+    "message": "내 데이터"
+  },
+  "optionsDataDesc": {
+    "message": "Decant에 저장된 모든 데이터를 내보내거나 삭제합니다."
+  },
+  "optionsExport": {
+    "message": "내 데이터 내보내기"
+  },
+  "optionsDelete": {
+    "message": "모든 데이터 삭제"
+  },
+  "optionsDeleteConfirm": {
+    "message": "정말로 삭제하시겠습니까?"
+  },
+  "optionsCancel": {
+    "message": "취소"
+  },
+  "optionsDeleteYes": {
+    "message": "네, 모두 삭제"
+  },
+  "optionsDeleted": {
+    "message": "모든 데이터 삭제됨"
+  },
+  "optionsAbout": {
+    "message": "정보"
+  },
+  "optionsPrivacy": {
+    "message": "개인정보 보호정책"
   }
 }

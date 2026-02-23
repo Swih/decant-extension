@@ -3,6 +3,7 @@
  * Shows extracted content preview with syntax highlighting for Markdown.
  */
 import { escapeHtml } from '../utils/html.js';
+import { copyToClipboard } from '../utils/clipboard.js';
 
 class PreviewCard extends HTMLElement {
   constructor() {
@@ -34,6 +35,21 @@ class PreviewCard extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.shadowRoot.getElementById('copyBtn').addEventListener('click', () => this._handleCopy());
+  }
+
+  async _handleCopy() {
+    if (!this._content) return;
+    const btn = this.shadowRoot.getElementById('copyBtn');
+    const ok = await copyToClipboard(this._content);
+    if (ok) {
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+      }, 1500);
+    }
   }
 
   render() {
@@ -62,9 +78,35 @@ class PreviewCard extends HTMLElement {
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
+        .header-right {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
         .line-count {
           font-size: 10px;
           color: var(--text-tertiary, #5C5C6F);
+        }
+        .copy-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border: none;
+          border-radius: 5px;
+          background: transparent;
+          color: var(--text-tertiary, #5C5C6F);
+          cursor: pointer;
+          transition: all 0.15s ease;
+          padding: 0;
+        }
+        .copy-btn:hover {
+          background: rgba(255,255,255,0.06);
+          color: var(--text-primary, #E8E8ED);
+        }
+        .copy-btn.copied {
+          color: var(--success, #10B981);
         }
         .preview-body {
           padding: 12px;
@@ -99,7 +141,15 @@ class PreviewCard extends HTMLElement {
       <div class="preview" role="region" aria-label="Content preview">
         <div class="preview-header">
           <span class="preview-label" id="label">Preview</span>
-          <span class="line-count" id="lineCount" aria-live="polite"></span>
+          <div class="header-right">
+            <span class="line-count" id="lineCount" aria-live="polite"></span>
+            <button class="copy-btn" id="copyBtn" aria-label="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="preview-body" tabindex="0" aria-label="Extracted content">
           <pre id="code"></pre>

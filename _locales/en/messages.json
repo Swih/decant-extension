@@ -134,5 +134,258 @@
   "settings": {
     "message": "Settings",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Output format",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "Untitled",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "Unable to read page",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "No extractions yet",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "Extracting...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "Done!",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "Failed",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "Retry",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "Copy failed",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "Toggle theme",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "Content",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "Tables",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "Data",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "History",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "Click Extract Content in the popup to begin.",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "No tables extracted yet.",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "No data extracted yet.",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "No extraction history.",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "No structured data found.",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "Emails",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "Dates",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "Prices",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "Phone Numbers",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "Tables detected in content. View them in the content preview.",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "Decant the web.",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "Extract pure, AI-ready content from any page. Markdown, JSON, or MCP format — one click.",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "How it works",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "Visit any web page",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "Click the Decant icon or use a shortcut",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "Extract, copy, or save — done!",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "Decant removes ads, navigation, and clutter. You get clean content, ready for AI or your notes.",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "Power shortcuts",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "Extract content",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "Extract & copy",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "Extract & save",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "You can also right-click any page or selection to extract with Decant.",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "Skip",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "Next",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "Let's go!",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "How likely are you to recommend Decant?",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = Not likely · 10 = Extremely likely",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "Not now",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "Submit",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "Thanks for your feedback!",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "Thank you!",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "just now"
+  },
+  "timeMinAgo": {
+    "message": "$1m ago",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1h ago",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1d ago",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Extract selection as Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "Extract full page"
+  },
+  "ctxCopyForAI": {
+    "message": "Copy for AI (optimized)"
+  },
+  "rateNotYet": {
+    "message": "Not yet published on Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "Your Data"
+  },
+  "optionsDataDesc": {
+    "message": "Export or delete all data stored by Decant (history, preferences, feedback)."
+  },
+  "optionsExport": {
+    "message": "Export my data"
+  },
+  "optionsDelete": {
+    "message": "Delete all my data"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Are you sure? This will permanently delete all your Decant data."
+  },
+  "optionsCancel": {
+    "message": "Cancel"
+  },
+  "optionsDeleteYes": {
+    "message": "Yes, delete everything"
+  },
+  "optionsDeleted": {
+    "message": "All data deleted"
+  },
+  "optionsAbout": {
+    "message": "About"
+  },
+  "optionsPrivacy": {
+    "message": "Privacy Policy"
   }
 }

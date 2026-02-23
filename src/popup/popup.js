@@ -22,6 +22,11 @@ import {
   saveNPS,
 } from '../feedback/collector.js';
 import { trackExtraction } from '../feedback/analytics.js';
+import { applyI18n } from '../utils/i18n-apply.js';
+import { STORE_URL, isPublished } from '../utils/config.js';
+
+// ── i18n helper ──
+const msg = (key) => chrome.i18n?.getMessage(key) || key;
 
 // ── DOM References ──
 const $ = (id) => document.getElementById(id);
@@ -45,6 +50,7 @@ const historyList = $('historyList');
 const themeToggle = $('themeToggle');
 const feedbackArea = $('feedbackArea');
 const feedbackLink = $('feedbackLink');
+const rateLink = $('rateLink');
 const optImages = $('optImages');
 const optTables = $('optTables');
 const optSmartExtract = $('optSmartExtract');
@@ -53,9 +59,13 @@ const optFullPage = $('optFullPage');
 // ── State ──
 let currentResult = null;
 let currentFormat = 'markdown';
+let cachedPageData = null;
 
 // ── Init ──
 async function init() {
+  // Translate static DOM strings
+  applyI18n();
+
   // Clear any error/notification badge
   chrome.action?.setBadgeText?.({ text: '' });
 
@@ -67,6 +77,12 @@ async function init() {
   optTables.checked = prefs.detectTables;
   optSmartExtract.checked = prefs.smartExtract;
   optFullPage.checked = prefs.fullPage;
+
+  // RTL detection
+  const lang = chrome.i18n?.getUILanguage?.() || '';
+  if (lang.startsWith('ar')) {
+    document.documentElement.dir = 'rtl';
+  }
 
   // Apply theme
   document.documentElement.dataset.theme = prefs.theme;
@@ -90,14 +106,17 @@ async function loadPageInfo() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab) return;
 
+    // Set favicon
+    setFavicon(tab.url);
+
     // Try to get info from content script
     try {
       const response = await chrome.tabs.sendMessage(tab.id, { action: 'getPageInfo' });
       if (response?.success) {
-        pageTitle.textContent = response.data.title || 'Untitled';
+        pageTitle.textContent = response.data.title || msg('untitled');
         pageTitle.title = response.data.title || '';
-        wordCount.textContent = `${formatNumber(response.data.wordCount)} ${chrome.i18n?.getMessage('words') || 'words'}`;
-        imageCount.textContent = `${response.data.imageCount} ${chrome.i18n?.getMessage('images') || 'images'}`;
+        wordCount.textContent = `${formatNumber(response.data.wordCount)} ${msg('words')}`;
+        imageCount.textContent = `${response.data.imageCount} ${msg('images')}`;
         return;
       }
     } catch {
@@ -105,19 +124,19 @@ async function loadPageInfo() {
     }
 
     // Fallback: use tab info
-    pageTitle.textContent = tab.title || 'Untitled';
+    pageTitle.textContent = tab.title || msg('untitled');
     pageTitle.title = tab.title || '';
-    wordCount.textContent = '-- words';
-    imageCount.textContent = '-- images';
+    wordCount.textContent = `-- ${msg('words')}`;
+    imageCount.textContent = `-- ${msg('images')}`;
   } catch {
-    pageTitle.textContent = 'Unable to read page';
+    pageTitle.textContent = msg('pageReadError');
   }
 }
 
 async function loadHistory() {
   const history = await storage.getHistory();
   if (history.length === 0) {
-    historyList.innerHTML = '<div class="history-empty">No extractions yet</div>';
+    historyList.innerHTML = `<div class="history-empty">${msg('historyEmpty')}</div>`;
     return;
   }
 
@@ -126,6 +145,7 @@ async function loadHistory() {
     .map(
       (item, i) => `
     <div class="history-item animate-slide-up stagger-${i + 1}" data-url="${escapeAttr(item.url)}" title="${escapeAttr(item.title)}">
+      <img class="history-favicon" src="${faviconUrl(item.domain)}" width="14" height="14" alt="" />
       <span class="history-domain">${escapeHtml(item.domain)}</span>
       <span class="history-time">${timeAgo(item.timestamp)}</span>
     </div>
@@ -138,13 +158,21 @@ function setupEvents() {
   // Extract button
   extractBtn.addEventListener('click', handleExtract);
 
-  // Format change
+  // Format change — re-parse locally without adding to history
   formatToggle.addEventListener('format-change', (e) => {
     currentFormat = e.detail.format;
     storage.setPreference('format', currentFormat);
-    if (currentResult) {
-      // Re-extract with new format
-      handleExtract();
+    if (cachedPageData) {
+      const options = {
+        format: currentFormat,
+        includeImages: optImages.checked,
+        detectTables: optTables.checked,
+        smartExtract: optSmartExtract.checked,
+        fullPage: optFullPage.checked,
+      };
+      currentResult = extract({ ...cachedPageData, ...options });
+      preview.setAttribute('format', currentFormat);
+      preview.content = currentResult.output;
     }
   });
 
@@ -153,7 +181,7 @@ function setupEvents() {
     if (!currentResult) return;
     const ok = await copyToClipboard(currentResult.output);
     toast.show(
-      ok ? chrome.i18n?.getMessage('toastCopied') || 'Copied!' : 'Copy failed',
+      ok ? msg('toastCopied') : msg('copyFailed'),
       ok ? 'success' : 'error',
     );
   });
@@ -163,7 +191,7 @@ function setupEvents() {
     if (!currentResult) return;
     const filename = sanitizeFilename(currentResult.metadata.title || 'decant-export');
     downloadFile(currentResult.output, filename, currentFormat);
-    toast.show(chrome.i18n?.getMessage('toastSaved') || 'File saved!', 'success');
+    toast.show(msg('toastSaved'), 'success');
   });
 
   // Theme toggle
@@ -200,10 +228,19 @@ function setupEvents() {
   // Feedback
   feedbackLink.addEventListener('click', () => showFeedbackWidget());
 
+  // Rate link
+  rateLink.addEventListener('click', () => {
+    if (isPublished()) {
+      chrome.tabs.create({ url: STORE_URL });
+    } else {
+      toast.show(msg('rateNotYet'), 'info');
+    }
+  });
+
   // Feedback events
   feedbackArea.addEventListener('feedback-submit', async (e) => {
     await saveFeedback(e.detail.rating, e.detail.comment);
-    toast.show('Thanks for your feedback!', 'success');
+    toast.show(msg('feedbackThanks'), 'success');
   });
 
   feedbackArea.addEventListener('feedback-dismiss', async () => {
@@ -257,8 +294,11 @@ async function handleExtract() {
 
     if (!pageData?.success) throw new Error(pageData?.error || 'Content script failed');
 
+    // Cache raw page data for format switching without re-fetching
+    cachedPageData = pageData.data;
+
     // Parse in the popup (has DOM access, unlike the service worker)
-    currentResult = extract({ ...pageData.data, ...options });
+    currentResult = extract({ ...cachedPageData, ...options });
 
     // Track
     await storage.incrementExtractions();
@@ -285,8 +325,8 @@ async function handleExtract() {
     actionRow.classList.add('animate-slide-up');
 
     // Update page stats from extraction metadata
-    wordCount.textContent = `${formatNumber(currentResult.metadata.wordCount)} words`;
-    imageCount.textContent = `${currentResult.metadata.imageCount} images`;
+    wordCount.textContent = `${formatNumber(currentResult.metadata.wordCount)} ${msg('words')}`;
+    imageCount.textContent = `${currentResult.metadata.imageCount} ${msg('images')}`;
 
     // Show token estimate (helps users gauge context window usage)
     if (currentResult.metadata.estimatedTokens) {
@@ -294,8 +334,14 @@ async function handleExtract() {
       const tokenCountEl = $('tokenCount');
       tokenSep.style.display = '';
       tokenCountEl.style.display = '';
-      tokenCountEl.textContent = `~${formatNumber(currentResult.metadata.estimatedTokens)} tokens`;
+      tokenCountEl.textContent = `~${formatNumber(currentResult.metadata.estimatedTokens)} ${msg('tokens')}`;
     }
+
+    // Send result to side panel via service worker
+    chrome.runtime.sendMessage({
+      action: 'extractionResult',
+      result: currentResult,
+    }).catch(() => { /* side panel may not be open */ });
 
     // Track analytics
     await trackExtraction(currentResult.metadata);
@@ -309,7 +355,7 @@ async function handleExtract() {
     console.error('[Decant] Extraction error:', error);
     setButtonState('error');
     hideProgress();
-    toast.show(chrome.i18n?.getMessage('toastError') || 'Extraction failed', 'error');
+    toast.show(msg('toastError'), 'error');
     // Show retry state after error animation
     setTimeout(() => setButtonState('retry'), 2000);
   }
@@ -323,7 +369,7 @@ function setButtonState(state) {
     case 'loading':
       extractBtn.classList.add('loading');
       extractIcon.innerHTML = '<div class="spinner"></div>';
-      extractText.textContent = 'Extracting...';
+      extractText.textContent = msg('extracting');
       break;
 
     case 'success':
@@ -332,7 +378,7 @@ function setButtonState(state) {
         <svg class="checkmark" viewBox="0 0 24 24" fill="none">
           <path d="M5 12l5 5L20 7"/>
         </svg>`;
-      extractText.textContent = 'Done!';
+      extractText.textContent = msg('done');
       break;
 
     case 'error':
@@ -343,7 +389,7 @@ function setButtonState(state) {
           <line x1="15" y1="9" x2="9" y2="15"/>
           <line x1="9" y1="9" x2="15" y2="15"/>
         </svg>`;
-      extractText.textContent = 'Failed';
+      extractText.textContent = msg('failed');
       break;
 
     case 'retry':
@@ -352,7 +398,7 @@ function setButtonState(state) {
           <polyline points="23 4 23 10 17 10"/>
           <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
         </svg>`;
-      extractText.textContent = 'Retry';
+      extractText.textContent = msg('retry');
       break;
 
     default:
@@ -361,7 +407,7 @@ function setButtonState(state) {
           <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
           <polyline points="13 2 13 9 20 9"/>
         </svg>`;
-      extractText.textContent = chrome.i18n?.getMessage('btnExtract') || 'Extract Content';
+      extractText.textContent = msg('btnExtract');
       break;
   }
 }
@@ -431,6 +477,24 @@ function showFeedbackWidget() {
 }
 
 // ── Utilities ──
+function faviconUrl(urlOrDomain) {
+  try {
+    const domain = urlOrDomain.includes('://') ? new URL(urlOrDomain).hostname : urlOrDomain;
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+  } catch {
+    return '';
+  }
+}
+
+function setFavicon(url) {
+  const src = faviconUrl(url);
+  if (!src) return;
+  const img = $('pageFavicon');
+  const fallback = $('pageFaviconFallback');
+  img.src = src;
+  img.onload = () => { img.style.display = ''; fallback.style.display = 'none'; };
+}
+
 function formatNumber(n) {
   if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
   return String(n);

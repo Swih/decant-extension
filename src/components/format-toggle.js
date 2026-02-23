@@ -37,9 +37,10 @@ class FormatToggle extends HTMLElement {
   }
 
   render() {
-    const md = chrome.i18n?.getMessage('formatMarkdown') || 'Markdown';
-    const json = chrome.i18n?.getMessage('formatJSON') || 'JSON';
-    const mcp = chrome.i18n?.getMessage('formatMCP') || 'MCP';
+    const msg = (key, fb) => chrome.i18n?.getMessage(key) || fb;
+    const md = msg('formatMarkdown', 'Markdown');
+    const json = msg('formatJSON', 'JSON');
+    const mcp = msg('formatMCP', 'MCP');
 
     this.shadowRoot.innerHTML = `
       <style>

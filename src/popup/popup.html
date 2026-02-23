@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/design-tokens.css" />
     <link rel="stylesheet" href="../styles/animations.css" />
     <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/rtl.css" />
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
@@ -14,7 +15,7 @@
       <header class="header">
         <div class="header-left">
           <div class="logo">
-            <svg width="20" height="20" viewBox="0 0 512 512" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 512 512" aria-hidden="true">
               <g transform="translate(256, 256)">
                 <path d="M -55 -130 C -90 -130, -108 -108, -108 -75 L -108 -25 C -108 -5, -118 5, -135 5 C -118 5, -108 15, -108 35 L -108 85 C -108 118, -90 140, -55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M 55 -130 C 90 -130, 108 -108, 108 -75 L 108 -25 C 108 -5, 118 5, 135 5 C 118 5, 108 15, 108 35 L 108 85 C 108 118, 90 140, 55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
@@ -28,7 +29,7 @@
           <button
             class="btn-icon"
             id="themeToggle"
-            title="Toggle theme"
+            data-i18n-title="toggleTheme"
             aria-label="Toggle dark/light theme"
           >
             <svg
@@ -49,21 +50,15 @@
 
       <!-- Page Info Card -->
       <section class="page-info glass-card" id="pageInfo" aria-label="Current page information">
-        <div class="page-info-icon" aria-hidden="true">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="var(--accent-primary)"
-            stroke-width="2"
-          >
+        <div class="page-info-icon" id="pageIcon" aria-hidden="true">
+          <img id="pageFavicon" width="18" height="18" src="" alt="" style="border-radius: 4px; display: none;" />
+          <svg id="pageFaviconFallback" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
             <polyline points="14 2 14 8 20 8" />
           </svg>
         </div>
         <div class="page-info-content">
-          <div class="page-title" id="pageTitle">Loading...</div>
+          <div class="page-title" id="pageTitle" data-i18n="loading">Loading...</div>
           <div class="page-stats" id="pageStats">
             <span class="stat" id="wordCount">-- words</span>
             <span class="stat-sep">&middot;</span>
@@ -76,7 +71,7 @@
 
       <!-- Format Toggle -->
       <section class="section">
-        <div class="section-label">Output format</div>
+        <div class="section-label" data-i18n="outputFormat">Output format</div>
         <dc-format-toggle id="formatToggle" value="markdown"></dc-format-toggle>
       </section>
 
@@ -96,7 +91,7 @@
               <polyline points="13 2 13 9 20 9" />
             </svg>
           </span>
-          <span class="extract-btn-text" id="extractText">Extract Content</span>
+          <span class="extract-btn-text" id="extractText" data-i18n="btnExtract">Extract Content</span>
         </button>
         <!-- Progress bar (hidden by default) -->
         <div class="progress-bar" id="progressBar">
@@ -108,19 +103,19 @@
       <section class="section options" id="optionsSection">
         <label class="checkbox-row">
           <input type="checkbox" id="optImages" checked />
-          <span>Include images</span>
+          <span data-i18n="optImages">Include images</span>
         </label>
         <label class="checkbox-row">
           <input type="checkbox" id="optTables" checked />
-          <span>Detect tables</span>
+          <span data-i18n="optTables">Detect tables</span>
         </label>
         <label class="checkbox-row">
           <input type="checkbox" id="optSmartExtract" checked />
-          <span>Extract emails/dates</span>
+          <span data-i18n="optSmartExtract">Extract emails/dates</span>
         </label>
         <label class="checkbox-row">
           <input type="checkbox" id="optFullPage" />
-          <span>Full page (vs Reader)</span>
+          <span data-i18n="optFullPage">Full page (vs Reader)</span>
         </label>
       </section>
 
@@ -149,7 +144,7 @@
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
           </svg>
-          <span>Copy</span>
+          <span data-i18n="btnCopy">Copy</span>
         </button>
         <button class="btn btn-secondary action-btn" id="saveBtn" aria-label="Save to file">
           <svg
@@ -165,7 +160,7 @@
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          <span>Save</span>
+          <span data-i18n="btnSave">Save</span>
         </button>
       </section>
 
@@ -174,9 +169,9 @@
 
       <!-- Recent History -->
       <section class="section history-section" aria-label="Recent extractions">
-        <div class="section-label">Recent history</div>
+        <div class="section-label" data-i18n="recentHistory">Recent history</div>
         <nav class="history-list" id="historyList" aria-label="Extraction history">
-          <div class="history-empty">No extractions yet</div>
+          <div class="history-empty" data-i18n="historyEmpty">No extractions yet</div>
         </nav>
       </section>
 
@@ -185,9 +180,9 @@
 
       <!-- Footer -->
       <footer class="footer">
-        <button class="footer-link" id="feedbackLink" aria-label="Give feedback">Feedback</button>
+        <button class="footer-link" id="feedbackLink" aria-label="Give feedback" data-i18n="feedback">Feedback</button>
         <span class="footer-sep" aria-hidden="true">&middot;</span>
-        <button class="footer-link" id="rateLink" aria-label="Rate on Chrome Web Store">
+        <button class="footer-link" id="rateLink" aria-label="Rate on Chrome Web Store" data-i18n="rate">
           Rate
         </button>
       </footer>

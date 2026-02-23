@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=600" />
+    <title>Decant — Settings</title>
+    <link rel="stylesheet" href="../styles/design-tokens.css" />
+    <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/rtl.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="options-page">
+      <header class="options-header">
+        <svg width="32" height="32" viewBox="0 0 512 512" aria-hidden="true">
+          <g transform="translate(256, 256)">
+            <path d="M -55 -130 C -90 -130, -108 -108, -108 -75 L -108 -25 C -108 -5, -118 5, -135 5 C -118 5, -108 15, -108 35 L -108 85 C -108 118, -90 140, -55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 55 -130 C 90 -130, 108 -108, 108 -75 L 108 -25 C 108 -5, 118 5, 135 5 C 118 5, 108 15, 108 35 L 108 85 C 108 118, 90 140, 55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 0 -65 C 0 -65, 50 20, 50 55 C 50 82.6, 27.6 105, 0 105 C -27.6 105, -50 82.6, -50 55 C -50 20, 0 -65, 0 -65 Z" fill="#8B5CF6"/>
+          </g>
+        </svg>
+        <h1>Decant <span data-i18n="settings">Settings</span></h1>
+      </header>
+
+      <section class="options-section">
+        <h2 data-i18n="optionsDataTitle">Your Data</h2>
+        <p class="section-desc" data-i18n="optionsDataDesc">Export or delete all data stored by Decant (history, preferences, feedback).</p>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="exportBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span data-i18n="optionsExport">Export my data</span>
+          </button>
+          <button class="btn btn-danger" id="deleteBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            <span data-i18n="optionsDelete">Delete all my data</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="options-section">
+        <h2 data-i18n="optionsAbout">About</h2>
+        <p class="version" id="versionText"></p>
+        <a href="https://decant-ext.vercel.app/privacy" class="options-link" target="_blank" rel="noopener" data-i18n="optionsPrivacy">Privacy Policy</a>
+      </section>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

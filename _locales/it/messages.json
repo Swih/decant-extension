@@ -134,5 +134,258 @@
   "settings": {
     "message": "Impostazioni",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "Formato di output",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "Caricamento...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "Senza titolo",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "Impossibile leggere la pagina",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "Nessuna estrazione ancora",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "Estrazione...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "Fatto!",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "Fallito",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "Riprova",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "Copia fallita",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "Cambia tema",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "Contenuto",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "Tabelle",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "Dati",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "Cronologia",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "Clicca Estrai contenuto nel popup per iniziare.",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "Nessuna tabella estratta.",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "Nessun dato estratto.",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "Nessuna cronologia di estrazione.",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "Nessun dato strutturato trovato.",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "Email",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "Date",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "Prezzi",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "Numeri di telefono",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "Tabelle rilevate nel contenuto. Visualizzale nell'anteprima.",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "Decanta il web.",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "Estrai contenuto puro e pronto per l'IA da qualsiasi pagina. Markdown, JSON o MCP — un clic.",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "Come funziona",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "Visita qualsiasi pagina web",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "Clicca l'icona Decant o usa una scorciatoia",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "Estrai, copia o salva — fatto!",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "Decant rimuove pubblicità, navigazione e disordine. Ottieni contenuto pulito, pronto per l'IA o i tuoi appunti.",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "Scorciatoie rapide",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "Estrai contenuto",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "Estrai e copia",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "Estrai e salva",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "Puoi anche fare clic destro su qualsiasi pagina o selezione per estrarre con Decant.",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "Salta",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "Avanti",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "Iniziamo!",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "Consiglieresti Decant?",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = Improbabile · 10 = Molto probabile",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "Non ora",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "Invia",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "Grazie per il tuo feedback!",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "Grazie!",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "adesso"
+  },
+  "timeMinAgo": {
+    "message": "$1 min fa",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1 h fa",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1 g fa",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "Estrai selezione come Markdown"
+  },
+  "ctxExtractPage": {
+    "message": "Estrai pagina intera"
+  },
+  "ctxCopyForAI": {
+    "message": "Copia per IA (ottimizzato)"
+  },
+  "rateNotYet": {
+    "message": "Non ancora pubblicato su Chrome Store"
+  },
+  "optionsDataTitle": {
+    "message": "I tuoi dati"
+  },
+  "optionsDataDesc": {
+    "message": "Esporta o elimina tutti i dati memorizzati da Decant."
+  },
+  "optionsExport": {
+    "message": "Esporta i miei dati"
+  },
+  "optionsDelete": {
+    "message": "Elimina tutti i miei dati"
+  },
+  "optionsDeleteConfirm": {
+    "message": "Sei sicuro? Tutti i dati verranno eliminati."
+  },
+  "optionsCancel": {
+    "message": "Annulla"
+  },
+  "optionsDeleteYes": {
+    "message": "Sì, elimina tutto"
+  },
+  "optionsDeleted": {
+    "message": "Dati eliminati"
+  },
+  "optionsAbout": {
+    "message": "Informazioni"
+  },
+  "optionsPrivacy": {
+    "message": "Informativa sulla privacy"
   }
 }

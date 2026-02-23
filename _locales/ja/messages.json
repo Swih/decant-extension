@@ -134,5 +134,258 @@
   "settings": {
     "message": "設定",
     "description": "Settings label"
+  },
+  "outputFormat": {
+    "message": "出力形式",
+    "description": "Section label for format selector"
+  },
+  "loading": {
+    "message": "読み込み中...",
+    "description": "Loading state text"
+  },
+  "untitled": {
+    "message": "無題",
+    "description": "Fallback page title"
+  },
+  "pageReadError": {
+    "message": "ページを読み取れません",
+    "description": "Error reading page"
+  },
+  "historyEmpty": {
+    "message": "抽出履歴はありません",
+    "description": "Empty history message"
+  },
+  "extracting": {
+    "message": "抽出中...",
+    "description": "Button text during extraction"
+  },
+  "done": {
+    "message": "完了！",
+    "description": "Button text on success"
+  },
+  "failed": {
+    "message": "失敗",
+    "description": "Button text on error"
+  },
+  "retry": {
+    "message": "再試行",
+    "description": "Button text to retry"
+  },
+  "copyFailed": {
+    "message": "コピー失敗",
+    "description": "Toast on copy failure"
+  },
+  "toggleTheme": {
+    "message": "テーマ切替",
+    "description": "Theme toggle button title"
+  },
+  "tabContent": {
+    "message": "コンテンツ",
+    "description": "Side panel tab"
+  },
+  "tabTables": {
+    "message": "テーブル",
+    "description": "Side panel tab"
+  },
+  "tabData": {
+    "message": "データ",
+    "description": "Side panel tab"
+  },
+  "tabHistory": {
+    "message": "履歴",
+    "description": "Side panel tab"
+  },
+  "emptyContent": {
+    "message": "ポップアップでコンテンツを抽出をクリックして開始してください。",
+    "description": "Empty content tab"
+  },
+  "emptyTables": {
+    "message": "テーブルはまだ抽出されていません。",
+    "description": "Empty tables tab"
+  },
+  "emptyData": {
+    "message": "データはまだ抽出されていません。",
+    "description": "Empty data tab"
+  },
+  "emptyHistory": {
+    "message": "抽出履歴はありません。",
+    "description": "Empty history tab"
+  },
+  "noDataFound": {
+    "message": "構造化データが見つかりません。",
+    "description": "No smart data"
+  },
+  "dataEmails": {
+    "message": "メール",
+    "description": "Data section label"
+  },
+  "dataDates": {
+    "message": "日付",
+    "description": "Data section label"
+  },
+  "dataPrices": {
+    "message": "価格",
+    "description": "Data section label"
+  },
+  "dataPhones": {
+    "message": "電話番号",
+    "description": "Data section label"
+  },
+  "tablesInContent": {
+    "message": "コンテンツ内にテーブルが検出されました。プレビューで確認してください。",
+    "description": "Tables hint"
+  },
+  "welcomeTagline": {
+    "message": "ウェブをデカントする。",
+    "description": "Welcome step 1 title"
+  },
+  "welcomeDesc": {
+    "message": "どんなページからも純粋でAI対応のコンテンツを抽出。Markdown、JSON、MCP形式—ワンクリック。",
+    "description": "Welcome step 1 desc"
+  },
+  "howItWorks": {
+    "message": "使い方",
+    "description": "Welcome step 2 title"
+  },
+  "step1Text": {
+    "message": "任意のウェブページにアクセス",
+    "description": "Onboarding step 1"
+  },
+  "step2Text": {
+    "message": "Decantアイコンをクリックまたはショートカットを使用",
+    "description": "Onboarding step 2"
+  },
+  "step3Text": {
+    "message": "抽出、コピー、保存 — 完了！",
+    "description": "Onboarding step 3"
+  },
+  "welcomeClutter": {
+    "message": "Decantは広告、ナビゲーション、不要な要素を除去します。AIやメモに使える綺麗なコンテンツが得られます。",
+    "description": "Welcome step 2 desc"
+  },
+  "powerShortcuts": {
+    "message": "パワーショートカット",
+    "description": "Welcome step 3 title"
+  },
+  "shortcutExtract": {
+    "message": "コンテンツを抽出",
+    "description": "Shortcut label"
+  },
+  "shortcutCopy": {
+    "message": "抽出してコピー",
+    "description": "Shortcut label"
+  },
+  "shortcutSave": {
+    "message": "抽出して保存",
+    "description": "Shortcut label"
+  },
+  "shortcutRightClick": {
+    "message": "ページや選択範囲を右クリックしてDecantで抽出することもできます。",
+    "description": "Shortcut hint"
+  },
+  "btnSkip": {
+    "message": "スキップ",
+    "description": "Onboarding skip button"
+  },
+  "btnNext": {
+    "message": "次へ",
+    "description": "Onboarding next button"
+  },
+  "btnLetsGo": {
+    "message": "始めよう！",
+    "description": "Onboarding final button"
+  },
+  "npsTitle": {
+    "message": "Decantを他の人にすすめる可能性は？",
+    "description": "NPS survey title"
+  },
+  "npsScale": {
+    "message": "0 = 可能性なし · 10 = 非常に高い",
+    "description": "NPS scale labels"
+  },
+  "npsNotNow": {
+    "message": "今はしない",
+    "description": "NPS dismiss button"
+  },
+  "npsSubmit": {
+    "message": "送信",
+    "description": "NPS submit button"
+  },
+  "feedbackThanks": {
+    "message": "フィードバックありがとうございます！",
+    "description": "Feedback thanks message"
+  },
+  "npsThanks": {
+    "message": "ありがとう！",
+    "description": "NPS thanks message"
+  },
+  "timeJustNow": {
+    "message": "たった今"
+  },
+  "timeMinAgo": {
+    "message": "$1分前",
+    "placeholders": {
+      "minutes": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeHourAgo": {
+    "message": "$1時間前",
+    "placeholders": {
+      "hours": {
+        "content": "$1"
+      }
+    }
+  },
+  "timeDayAgo": {
+    "message": "$1日前",
+    "placeholders": {
+      "days": {
+        "content": "$1"
+      }
+    }
+  },
+  "ctxExtractSelection": {
+    "message": "選択をMarkdownとして抽出"
+  },
+  "ctxExtractPage": {
+    "message": "ページ全体を抽出"
+  },
+  "ctxCopyForAI": {
+    "message": "AI用にコピー（最適化）"
+  },
+  "rateNotYet": {
+    "message": "まだChromeストアに公開されていません"
+  },
+  "optionsDataTitle": {
+    "message": "あなたのデータ"
+  },
+  "optionsDataDesc": {
+    "message": "Decantに保存されたすべてのデータをエクスポートまたは削除します。"
+  },
+  "optionsExport": {
+    "message": "データをエクスポート"
+  },
+  "optionsDelete": {
+    "message": "すべてのデータを削除"
+  },
+  "optionsDeleteConfirm": {
+    "message": "本当に削除しますか？"
+  },
+  "optionsCancel": {
+    "message": "キャンセル"
+  },
+  "optionsDeleteYes": {
+    "message": "はい、すべて削除"
+  },
+  "optionsDeleted": {
+    "message": "すべてのデータを削除しました"
+  },
+  "optionsAbout": {
+    "message": "情報"
+  },
+  "optionsPrivacy": {
+    "message": "プライバシーポリシー"
   }
 }
