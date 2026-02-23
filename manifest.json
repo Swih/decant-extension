@@ -24,13 +24,6 @@
     "service_worker": "src/background/service-worker.js",
     "type": "module"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["src/content/extractor.js"],
-      "run_at": "document_idle"
-    }
-  ],
   "side_panel": {
     "default_path": "src/sidepanel/panel.html"
   },
