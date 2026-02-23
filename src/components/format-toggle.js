@@ -126,5 +126,5 @@ class FormatToggle extends HTMLElement {
   }
 }
 
-customElements.define('pf-format-toggle', FormatToggle);
+customElements.define('dc-format-toggle', FormatToggle);
 export default FormatToggle;

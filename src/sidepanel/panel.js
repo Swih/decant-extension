@@ -6,6 +6,8 @@ import '../components/format-toggle.js';
 import { copyToClipboard } from '../utils/clipboard.js';
 import { downloadFile, sanitizeFilename } from '../utils/download.js';
 import * as storage from '../utils/storage.js';
+import { escapeHtml, escapeAttr } from '../utils/html.js';
+import { timeAgo } from '../utils/time.js';
 
 const $ = (id) => document.getElementById(id);
 const toast = $('toast');
@@ -164,27 +166,6 @@ async function loadHistory() {
       chrome.tabs.create({ url: item.dataset.url });
     }
   });
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-function escapeAttr(text) {
-  return text.replace(/"/g, '&quot;');
-}
-
-function timeAgo(timestamp) {
-  const seconds = Math.floor((Date.now() - timestamp) / 1000);
-  if (seconds < 60) return 'just now';
-  const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  return `${days}d ago`;
 }
 
 init();

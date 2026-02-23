@@ -4,7 +4,7 @@
     "description": "Nom de l'extension"
   },
   "extDescription": {
-    "message": "Decantez le web. Extrayez le contenu pur de n'importe quelle page — Markdown, JSON, MCP — en un clic.",
+    "message": "Décantez le web. Extrayez le contenu pur de n'importe quelle page — Markdown, JSON, MCP — en un clic.",
     "description": "Description de l'extension"
   },
   "cmdExtract": {
@@ -52,19 +52,19 @@
     "description": "Option inclure les images"
   },
   "optTables": {
-    "message": "Detecter les tableaux",
-    "description": "Option detection des tableaux"
+    "message": "Détecter les tableaux",
+    "description": "Option détection des tableaux"
   },
   "optSmartExtract": {
     "message": "Extraire emails/dates",
     "description": "Option extraction intelligente"
   },
   "optFullPage": {
-    "message": "Page entiere (vs Reader)",
-    "description": "Option page entiere"
+    "message": "Page entière (vs Reader)",
+    "description": "Option page entière"
   },
   "recentHistory": {
-    "message": "Historique recent",
+    "message": "Historique récent",
     "description": "Titre section historique"
   },
   "feedback": {
@@ -76,15 +76,15 @@
     "description": "Lien notation"
   },
   "toastCopied": {
-    "message": "Copie dans le presse-papier !",
-    "description": "Toast quand le contenu est copie"
+    "message": "Copié dans le presse-papier !",
+    "description": "Toast quand le contenu est copié"
   },
   "toastSaved": {
-    "message": "Fichier sauvegarde !",
-    "description": "Toast quand le fichier est sauvegarde"
+    "message": "Fichier sauvegardé !",
+    "description": "Toast quand le fichier est sauvegardé"
   },
   "toastError": {
-    "message": "Echec de l'extraction",
+    "message": "Échec de l'extraction",
     "description": "Toast en cas d'erreur"
   },
   "words": {
@@ -95,8 +95,12 @@
     "message": "images",
     "description": "Label compteur d'images"
   },
+  "tokens": {
+    "message": "tokens",
+    "description": "Label compteur de tokens"
+  },
   "feedbackTitle": {
-    "message": "Comment etait cette extraction ?",
+    "message": "Comment était cette extraction ?",
     "description": "Titre widget feedback"
   },
   "feedbackPlaceholder": {
@@ -112,7 +116,7 @@
     "description": "Titre prompt notation"
   },
   "ratingBody": {
-    "message": "Votre avis nous aide a atteindre plus d'utilisateurs !",
+    "message": "Votre avis nous aide à atteindre plus d'utilisateurs !",
     "description": "Corps prompt notation"
   },
   "ratingYes": {
@@ -125,10 +129,10 @@
   },
   "ago": {
     "message": "il y a",
-    "description": "Suffixe temps ecoule"
+    "description": "Suffixe temps écoulé"
   },
   "settings": {
-    "message": "Parametres",
-    "description": "Label parametres"
+    "message": "Paramètres",
+    "description": "Label paramètres"
   }
 }

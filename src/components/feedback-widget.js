@@ -196,5 +196,5 @@ class FeedbackWidget extends HTMLElement {
   }
 }
 
-customElements.define('pf-feedback', FeedbackWidget);
+customElements.define('dc-feedback', FeedbackWidget);
 export default FeedbackWidget;

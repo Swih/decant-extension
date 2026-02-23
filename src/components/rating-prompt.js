@@ -93,5 +93,5 @@ class RatingPrompt extends HTMLElement {
   }
 }
 
-customElements.define('pf-rating', RatingPrompt);
+customElements.define('dc-rating', RatingPrompt);
 export default RatingPrompt;

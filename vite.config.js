@@ -1,11 +1,27 @@
 import { defineConfig } from 'vite';
 import { crx } from '@crxjs/vite-plugin';
+import { copyFileSync, mkdirSync } from 'fs';
 import manifest from './manifest.json';
 import { resolve } from 'path';
+
+/** Copy content script to dist (not bundled by Vite — injected on-demand via scripting API) */
+function copyContentScript() {
+  return {
+    name: 'copy-content-script',
+    writeBundle() {
+      mkdirSync(resolve(__dirname, 'dist/src/content'), { recursive: true });
+      copyFileSync(
+        resolve(__dirname, 'src/content/extractor.js'),
+        resolve(__dirname, 'dist/src/content/extractor.js'),
+      );
+    },
+  };
+}
 
 export default defineConfig({
   plugins: [
     crx({ manifest }),
+    copyContentScript(),
   ],
   build: {
     rollupOptions: {
@@ -13,6 +29,7 @@ export default defineConfig({
         sidepanel: resolve(__dirname, 'src/sidepanel/panel.html'),
         onboarding: resolve(__dirname, 'src/onboarding/welcome.html'),
         privacy: resolve(__dirname, 'src/privacy/privacy.html'),
+        offscreen: resolve(__dirname, 'src/offscreen/offscreen.html'),
       },
     },
     outDir: 'dist',

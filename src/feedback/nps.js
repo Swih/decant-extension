@@ -162,5 +162,5 @@ class NPSSurvey extends HTMLElement {
   }
 }
 
-customElements.define('pf-nps', NPSSurvey);
+customElements.define('dc-nps', NPSSurvey);
 export default NPSSurvey;

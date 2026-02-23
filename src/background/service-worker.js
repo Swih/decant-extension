@@ -6,18 +6,46 @@
  * - All event listeners MUST be registered synchronously at the top level.
  * - The service worker can be terminated after ~30s of inactivity.
  * - Never store state in global variables — use chrome.storage.
- * - Heavy modules (Readability, Turndown) are lazy-imported on first extraction.
+ * - Service workers have NO DOM access — parsing is delegated to an
+ *   offscreen document (per Chrome docs: chrome.offscreen with DOM_PARSER).
  */
 import * as storage from '../utils/storage.js';
 
-// Lazy-loaded extraction module (Readability + Turndown = ~36KB)
-let _extract = null;
-async function getExtractor() {
-  if (!_extract) {
-    const mod = await import('../core/parser.js');
-    _extract = mod.extract;
+// ── Offscreen Document Helper ──
+const OFFSCREEN_URL = chrome.runtime.getURL('src/offscreen/offscreen.html');
+
+/**
+ * Ensure the offscreen document exists before sending messages.
+ * Only one offscreen document per extension (Chrome restriction).
+ */
+async function ensureOffscreen() {
+  const contexts = await chrome.runtime.getContexts({
+    contextTypes: ['OFFSCREEN_DOCUMENT'],
+    documentUrls: [OFFSCREEN_URL],
+  });
+  if (contexts.length === 0) {
+    await chrome.offscreen.createDocument({
+      url: OFFSCREEN_URL,
+      reasons: ['DOM_PARSER'],
+      justification: 'Parse HTML with DOMParser + Readability (unavailable in service worker)',
+    });
   }
-  return _extract;
+}
+
+/**
+ * Send extraction request to the offscreen document (which has DOM access).
+ */
+async function extractViaOffscreen(extractionOptions) {
+  await ensureOffscreen();
+  const response = await chrome.runtime.sendMessage({
+    target: 'offscreen',
+    action: 'extract',
+    options: extractionOptions,
+  });
+  if (!response?.success) {
+    throw new Error(response?.error || 'Offscreen extraction failed');
+  }
+  return response.result;
 }
 
 // ── Keyboard Commands (synchronous registration) ──
@@ -42,6 +70,9 @@ chrome.commands.onCommand.addListener(async (command) => {
 
 // ── Message Router (synchronous registration) ──
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  // Ignore messages meant for offscreen document
+  if (message.target === 'offscreen') return;
+
   if (message.action === 'extractFromPopup') {
     handleExtractFromPopup(message.options)
       .then((result) => sendResponse(result))
@@ -140,8 +171,6 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 // ── Core Extraction Logic ──
 async function handleExtract(tab, prefs) {
   try {
-    const extract = await getExtractor();
-
     const pageData = await sendToContentScript(tab.id, {
       action: 'extract',
       options: prefs,
@@ -149,7 +178,8 @@ async function handleExtract(tab, prefs) {
 
     if (!pageData.success) throw new Error(pageData.error);
 
-    const result = extract({
+    // Delegate parsing to offscreen document (has DOM access)
+    const result = await extractViaOffscreen({
       ...pageData.data,
       ...prefs,
     });
@@ -198,8 +228,6 @@ async function handleExtractFromPopup(options) {
   const tab = await getActiveTab();
   if (!tab) throw new Error('No active tab');
 
-  const extract = await getExtractor();
-
   const pageData = await sendToContentScript(tab.id, {
     action: 'extract',
     options,
@@ -207,7 +235,8 @@ async function handleExtractFromPopup(options) {
 
   if (!pageData.success) throw new Error(pageData.error);
 
-  const result = extract({
+  // Delegate parsing to offscreen document (has DOM access)
+  const result = await extractViaOffscreen({
     ...pageData.data,
     ...options,
   });
@@ -241,11 +270,10 @@ function sanitizeHTML(text) {
 
 async function handleExtractSelection(tab, selectionText, prefs) {
   try {
-    const extract = await getExtractor();
     // Sanitize selection to prevent XSS before wrapping in HTML
     const safe = sanitizeHTML(selectionText);
     const html = `<html><body><article>${safe}</article></body></html>`;
-    const result = extract({
+    const result = await extractViaOffscreen({
       html,
       url: tab.url,
       title: tab.title,
@@ -266,12 +294,11 @@ async function handleExtractSelection(tab, selectionText, prefs) {
 
 async function handleCopyForAI(tab, selectionText, prefs) {
   try {
-    const extract = await getExtractor();
     if (selectionText) {
       // Sanitize selection to prevent XSS before wrapping in HTML
       const safe = sanitizeHTML(selectionText);
       const html = `<html><body><article>${safe}</article></body></html>`;
-      const result = extract({
+      const result = await extractViaOffscreen({
         html,
         url: tab.url,
         title: tab.title,
@@ -291,9 +318,8 @@ async function handleCopyForAI(tab, selectionText, prefs) {
 }
 
 async function handleSelectionResult(data) {
-  const extract = await getExtractor();
   const prefs = await storage.getPreferences();
-  const result = extract({
+  const result = await extractViaOffscreen({
     ...data,
     ...prefs,
   });
@@ -341,12 +367,14 @@ async function sendToContentScript(tabId, message) {
   return withRetry(async () => {
     try {
       return await chrome.tabs.sendMessage(tabId, message);
-    } catch {
+    } catch (err) {
       // Content script may not be injected yet — inject it
       await chrome.scripting.executeScript({
         target: { tabId },
         files: ['src/content/extractor.js'],
       });
+      // Small delay to let the content script register its listeners
+      await new Promise((r) => setTimeout(r, 150));
       return await chrome.tabs.sendMessage(tabId, message);
     }
   }, 2);

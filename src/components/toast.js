@@ -85,5 +85,5 @@ class DecantToast extends HTMLElement {
   }
 }
 
-customElements.define('pf-toast', DecantToast);
+customElements.define('dc-toast', DecantToast);
 export default DecantToast;

@@ -2,6 +2,8 @@
  * Preview card Web Component.
  * Shows extracted content preview with syntax highlighting for Markdown.
  */
+import { escapeHtml } from '../utils/html.js';
+
 class PreviewCard extends HTMLElement {
   constructor() {
     super();
@@ -143,11 +145,5 @@ function highlightJSON(text) {
     .replace(/:\s*(null)/g, ': <span class="json-null">$1</span>');
 }
 
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-customElements.define('pf-preview', PreviewCard);
+customElements.define('dc-preview', PreviewCard);
 export default PreviewCard;

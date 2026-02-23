@@ -10,6 +10,9 @@ import '../feedback/nps.js';
 import { copyToClipboard } from '../utils/clipboard.js';
 import { downloadFile, sanitizeFilename } from '../utils/download.js';
 import * as storage from '../utils/storage.js';
+import { escapeHtml, escapeAttr } from '../utils/html.js';
+import { timeAgo } from '../utils/time.js';
+import { extract } from '../core/parser.js';
 import {
   shouldShowFeedback,
   shouldShowRating,
@@ -235,16 +238,37 @@ async function handleExtract() {
       fullPage: optFullPage.checked,
     };
 
-    const response = await chrome.runtime.sendMessage({
-      action: 'extractFromPopup',
-      options,
-    });
+    // Get raw HTML from the content script
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (!tab) throw new Error('No active tab');
 
-    if (!response?.success) {
-      throw new Error(response?.error || 'Extraction failed');
+    let pageData;
+    try {
+      pageData = await chrome.tabs.sendMessage(tab.id, { action: 'extract', options });
+    } catch {
+      // Content script not injected yet — inject and retry
+      await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ['src/content/extractor.js'],
+      });
+      await new Promise((r) => setTimeout(r, 150));
+      pageData = await chrome.tabs.sendMessage(tab.id, { action: 'extract', options });
     }
 
-    currentResult = response.result;
+    if (!pageData?.success) throw new Error(pageData?.error || 'Content script failed');
+
+    // Parse in the popup (has DOM access, unlike the service worker)
+    currentResult = extract({ ...pageData.data, ...options });
+
+    // Track
+    await storage.incrementExtractions();
+    await storage.addToHistory({
+      url: pageData.data.url,
+      title: pageData.data.title,
+      domain: pageData.data.domain,
+      format: options.format,
+      wordCount: currentResult.metadata.wordCount,
+    });
 
     // UI: success state
     setButtonState('success');
@@ -386,7 +410,7 @@ async function checkFeedbackTriggers() {
 
   // Check rating prompt
   if (await shouldShowRating()) {
-    const rating = document.createElement('pf-rating');
+    const rating = document.createElement('dc-rating');
     feedbackArea.innerHTML = '';
     feedbackArea.appendChild(rating);
     return;
@@ -394,14 +418,14 @@ async function checkFeedbackTriggers() {
 
   // Check NPS
   if (await shouldShowNPS()) {
-    const nps = document.createElement('pf-nps');
+    const nps = document.createElement('dc-nps');
     feedbackArea.innerHTML = '';
     feedbackArea.appendChild(nps);
   }
 }
 
 function showFeedbackWidget() {
-  const widget = document.createElement('pf-feedback');
+  const widget = document.createElement('dc-feedback');
   feedbackArea.innerHTML = '';
   feedbackArea.appendChild(widget);
 }
@@ -410,27 +434,6 @@ function showFeedbackWidget() {
 function formatNumber(n) {
   if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
   return String(n);
-}
-
-function timeAgo(timestamp) {
-  const seconds = Math.floor((Date.now() - timestamp) / 1000);
-  if (seconds < 60) return 'just now';
-  const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h`;
-  const days = Math.floor(hours / 24);
-  return `${days}d`;
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-function escapeAttr(text) {
-  return text.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 // ── Boot ──

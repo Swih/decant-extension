@@ -95,6 +95,10 @@
     "message": "images",
     "description": "Image count label"
   },
+  "tokens": {
+    "message": "tokens",
+    "description": "Token count label"
+  },
   "feedbackTitle": {
     "message": "How was this extraction?",
     "description": "Feedback widget title"
