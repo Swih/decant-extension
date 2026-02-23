@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "웹을 정제하세요. 모든 페이지에서 순수한 AI 지원 콘텐츠를 추출 — Markdown, JSON, MCP — 원클릭으로.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "페이지 콘텐츠 추출",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "추출 후 클립보드에 복사",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "추출 후 파일로 저장",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "현재 페이지",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "콘텐츠 추출",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "복사",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "저장",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "이미지 포함",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "테이블 감지",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "이메일/날짜 추출",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "전체 페이지 (리더 모드 아님)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "최근 기록",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "피드백",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "평가",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "클립보드에 복사되었습니다!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "파일이 저장되었습니다!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "추출 실패",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "단어",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "이미지",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "토큰",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "이번 추출은 어땠나요?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "의견이 있으신가요? (선택사항)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "보내기",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Decant이 마음에 드시나요?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "리뷰가 더 많은 사용자에게 도달하는 데 도움이 됩니다!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Chrome Store에서 평가하기",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "나중에",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "전",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "설정",
+    "description": "Settings label"
+  }
+}

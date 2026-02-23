@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "提煉網頁精華。一鍵從任意頁面提取純淨、AI就緒的內容 — Markdown、JSON、MCP。",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "提取頁面內容",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "提取並複製到剪貼簿",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "提取並儲存為檔案",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "目前頁面",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "提取內容",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "複製",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "儲存",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "包含圖片",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "偵測表格",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "提取郵箱/日期",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "整頁（非閱讀模式）",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "最近紀錄",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "意見回饋",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "評分",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "已複製到剪貼簿！",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "檔案已儲存！",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "提取失敗",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "字",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "圖片",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "令牌",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "這次提取如何？",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "有什麼建議嗎？（選填）",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "送出",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "喜歡 Decant 嗎？",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "您的評價幫助我們觸及更多使用者！",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "在 Chrome 商店評分",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "以後再說",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "前",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "設定",
+    "description": "Settings label"
+  }
+}

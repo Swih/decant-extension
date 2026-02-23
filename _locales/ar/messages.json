@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "صفِّ الويب. استخرج محتوى نقيًا وجاهزًا للذكاء الاصطناعي من أي صفحة — Markdown، JSON، MCP — بنقرة واحدة.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "استخراج محتوى الصفحة",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "استخراج ونسخ إلى الحافظة",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "استخراج وحفظ كملف",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "الصفحة الحالية",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "استخراج المحتوى",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "نسخ",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "حفظ",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "تضمين الصور",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "كشف الجداول",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "استخراج البريد/التواريخ",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "الصفحة كاملة (بدلاً من القارئ)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "السجل الأخير",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "ملاحظات",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "تقييم",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "تم النسخ إلى الحافظة!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "تم حفظ الملف!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "فشل الاستخراج",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "كلمات",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "صور",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "رموز",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "كيف كان هذا الاستخراج؟",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "أي ملاحظات؟ (اختياري)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "إرسال",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "هل أعجبك Decant؟",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "تقييمك يساعدنا في الوصول إلى مزيد من المستخدمين!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "تقييم في Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "لاحقًا",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "منذ",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "الإعدادات",
+    "description": "Settings label"
+  }
+}

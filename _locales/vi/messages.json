@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Lọc web. Trích xuất nội dung tinh khiết, sẵn sàng cho AI từ bất kỳ trang nào — Markdown, JSON, MCP — chỉ một cú nhấp.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Trích xuất nội dung trang",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Trích xuất và sao chép vào clipboard",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Trích xuất và lưu thành tệp",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Trang hiện tại",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "Trích xuất nội dung",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Sao chép",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Lưu",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Bao gồm hình ảnh",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Phát hiện bảng",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "Trích xuất email/ngày",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Toàn trang (không phải Reader)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Lịch sử gần đây",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Phản hồi",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Đánh giá",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Đã sao chép vào clipboard!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "Đã lưu tệp!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Trích xuất thất bại",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "từ",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "hình ảnh",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "token",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "Lần trích xuất này thế nào?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Có góp ý nào không? (tùy chọn)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Gửi",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Bạn thích Decant?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Đánh giá của bạn giúp chúng tôi tiếp cận nhiều người dùng hơn!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Đánh giá trên Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Để sau",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "trước",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Cài đặt",
+    "description": "Settings label"
+  }
+}

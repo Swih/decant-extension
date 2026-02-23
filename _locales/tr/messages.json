@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Web'i süzün. Herhangi bir sayfadan saf, yapay zekaya hazır içerik çıkarın — Markdown, JSON, MCP — tek tıkla.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Sayfa içeriğini çıkar",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Çıkar ve panoya kopyala",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Çıkar ve dosyaya kaydet",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Mevcut sayfa",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "İçerik Çıkar",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Kopyala",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Kaydet",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Görselleri dahil et",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Tabloları algıla",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "E-posta/tarih çıkar",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Tam sayfa (Okuyucu değil)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Son geçmiş",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Geri bildirim",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Değerlendir",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Panoya kopyalandı!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "Dosya kaydedildi!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Çıkarma başarısız",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "kelime",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "görsel",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "token",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "Bu çıkarma nasıldı?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Görüşleriniz? (isteğe bağlı)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Gönder",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Decant'ı beğendiniz mi?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Değerlendirmeniz daha fazla kullanıcıya ulaşmamıza yardımcı olur!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Chrome Store'da değerlendir",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Belki sonra",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "önce",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Ayarlar",
+    "description": "Settings label"
+  }
+}

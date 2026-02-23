@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Очистите веб. Извлекайте чистый, готовый для ИИ контент с любой страницы — Markdown, JSON, MCP — в один клик.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Извлечь содержимое страницы",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Извлечь и скопировать в буфер обмена",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Извлечь и сохранить в файл",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Текущая страница",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "Извлечь контент",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Копировать",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Сохранить",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Включить изображения",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Обнаруживать таблицы",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "Извлекать email/даты",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Вся страница (без режима чтения)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Недавняя история",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Отзыв",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Оценить",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Скопировано в буфер обмена!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "Файл сохранён!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Ошибка извлечения",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "слов",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "изображений",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "токенов",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "Как прошло извлечение?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Есть замечания? (необязательно)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Отправить",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Нравится Decant?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Ваш отзыв помогает нам привлечь больше пользователей!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Оценить в Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Позже",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "назад",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Настройки",
+    "description": "Settings label"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "वेब को छानें। किसी भी पेज से शुद्ध, AI-तैयार सामग्री निकालें — Markdown, JSON, MCP — एक क्लिक में।",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "पेज की सामग्री निकालें",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "निकालें और क्लिपबोर्ड पर कॉपी करें",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "निकालें और फ़ाइल में सहेजें",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "वर्तमान पेज",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "सामग्री निकालें",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "कॉपी",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "सहेजें",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "चित्र शामिल करें",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "तालिकाएँ पहचानें",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "ईमेल/तिथियाँ निकालें",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "पूरा पेज (रीडर नहीं)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "हालिया इतिहास",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "प्रतिक्रिया",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "रेटिंग",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "क्लिपबोर्ड पर कॉपी हो गया!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "फ़ाइल सहेजी गई!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "निष्कर्षण विफल",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "शब्द",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "चित्र",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "टोकन",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "यह निष्कर्षण कैसा रहा?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "कोई सुझाव? (वैकल्पिक)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "भेजें",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Decant पसंद आया?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "आपकी समीक्षा हमें और उपयोगकर्ताओं तक पहुँचने में मदद करती है!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Chrome Store पर रेट करें",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "बाद में",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "पहले",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "सेटिंग्स",
+    "description": "Settings label"
+  }
+}

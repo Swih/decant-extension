@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "ウェブを精製。あらゆるページからAI対応のクリーンなコンテンツを抽出 — Markdown、JSON、MCP — ワンクリックで。",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "ページの内容を抽出",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "抽出してクリップボードにコピー",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "抽出してファイルに保存",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "現在のページ",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "コンテンツを抽出",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "コピー",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "保存",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "画像を含める",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "テーブルを検出",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "メール/日付を抽出",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "ページ全体（リーダーモードなし）",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "最近の履歴",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "フィードバック",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "評価",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "クリップボードにコピーしました！",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "ファイルを保存しました！",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "抽出に失敗しました",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "語",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "画像",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "トークン",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "今回の抽出はいかがでしたか？",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "ご意見はありますか？（任意）",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "送信",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Decantを気に入りましたか？",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "レビューが多くのユーザーへの認知につながります！",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Chrome Storeで評価する",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "あとで",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "前",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "設定",
+    "description": "Settings label"
+  }
+}

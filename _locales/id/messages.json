@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Saring web. Ekstrak konten murni dan siap AI dari halaman mana pun — Markdown, JSON, MCP — satu klik.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Ekstrak konten halaman",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Ekstrak dan salin ke clipboard",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Ekstrak dan simpan ke file",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Halaman saat ini",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "Ekstrak Konten",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Salin",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Simpan",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Sertakan gambar",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Deteksi tabel",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "Ekstrak email/tanggal",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Halaman penuh (bukan Reader)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Riwayat terbaru",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Masukan",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Nilai",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Disalin ke clipboard!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "File tersimpan!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Ekstraksi gagal",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "kata",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "gambar",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "token",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "Bagaimana ekstraksi ini?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Ada saran? (opsional)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Kirim",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Suka Decant?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Ulasan Anda membantu kami menjangkau lebih banyak pengguna!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Nilai di Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Nanti saja",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "lalu",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Pengaturan",
+    "description": "Settings label"
+  }
+}

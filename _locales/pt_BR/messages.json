@@ -1,0 +1,138 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Decante a web. Extraia conteúdo puro e pronto para IA de qualquer página — Markdown, JSON, MCP — com um clique.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Extrair conteúdo da página",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Extrair e copiar para a área de transferência",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Extrair e salvar como arquivo",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Página atual",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "Extrair conteúdo",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Copiar",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Salvar",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Incluir imagens",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Detectar tabelas",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "Extrair emails/datas",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Página inteira (vs Leitor)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Histórico recente",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Feedback",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Avaliar",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Copiado para a área de transferência!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "Arquivo salvo!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Falha na extração",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "palavras",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "imagens",
+    "description": "Image count label"
+  },
+  "tokens": {
+    "message": "tokens",
+    "description": "Token count label"
+  },
+  "feedbackTitle": {
+    "message": "Como foi esta extração?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Alguma sugestão? (opcional)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Enviar",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Gostou do Decant?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Sua avaliação nos ajuda a alcançar mais usuários!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Avaliar na Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Talvez depois",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "atrás",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Configurações",
+    "description": "Settings label"
+  }
+}
