@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Decant</title>
+    <link rel="stylesheet" href="../styles/design-tokens.css" />
+    <link rel="stylesheet" href="../styles/animations.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .onboarding {
+        width: 100%;
+        max-width: 520px;
+        padding: 48px 40px;
+        text-align: center;
+      }
+
+      /* ── Step Container ── */
+      .step {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        animation: fadeIn 0.4s ease forwards;
+      }
+      .step.active {
+        display: flex;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── Logo ── */
+      .logo-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-icon {
+        width: 72px;
+        height: 72px;
+        background: linear-gradient(135deg, var(--accent-primary), #4f46e5);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 40px var(--accent-glow);
+      }
+      .logo-icon svg {
+        width: 36px;
+        height: 36px;
+      }
+      .logo-name {
+        font-size: 32px;
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── Text ── */
+      .step-title {
+        font-size: 22px;
+        font-weight: var(--font-weight-bold);
+        line-height: 1.3;
+      }
+      .step-desc {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        max-width: 400px;
+      }
+
+      /* ── Steps Illustration ── */
+      .steps-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 360px;
+      }
+      .step-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        text-align: left;
+      }
+      .step-num {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent-primary);
+        color: white;
+        font-weight: var(--font-weight-bold);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .step-row-text {
+        font-size: 14px;
+        color: var(--text-primary);
+      }
+
+      /* ── Shortcuts ── */
+      .shortcuts {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 360px;
+      }
+      .shortcut {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+      }
+      .shortcut-label {
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+      kbd {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 10px;
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-hover);
+        border-radius: 6px;
+        font-family: var(--font-family);
+        font-size: 12px;
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-primary);
+      }
+
+      /* ── Formats ── */
+      .formats {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+      .format-pill {
+        padding: 8px 20px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-full);
+        font-size: 13px;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-secondary);
+      }
+      .format-pill.highlight {
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+        background: rgba(139, 92, 246, 0.1);
+      }
+
+      /* ── Navigation ── */
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 32px;
+      }
+      .dots {
+        display: flex;
+        gap: 8px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--bg-tertiary);
+        transition: all 0.25s ease;
+      }
+      .dot.active {
+        background: var(--accent-primary);
+        width: 24px;
+        border-radius: 4px;
+      }
+      .btn-next {
+        padding: 10px 28px;
+        border: none;
+        border-radius: var(--radius-lg);
+        background: var(--accent-primary);
+        color: white;
+        font-family: var(--font-family);
+        font-size: 14px;
+        font-weight: var(--font-weight-semibold);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+      .btn-next:hover {
+        background: var(--accent-primary-hover);
+        box-shadow: 0 0 30px var(--accent-glow-strong);
+        transform: translateY(-1px);
+      }
+      .btn-skip {
+        background: none;
+        border: none;
+        color: var(--text-tertiary);
+        font-family: var(--font-family);
+        font-size: 13px;
+        cursor: pointer;
+        padding: 10px 16px;
+      }
+      .btn-skip:hover {
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="onboarding">
+      <!-- Step 1: Welcome -->
+      <div class="step active" id="step1" role="region" aria-label="Welcome">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+              <polyline points="13 2 13 9 20 9" />
+            </svg>
+          </div>
+          <div class="logo-name">Decant</div>
+        </div>
+        <div class="step-title">Decant the web.</div>
+        <div class="step-desc">
+          Extract pure, AI-ready content from any page. Markdown, JSON, or MCP format — one click.
+        </div>
+        <div class="formats">
+          <span class="format-pill">Markdown</span>
+          <span class="format-pill">JSON</span>
+          <span class="format-pill highlight">MCP</span>
+        </div>
+      </div>
+
+      <!-- Step 2: How it works -->
+      <div class="step" id="step2" role="region" aria-label="How it works">
+        <div class="step-title">How it works</div>
+        <div class="steps-visual">
+          <div class="step-row">
+            <div class="step-num">1</div>
+            <div class="step-row-text">Visit any web page</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">2</div>
+            <div class="step-row-text">Click the Decant icon or use a shortcut</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">3</div>
+            <div class="step-row-text">Extract, copy, or save — done!</div>
+          </div>
+        </div>
+        <div class="step-desc">
+          Decant removes ads, navigation, and clutter. You get clean content, ready for AI or your
+          notes.
+        </div>
+      </div>
+
+      <!-- Step 3: Keyboard shortcuts -->
+      <div class="step" id="step3" role="region" aria-label="Keyboard shortcuts">
+        <div class="step-title">Power shortcuts</div>
+        <div class="shortcuts">
+          <div class="shortcut">
+            <span class="shortcut-label">Extract content</span>
+            <kbd>Ctrl+Shift+E</kbd>
+          </div>
+          <div class="shortcut">
+            <span class="shortcut-label">Extract & copy</span>
+            <kbd>Ctrl+Shift+C</kbd>
+          </div>
+          <div class="shortcut">
+            <span class="shortcut-label">Extract & save</span>
+            <kbd>Ctrl+Shift+S</kbd>
+          </div>
+        </div>
+        <div class="step-desc">
+          You can also right-click any page or selection to extract with Decant.
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav">
+        <button class="btn-skip" id="skipBtn" aria-label="Skip onboarding">Skip</button>
+        <div class="dots" aria-hidden="true">
+          <div class="dot active" data-step="1"></div>
+          <div class="dot" data-step="2"></div>
+          <div class="dot" data-step="3"></div>
+        </div>
+        <button class="btn-next" id="nextBtn">Next</button>
+      </div>
+    </div>
+
+    <script>
+      const steps = document.querySelectorAll('.step');
+      const dots = document.querySelectorAll('.dot');
+      const nextBtn = document.getElementById('nextBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      let current = 0;
+
+      function goTo(index) {
+        steps.forEach((s, i) => s.classList.toggle('active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        current = index;
+        nextBtn.textContent = current === steps.length - 1 ? "Let's go!" : 'Next';
+      }
+
+      nextBtn.addEventListener('click', () => {
+        if (current < steps.length - 1) {
+          goTo(current + 1);
+        } else {
+          window.close();
+        }
+      });
+
+      skipBtn.addEventListener('click', () => window.close());
+    </script>
+  </body>
+</html>

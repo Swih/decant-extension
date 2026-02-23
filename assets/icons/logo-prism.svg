@@ -1,0 +1,47 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090D" />
+      <stop offset="100%" stop-color="#14141E" />
+    </linearGradient>
+    
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0080FF" />
+    </linearGradient>
+
+    <linearGradient id="neonViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B233FF" />
+      <stop offset="100%" stop-color="#FF33C4" />
+    </linearGradient>
+    
+    <filter id="glowStrong" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad2)" />
+  <rect width="508" height="508" x="2" y="2" rx="126" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4" />
+
+  <!-- The Prism Core -->
+  <g transform="translate(256, 256)">
+    <!-- Outer Hexagon bounding box -->
+    <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="4" stroke-linejoin="round"/>
+    
+    <!-- Central Diamond (The Decanter) -->
+    <polygon points="0,-160 80,0 0,160 -80,0" fill="rgba(178, 51, 255, 0.1)" stroke="url(#neonViolet)" stroke-width="8" stroke-linejoin="round" filter="url(#glowStrong)"/>
+    
+    <!-- Multiple untamed lines entering from left (Noise) -->
+    <path d="M -220 -80 L -120 -80 C -100 -80, -90 -20, -50 -30" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M -240 0 L -80 0" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M -200 80 L -110 80 C -90 80, -80 30, -50 40" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Single concentrated laser exiting to right (Clean Data / AI Ready) -->
+    <line x1="80" y1="0" x2="240" y2="0" stroke="url(#neonCyan)" stroke-width="16" stroke-linecap="round" filter="url(#glowStrong)"/>
+    
+    <!-- Core Spark -->
+    <circle cx="0" cy="0" r="20" fill="#FFF" filter="url(#glowStrong)"/>
+  </g>
+</svg>

@@ -1,0 +1,89 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A28" />
+      <stop offset="100%" stop-color="#0A0A12" />
+    </linearGradient>
+
+    <linearGradient id="dropGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="60%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+
+    <linearGradient id="bracketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0F0" />
+      <stop offset="100%" stop-color="#9090B0" />
+    </linearGradient>
+
+    <filter id="dropGlow">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feFlood flood-color="#8B5CF6" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feFlood flood-color="#FFFFFF" flood-opacity="0.15" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  
+  <!-- Subtle border -->
+  <rect width="506" height="506" x="3" y="3" rx="110" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+
+  <g transform="translate(256, 256)">
+    <!-- Left Bracket '{' — thicker, bolder, premium -->
+    <path d="M -55 -130 
+             C -90 -130, -108 -108, -108 -75 
+             L -108 -25
+             C -108 -5, -118 5, -135 5
+             C -118 5, -108 15, -108 35
+             L -108 85
+             C -108 118, -90 140, -55 140" 
+          fill="none" 
+          stroke="url(#bracketGrad)" 
+          stroke-width="28" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#subtleGlow)" />
+
+    <!-- Right Bracket '}' -->
+    <path d="M 55 -130 
+             C 90 -130, 108 -108, 108 -75 
+             L 108 -25
+             C 108 -5, 118 5, 135 5
+             C 118 5, 108 15, 108 35
+             L 108 85
+             C 108 118, 90 140, 55 140" 
+          fill="none" 
+          stroke="url(#bracketGrad)" 
+          stroke-width="28" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#subtleGlow)" />
+
+    <!-- The Pure Drop — centered, larger -->
+    <path d="M 0 -65 
+             C 0 -65, 50 20, 50 55 
+             C 50 82.6, 27.6 105, 0 105 
+             C -27.6 105, -50 82.6, -50 55 
+             C -50 20, 0 -65, 0 -65 Z" 
+          fill="url(#dropGrad)" 
+          filter="url(#dropGlow)" />
+          
+    <!-- Highlight on drop -->
+    <ellipse cx="-12" cy="60" rx="8" ry="10" fill="rgba(255,255,255,0.35)" transform="rotate(-15, -12, 60)" />
+  </g>
+</svg>

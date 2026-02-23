@@ -1,0 +1,62 @@
+import prettier from 'eslint-config-prettier';
+
+export default [
+  {
+    files: ['src/**/*.js', 'tests/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2025,
+      sourceType: 'module',
+      globals: {
+        chrome: 'readonly',
+        navigator: 'readonly',
+        document: 'readonly',
+        window: 'readonly',
+        self: 'readonly',
+        location: 'readonly',
+        URL: 'readonly',
+        Blob: 'readonly',
+        DOMParser: 'readonly',
+        HTMLElement: 'readonly',
+        customElements: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        clearTimeout: 'readonly',
+        console: 'readonly',
+        crypto: 'readonly',
+        requestIdleCallback: 'readonly',
+        CustomEvent: 'readonly',
+        Event: 'readonly',
+        KeyboardEvent: 'readonly',
+        MouseEvent: 'readonly',
+        MutationObserver: 'readonly',
+        fetch: 'readonly',
+        AbortController: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-undef': 'error',
+      'no-eval': 'error',
+      'no-implied-eval': 'error',
+      'no-new-func': 'error',
+      'prefer-const': 'warn',
+      'no-var': 'error',
+      eqeqeq: ['error', 'always'],
+      'no-throw-literal': 'error',
+    },
+  },
+  {
+    files: ['tests/**/*.js'],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+      },
+    },
+  },
+  prettier,
+];

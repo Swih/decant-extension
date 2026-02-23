@@ -1,0 +1,134 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Decant the web. Extract pure, AI-ready content from any page — Markdown, JSON, MCP — one click.",
+    "description": "Extension description"
+  },
+  "cmdExtract": {
+    "message": "Extract page content",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractCopy": {
+    "message": "Extract and copy to clipboard",
+    "description": "Keyboard shortcut description"
+  },
+  "cmdExtractSave": {
+    "message": "Extract and save to file",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Current page",
+    "description": "Popup section title"
+  },
+  "btnExtract": {
+    "message": "Extract Content",
+    "description": "Main extract button"
+  },
+  "btnCopy": {
+    "message": "Copy",
+    "description": "Copy button"
+  },
+  "btnSave": {
+    "message": "Save",
+    "description": "Save/download button"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Markdown format label"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "JSON format label"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "MCP format label"
+  },
+  "optImages": {
+    "message": "Include images",
+    "description": "Option to include images"
+  },
+  "optTables": {
+    "message": "Detect tables",
+    "description": "Option to detect tables"
+  },
+  "optSmartExtract": {
+    "message": "Extract emails/dates",
+    "description": "Option for smart extraction"
+  },
+  "optFullPage": {
+    "message": "Full page (vs Reader)",
+    "description": "Option for full page extraction"
+  },
+  "recentHistory": {
+    "message": "Recent history",
+    "description": "History section title"
+  },
+  "feedback": {
+    "message": "Feedback",
+    "description": "Feedback link"
+  },
+  "rate": {
+    "message": "Rate",
+    "description": "Rate link"
+  },
+  "toastCopied": {
+    "message": "Copied to clipboard!",
+    "description": "Toast when content is copied"
+  },
+  "toastSaved": {
+    "message": "File saved!",
+    "description": "Toast when file is saved"
+  },
+  "toastError": {
+    "message": "Extraction failed",
+    "description": "Toast on error"
+  },
+  "words": {
+    "message": "words",
+    "description": "Word count label"
+  },
+  "images": {
+    "message": "images",
+    "description": "Image count label"
+  },
+  "feedbackTitle": {
+    "message": "How was this extraction?",
+    "description": "Feedback widget title"
+  },
+  "feedbackPlaceholder": {
+    "message": "Any thoughts? (optional)",
+    "description": "Feedback textarea placeholder"
+  },
+  "feedbackSend": {
+    "message": "Send",
+    "description": "Feedback send button"
+  },
+  "ratingTitle": {
+    "message": "Enjoying Decant?",
+    "description": "Rating prompt title"
+  },
+  "ratingBody": {
+    "message": "Your review helps us reach more users!",
+    "description": "Rating prompt body"
+  },
+  "ratingYes": {
+    "message": "Rate on Chrome Store",
+    "description": "Rating accept button"
+  },
+  "ratingLater": {
+    "message": "Maybe later",
+    "description": "Rating dismiss button"
+  },
+  "ago": {
+    "message": "ago",
+    "description": "Time ago suffix"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Settings label"
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head><title>Decant Icon Generator</title></head>
+<body>
+<h3>Decant Icon Generator</h3>
+<p>Right-click each canvas and "Save image as..." to export the icon.</p>
+<div id="icons"></div>
+<script>
+const sizes = [16, 32, 48, 128];
+
+function drawIcon(ctx, size) {
+  const s = size / 128; // scale factor
+
+  // Background
+  ctx.fillStyle = '#0F0F14';
+  ctx.beginPath();
+  ctx.arc(64 * s, 64 * s, 60 * s, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Border glow
+  ctx.strokeStyle = '#8B5CF6';
+  ctx.lineWidth = 2 * s;
+  ctx.globalAlpha = 0.3;
+  ctx.beginPath();
+  ctx.arc(64 * s, 64 * s, 59 * s, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  // Main diamond / layer shape
+  const gradient = ctx.createLinearGradient(28 * s, 24 * s, 100 * s, 62 * s);
+  gradient.addColorStop(0, '#8B5CF6');
+  gradient.addColorStop(1, '#06B6D4');
+
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.moveTo(64 * s, 24 * s);
+  ctx.lineTo(28 * s, 44 * s);
+  ctx.lineTo(64 * s, 62 * s);
+  ctx.lineTo(100 * s, 44 * s);
+  ctx.closePath();
+  ctx.fill();
+
+  // Middle layer
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 4 * s;
+  ctx.globalAlpha = 0.75;
+  ctx.beginPath();
+  ctx.moveTo(28 * s, 68 * s);
+  ctx.lineTo(64 * s, 86 * s);
+  ctx.lineTo(100 * s, 68 * s);
+  ctx.stroke();
+
+  // Bottom layer
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.moveTo(28 * s, 82 * s);
+  ctx.lineTo(64 * s, 100 * s);
+  ctx.lineTo(100 * s, 82 * s);
+  ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  // Spark
+  ctx.fillStyle = '#06B6D4';
+  ctx.globalAlpha = 0.8;
+  ctx.beginPath();
+  ctx.arc(92 * s, 36 * s, 3 * s, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+}
+
+const container = document.getElementById('icons');
+sizes.forEach(size => {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  canvas.style.border = '1px solid #333';
+  canvas.style.margin = '8px';
+  canvas.style.background = '#1a1a1a';
+  const ctx = canvas.getContext('2d');
+  drawIcon(ctx, size);
+
+  const label = document.createElement('div');
+  label.textContent = `${size}x${size} — icon-${size}.png`;
+  label.style.fontSize = '12px';
+  label.style.color = '#666';
+
+  const wrap = document.createElement('div');
+  wrap.style.display = 'inline-block';
+  wrap.style.textAlign = 'center';
+  wrap.style.margin = '12px';
+  wrap.appendChild(canvas);
+  wrap.appendChild(label);
+  container.appendChild(wrap);
+});
+</script>
+</body>
+</html>

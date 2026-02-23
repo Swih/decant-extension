@@ -1,0 +1,134 @@
+{
+  "extName": {
+    "message": "Decant",
+    "description": "Nom de l'extension"
+  },
+  "extDescription": {
+    "message": "Decantez le web. Extrayez le contenu pur de n'importe quelle page — Markdown, JSON, MCP — en un clic.",
+    "description": "Description de l'extension"
+  },
+  "cmdExtract": {
+    "message": "Extraire le contenu de la page",
+    "description": "Description du raccourci clavier"
+  },
+  "cmdExtractCopy": {
+    "message": "Extraire et copier dans le presse-papier",
+    "description": "Description du raccourci clavier"
+  },
+  "cmdExtractSave": {
+    "message": "Extraire et sauvegarder en fichier",
+    "description": "Description du raccourci clavier"
+  },
+  "popupTitle": {
+    "message": "Page actuelle",
+    "description": "Titre section popup"
+  },
+  "btnExtract": {
+    "message": "Extraire le contenu",
+    "description": "Bouton principal d'extraction"
+  },
+  "btnCopy": {
+    "message": "Copier",
+    "description": "Bouton copier"
+  },
+  "btnSave": {
+    "message": "Sauver",
+    "description": "Bouton sauvegarder"
+  },
+  "formatMarkdown": {
+    "message": "Markdown",
+    "description": "Label format Markdown"
+  },
+  "formatJSON": {
+    "message": "JSON",
+    "description": "Label format JSON"
+  },
+  "formatMCP": {
+    "message": "MCP",
+    "description": "Label format MCP"
+  },
+  "optImages": {
+    "message": "Inclure les images",
+    "description": "Option inclure les images"
+  },
+  "optTables": {
+    "message": "Detecter les tableaux",
+    "description": "Option detection des tableaux"
+  },
+  "optSmartExtract": {
+    "message": "Extraire emails/dates",
+    "description": "Option extraction intelligente"
+  },
+  "optFullPage": {
+    "message": "Page entiere (vs Reader)",
+    "description": "Option page entiere"
+  },
+  "recentHistory": {
+    "message": "Historique recent",
+    "description": "Titre section historique"
+  },
+  "feedback": {
+    "message": "Feedback",
+    "description": "Lien feedback"
+  },
+  "rate": {
+    "message": "Noter",
+    "description": "Lien notation"
+  },
+  "toastCopied": {
+    "message": "Copie dans le presse-papier !",
+    "description": "Toast quand le contenu est copie"
+  },
+  "toastSaved": {
+    "message": "Fichier sauvegarde !",
+    "description": "Toast quand le fichier est sauvegarde"
+  },
+  "toastError": {
+    "message": "Echec de l'extraction",
+    "description": "Toast en cas d'erreur"
+  },
+  "words": {
+    "message": "mots",
+    "description": "Label compteur de mots"
+  },
+  "images": {
+    "message": "images",
+    "description": "Label compteur d'images"
+  },
+  "feedbackTitle": {
+    "message": "Comment etait cette extraction ?",
+    "description": "Titre widget feedback"
+  },
+  "feedbackPlaceholder": {
+    "message": "Des remarques ? (optionnel)",
+    "description": "Placeholder textarea feedback"
+  },
+  "feedbackSend": {
+    "message": "Envoyer",
+    "description": "Bouton envoyer feedback"
+  },
+  "ratingTitle": {
+    "message": "Vous aimez Decant ?",
+    "description": "Titre prompt notation"
+  },
+  "ratingBody": {
+    "message": "Votre avis nous aide a atteindre plus d'utilisateurs !",
+    "description": "Corps prompt notation"
+  },
+  "ratingYes": {
+    "message": "Noter sur le Chrome Store",
+    "description": "Bouton accepter notation"
+  },
+  "ratingLater": {
+    "message": "Plus tard",
+    "description": "Bouton refuser notation"
+  },
+  "ago": {
+    "message": "il y a",
+    "description": "Suffixe temps ecoule"
+  },
+  "settings": {
+    "message": "Parametres",
+    "description": "Label parametres"
+  }
+}

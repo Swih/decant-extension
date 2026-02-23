@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Decant — Logo Final</title>
+  <style>
+    :root {
+      --bg: #0A0A12;
+      --card-bg: #1A1A28;
+      --text: #E8E8ED;
+      --muted: #8B8B9E;
+      --accent: #8B5CF6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      font-weight: 200;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1.1em;
+      margin-bottom: 60px;
+    }
+
+    .hero {
+      margin-bottom: 60px;
+    }
+
+    .hero img {
+      width: 256px;
+      height: 256px;
+      border-radius: 48px;
+      box-shadow: 0 20px 80px rgba(139, 92, 246, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .sizes-label {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.75em;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .sizes {
+      display: flex;
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .size-item img {
+      border-radius: 4px;
+      image-rendering: pixelated;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .size-item span {
+      color: var(--muted);
+      font-size: 0.8em;
+      font-family: monospace;
+    }
+
+    .svg-section {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .svg-section h3 {
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 0.9em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .svg-section img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Decant</h1>
+  <p class="tagline">{ Séparer le pur de l'impur }</p>
+
+  <div class="hero">
+    <img src="icon-128.png" alt="Decant Logo 128px" />
+  </div>
+
+  <p class="sizes-label">Toutes les tailles d'icônes</p>
+  <div class="sizes">
+    <div class="size-item">
+      <img src="icon-128.png" width="128" height="128" alt="128px" />
+      <span>128×128</span>
+    </div>
+    <div class="size-item">
+      <img src="icon-48.png" width="48" height="48" alt="48px" />
+      <span>48×48</span>
+    </div>
+    <div class="size-item">
+      <img src="icon-32.png" width="32" height="32" alt="32px" />
+      <span>32×32</span>
+    </div>
+    <div class="size-item">
+      <img src="icon-16.png" width="16" height="16" alt="16px" />
+      <span>16×16</span>
+    </div>
+  </div>
+
+  <div class="svg-section">
+    <h3>Version SVG vectorielle</h3>
+    <img src="../logo.svg" alt="Decant Logo SVG" />
+  </div>
+</body>
+
+</html>
