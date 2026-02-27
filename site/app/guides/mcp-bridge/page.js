@@ -15,13 +15,13 @@ export default function McpBridgePage() {
         enabling any MCP-compatible tool to read and process any web page you can see in Chrome.
       </p>
       <TipBox>
-        <p>MCP Bridge works with Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT Desktop, and any MCP-compatible client.</p>
+        <p>MCP Bridge works with Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT Desktop, VS Code, Gemini CLI, Mistral Vibe, and any MCP-compatible client.</p>
       </TipBox>
 
       <h2>Prerequisites</h2>
       <ul>
         <li>Node.js 18+ installed</li>
-        <li>An MCP-compatible client (Claude Desktop, Cursor, Windsurf, ChatGPT Desktop, Claude Code, etc.)</li>
+        <li>An MCP-compatible client (see list below)</li>
         <li>Decant extension installed in Chrome</li>
       </ul>
 
@@ -36,23 +36,7 @@ export default function McpBridgePage() {
         </li>
         <li>
           <strong>Configure your AI client</strong>
-          <p>Add Decant to your MCP configuration. The JSON config is the same for all clients:</p>
-          <pre><code>{`{
-  "mcpServers": {
-    "decant": {
-      "command": "decant-mcp"
-    }
-  }
-}`}</code></pre>
-          <h4>Where to add this config:</h4>
-          <ul>
-            <li><strong>Claude Desktop</strong> &mdash; Settings &rarr; Developer &rarr; Edit Config (<code>claude_desktop_config.json</code>)</li>
-            <li><strong>Claude Code</strong> &mdash; <code>~/.claude/settings.json</code> or project <code>.claude/settings.json</code></li>
-            <li><strong>Cursor</strong> &mdash; Settings &rarr; MCP Servers &rarr; Add Server</li>
-            <li><strong>Windsurf</strong> &mdash; Settings &rarr; MCP &rarr; Add Configuration</li>
-            <li><strong>ChatGPT Desktop</strong> &mdash; Settings &rarr; Beta &rarr; MCP Servers</li>
-          </ul>
-          <p>Restart your AI client after saving.</p>
+          <p>Pick your client below and add the Decant MCP server to its configuration.</p>
         </li>
         <li>
           <strong>Enable in Decant</strong>
@@ -63,6 +47,89 @@ export default function McpBridgePage() {
           <p>A green dot means connected. A grey dot means disconnected.</p>
         </li>
       </ol>
+
+      <h2>Client Configuration</h2>
+
+      <h3>Claude Desktop</h3>
+      <p>
+        Add to your Claude Desktop config file (<code>claude_desktop_config.json</code>):
+        Settings &rarr; Developer &rarr; Edit Config.
+      </p>
+      <pre><code>{`{
+  "mcpServers": {
+    "decant": {
+      "command": "decant-mcp"
+    }
+  }
+}`}</code></pre>
+
+      <h3>Claude Code</h3>
+      <p>Run the following command:</p>
+      <pre><code>claude mcp add decant -- decant-mcp</code></pre>
+      <p>Or add manually to <code>~/.claude/settings.json</code>:</p>
+      <pre><code>{`{
+  "mcpServers": {
+    "decant": {
+      "command": "decant-mcp"
+    }
+  }
+}`}</code></pre>
+
+      <h3>Cursor</h3>
+      <p>Settings &rarr; MCP Servers &rarr; Add Server. Use this config:</p>
+      <pre><code>{`{
+  "mcpServers": {
+    "decant": {
+      "command": "decant-mcp"
+    }
+  }
+}`}</code></pre>
+
+      <h3>Windsurf</h3>
+      <p>Settings &rarr; MCP &rarr; Add Configuration:</p>
+      <pre><code>{`{
+  "mcpServers": {
+    "decant": {
+      "command": "decant-mcp"
+    }
+  }
+}`}</code></pre>
+
+      <h3>ChatGPT Desktop</h3>
+      <p>Settings &rarr; Apps and connectors &rarr; Advanced settings &rarr; enable Developer mode &rarr; Connectors &rarr; Add new connector.</p>
+      <TipBox>
+        <p>ChatGPT MCP support requires a paid plan (Plus, Pro, Team, or Enterprise).</p>
+      </TipBox>
+
+      <h3>VS Code</h3>
+      <p>Add to your VS Code <code>settings.json</code>:</p>
+      <pre><code>{`{
+  "mcp": {
+    "servers": {
+      "decant": {
+        "command": "decant-mcp"
+      }
+    }
+  }
+}`}</code></pre>
+
+      <h3>Gemini CLI</h3>
+      <p>Add to <code>~/.gemini/settings.json</code>:</p>
+      <pre><code>{`{
+  "mcpServers": {
+    "decant": {
+      "command": "npx",
+      "args": ["decant-mcp"]
+    }
+  }
+}`}</code></pre>
+
+      <h3>Mistral (Le Chat / Vibe)</h3>
+      <p>Edit your Vibe config (<code>~/.vibe/config.toml</code>) and add:</p>
+      <pre><code>{`[[mcp_servers]]
+name = "decant"
+transport = "stdio"
+command = "decant-mcp"`}</code></pre>
 
       <h2>Available Tools</h2>
       <table className="tools-table">

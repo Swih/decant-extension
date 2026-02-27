@@ -1,0 +1,128 @@
+Extract clean content from any web page in one click.
+
+Decant strips away the noise — ads, navigation, popups, cookie banners — and gives you the pure content of any web page in Markdown, structured JSON, or MCP format. Built for AI workflows, research, note-taking, and data collection. 100% local, nothing leaves your device.
+
+——————————————————
+
+WHAT DECANT DOES
+
+Decant extracts the main content from any web page and converts it into clean, usable formats. It uses Mozilla Readability (the same engine behind Firefox Reader View) to detect the article body, then converts it using Turndown for Markdown output.
+
+• Extracts articles, blog posts, documentation, wiki pages, news articles
+• Converts HTML tables to proper Markdown or JSON tables
+• Detects structured data: emails, dates, prices, phone numbers
+• Preserves headings, links, images, and formatting
+• Works on any website you can open in Chrome
+
+WHAT DECANT DOES NOT DO
+
+• Does NOT crawl or scrape multiple pages — it extracts one page at a time (or all open tabs via Batch)
+• Does NOT send data to any server — all processing is 100% local in your browser
+• Does NOT require an account, API key, or subscription
+• Does NOT modify web pages — it only reads and converts content
+• Does NOT work on Chrome internal pages (chrome://), the Chrome Web Store, or PDF files
+
+——————————————————
+
+THREE OUTPUT FORMATS
+
+Markdown
+Clean, readable text with headings, links, and images preserved. Ready for Obsidian, Notion, Logseq, or any Markdown editor.
+
+JSON
+Structured output with title, URL, content, word count, image count, detected tables, emails, dates, and prices. Ideal for developers, automation pipelines, and data analysis.
+
+MCP (Model Context Protocol)
+AI-optimized format with source URL, word count, token estimate, and structured metadata. Designed for feeding content directly into Claude, ChatGPT, Cursor, Windsurf, and other AI tools.
+
+——————————————————
+
+MCP BRIDGE — CONNECT YOUR AI ASSISTANT TO THE WEB
+
+Decant includes an MCP server that lets AI assistants extract web page content directly from your Chrome browser. Your AI can read any page you can see.
+
+Compatible with:
+• Claude Desktop & Claude Code (Anthropic)
+• ChatGPT Desktop (OpenAI)
+• Cursor (AI code editor)
+• Windsurf (AI code editor)
+• VS Code (GitHub Copilot)
+• Gemini CLI (Google)
+• Mistral Le Chat & Vibe
+• Any MCP-compatible client
+
+Available MCP tools:
+• list_tabs — List all open Chrome tabs
+• extract_active_tab — Extract content from the current tab
+• extract_tab — Extract content from a specific tab by ID
+• extract_url — Open a URL, extract content, then close the tab
+
+Setup: install decant-mcp via npm, add to your AI client config, enable in Decant popup. Full guide at decant-extension.vercel.app/guides/mcp-bridge
+
+——————————————————
+
+EXTRACTION TOOLS
+
+Smart Extract
+One-click extraction using Mozilla Readability. Strips ads, navigation, sidebars, footers, and clutter. Keeps only the content you need.
+
+DOM Picker
+Visual element selector — hover over any part of a page, click to extract just that element. Perfect for extracting a specific table, a comment thread, a sidebar, or any section.
+
+Batch Extraction
+Extract all open tabs in the current window at once. Results are combined into a single downloadable file. Ideal for research sessions.
+
+Right-Click Context Menu
+• Extract selection — extract only highlighted text
+• Extract full page — extract the entire page
+• Copy for AI — extract and copy in MCP format, optimized for AI assistants
+
+——————————————————
+
+KEYBOARD SHORTCUTS
+
+• Ctrl+Shift+E — Extract page content
+• Ctrl+Shift+C — Extract and copy to clipboard
+• Ctrl+Shift+S — Extract and save to file
+• Ctrl+Shift+P — Open DOM Picker
+(On macOS, replace Ctrl with Cmd. Customizable via chrome://extensions/shortcuts)
+
+——————————————————
+
+PERFECT FOR
+
+• AI & LLM users — Feed clean web content to Claude, ChatGPT, Gemini, or any AI tool
+• Researchers & academics — Archive articles and papers in structured, searchable formats
+• Developers — Extract structured data for testing, scraping, or API development
+• Content creators — Quickly grab and repurpose web content
+• Students — Save lecture notes, articles, and documentation in clean Markdown
+• Data analysts — Extract tables and structured data from any web page
+• Journalists — Archive and organize web sources
+
+——————————————————
+
+PRIVACY & SECURITY
+
+• 100% local processing — absolutely no data is sent to any server, ever
+• No accounts, no sign-up, no login required
+• No analytics, no tracking, no telemetry
+• All data stored locally in chrome.storage.local
+• Full GDPR compliance: export all your data as JSON, or delete everything in one click
+• Open source — verify the code yourself
+
+Permissions explained:
+• activeTab: read the page you're currently viewing (only when you click Decant)
+• storage: save your preferences and extraction history locally
+• clipboardWrite: copy extracted content to your clipboard
+• Optional permissions (tabs, all URLs): only requested when you enable MCP Bridge or Batch extraction
+
+——————————————————
+
+16 LANGUAGES
+
+English, French, German, Spanish, Italian, Portuguese, Japanese, Korean, Chinese (Simplified), Chinese (Traditional), Arabic (RTL), Hindi, Indonesian, Russian, Turkish, Vietnamese.
+
+——————————————————
+
+Free & open source. Made by Zoplop Studio.
+Website: decant-extension.vercel.app

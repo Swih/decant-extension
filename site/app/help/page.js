@@ -102,7 +102,7 @@ export default function HelpPage() {
       <h2>Guides</h2>
       <p>Explore our in-depth guides for specific features:</p>
       <ul>
-        <li><a href="/guides/mcp-bridge">MCP Bridge Setup</a> {"—"} Connect Decant to Claude Desktop, Cursor, Windsurf, ChatGPT Desktop, and more</li>
+        <li><a href="/guides/mcp-bridge">MCP Bridge Setup</a> {"—"} Connect Decant to Claude, ChatGPT, Cursor, Windsurf, VS Code, Gemini, Mistral, and more</li>
         <li><a href="/guides/extraction">Manual Extraction</a> {"—"} Master the extraction workflow and output formats</li>
         <li><a href="/guides/selector">DOM Picker</a> {"—"} Select specific elements from any page</li>
         <li><a href="/guides/batch">Batch Extraction</a> {"—"} Extract all open tabs at once</li>

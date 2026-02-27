@@ -4,7 +4,7 @@
     "description": "Extension name (SEO-optimized for Chrome Web Store)"
   },
   "extDescription": {
-    "message": "Extract clean Markdown, JSON or MCP from any page. Connect to Claude, ChatGPT, Cursor & Windsurf via MCP. 100% local.",
+    "message": "Extract clean Markdown, JSON or MCP from any page. Connect Claude, ChatGPT, Cursor, Gemini, VS Code & more via MCP.",
     "description": "Extension description (132 chars max for Chrome Web Store)"
   },
   "cmdExtract": {

@@ -4,7 +4,7 @@
     "description": "Nom de l'extension (SEO Chrome Web Store)"
   },
   "extDescription": {
-    "message": "Extrayez du Markdown, JSON ou MCP depuis toute page. Connectez Claude, ChatGPT, Cursor & Windsurf via MCP. 100% local.",
+    "message": "Extrayez du Markdown, JSON ou MCP depuis toute page. Connectez Claude, ChatGPT, Cursor, Gemini, VS Code & plus via MCP.",
     "description": "Description de l'extension (132 chars max Chrome Web Store)"
   },
   "cmdExtract": {
