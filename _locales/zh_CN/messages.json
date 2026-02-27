@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - 网页提取 & MCP Bridge AI工具",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "提炼网页精华。一键从任意页面提取纯净、AI就绪的内容 — Markdown、JSON、MCP。",
-    "description": "Extension description"
+    "message": "从任意网页提取干净的Markdown。通过Model Context Protocol（MCP）将Chrome标签页直接连接到Claude Desktop。",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "提取页面内容",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "隐私政策"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "首次使用时需要额外权限。"
+  },
+  "batchPermDenied": {
+    "message": "权限被拒绝——批量提取需要访问所有标签页。"
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "已连接"
+  },
+  "mcpDisconnected": {
+    "message": "离线"
+  },
+  "mcpPermDenied": {
+    "message": "权限被拒绝 — MCP 桥接需要访问所有标签页。"
   }
 }

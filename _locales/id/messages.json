@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - Ekstraktor Web & MCP Bridge untuk AI",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "Saring web. Ekstrak konten murni dan siap AI dari halaman mana pun — Markdown, JSON, MCP — satu klik.",
-    "description": "Extension description"
+    "message": "Ekstrak Markdown bersih dari halaman web mana pun. Hubungkan tab Chrome ke Claude Desktop via Model Context Protocol (MCP).",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "Ekstrak konten halaman",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "Kebijakan Privasi"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "Memerlukan izin tambahan pada penggunaan pertama."
+  },
+  "batchPermDenied": {
+    "message": "Izin ditolak — ekstraksi batch memerlukan akses ke semua tab."
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "Terhubung"
+  },
+  "mcpDisconnected": {
+    "message": "Offline"
+  },
+  "mcpPermDenied": {
+    "message": "Izin ditolak — jembatan MCP memerlukan akses ke semua tab."
   }
 }

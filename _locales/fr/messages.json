@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Nom de l'extension"
+    "message": "Decant - Extracteur Web & MCP Bridge pour l'IA",
+    "description": "Nom de l'extension (SEO Chrome Web Store)"
   },
   "extDescription": {
-    "message": "Décantez le web. Extrayez le contenu pur de n'importe quelle page — Markdown, JSON, MCP — en un clic.",
-    "description": "Description de l'extension"
+    "message": "Extrayez du Markdown propre depuis n'importe quelle page. Connectez vos onglets Chrome à Claude Desktop via le protocole MCP.",
+    "description": "Description de l'extension (132 chars max Chrome Web Store)"
   },
   "cmdExtract": {
     "message": "Extraire le contenu de la page",
@@ -150,6 +150,10 @@
   "pageReadError": {
     "message": "Impossible de lire la page",
     "description": "Error reading page"
+  },
+  "pageNotExtractable": {
+    "message": "Cette page ne peut pas être extraite (sécurité Chrome).",
+    "description": "Error when trying to extract on a restricted page"
   },
   "historyEmpty": {
     "message": "Aucune extraction",
@@ -387,5 +391,51 @@
   },
   "optionsPrivacy": {
     "message": "Politique de confidentialité"
+  },
+  "cmdDomPicker": {
+    "message": "Sélectionner un élément à extraire"
+  },
+  "ctxDomPicker": {
+    "message": "Sélectionner un élément à extraire"
+  },
+  "btnPickerTooltip": {
+    "message": "Sélectionner un élément précis (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Extraction par lot"
+  },
+  "batchInfo": {
+    "message": "Extraire tous les onglets ouverts en une fois."
+  },
+  "batchAll": {
+    "message": "Tous les onglets"
+  },
+  "batchDownload": {
+    "message": "Tout télécharger"
+  },
+  "batchDone": {
+    "message": "onglets extraits"
+  },
+  "batchNoTabs": {
+    "message": "Aucun onglet extractible trouvé"
+  },
+  "batchNoResults": {
+    "message": "Aucun contenu extrait"
+  },
+  "batchPermHint": {
+    "message": "Nécessite une permission supplémentaire à la première utilisation."
+  },
+  "batchPermDenied": {
+    "message": "Permission refusée — l'extraction par lot nécessite l'accès à tous les onglets."
+  },
+  "mcpConnected": {
+    "message": "Connecté"
+  },
+  "mcpDisconnected": {
+    "message": "Hors ligne"
+  },
+  "mcpPermDenied": {
+    "message": "Permission refusée — le pont MCP nécessite l'accès à tous les onglets.",
+    "description": "MCP bridge permission denied toast"
   }
 }

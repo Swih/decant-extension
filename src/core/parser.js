@@ -51,8 +51,8 @@ export function extract(options) {
     article = {
       title: pageTitle || doc.title,
       content: contentDoc.body.innerHTML,
-      textContent: contentDoc.body.textContent,
-      length: contentDoc.body.textContent.length,
+      textContent: normalizeWhitespace(extractTextContent(contentDoc.body)),
+      length: extractTextContent(contentDoc.body).length,
       siteName: extractSiteName(doc, url),
       excerpt: extractExcerpt(doc),
     };
@@ -70,11 +70,14 @@ export function extract(options) {
       article = {
         title: pageTitle || doc.title,
         content: contentDoc.body.innerHTML,
-        textContent: contentDoc.body.textContent,
-        length: contentDoc.body.textContent.length,
+        textContent: normalizeWhitespace(extractTextContent(contentDoc.body)),
+        length: extractTextContent(contentDoc.body).length,
         siteName: extractSiteName(doc, url),
         excerpt: extractExcerpt(doc),
       };
+    } else {
+      // Normalize whitespace even from Readability output
+      article.textContent = normalizeWhitespace(article.textContent);
     }
   }
 
@@ -130,7 +133,8 @@ export function extract(options) {
 
 function cleanDOM(doc) {
   const clone = doc.cloneNode(true);
-  // Remove scripts, styles, and non-content elements
+
+  // ── Phase 1: Remove non-content elements by selector ──
   // Comprehensive list based on competitive analysis of web extraction tools
   const removeSelectors = [
     // Core non-content
@@ -147,9 +151,26 @@ function cleanDOM(doc) {
     '[role="navigation"]',
     '[role="banner"]',
     '[role="contentinfo"]',
+    '[role="search"]',
+    '[role="menu"]',
+    '[role="menubar"]',
+    '[role="toolbar"]',
+    '[role="complementary"]',
+    '[role="dialog"]',
+    '[role="alertdialog"]',
+    '[role="directory"]',
     '.breadcrumb',
     '.breadcrumbs',
     '.pagination',
+
+    // Buttons & form controls (interactive UI, never content)
+    'button',
+    '[role="button"]',
+    'input',
+    'select',
+    'textarea',
+    'fieldset',
+    '[type="search"]',
 
     // Ads & tracking
     '.ad',
@@ -202,21 +223,134 @@ function cleanDOM(doc) {
     '[class*="recommended"]',
     '.related-posts',
 
-    // Hidden elements
+    // Hidden & accessibility-only elements
     '[aria-hidden="true"]',
-
-    // Print-only
     '.print-only',
     '.screen-reader-text',
+    '.sr-only',
+    '.visually-hidden',
+    '.noprint',
+
+    // Edit links & action controls (CMSes / wikis)
+    '.edit-link',
+    '.edit-section',
+    '.mw-editsection',
+    'a[href*="action=edit"]',
+
+    // Table of contents
+    '#toc',
+    '.toc',
+
+    // Skip / accessibility nav
+    '.skip-link',
+    '.mw-jump-link',
+    '[class*="skip-to"]',
+
+    // MediaWiki-specific noise
+    '.navbox',
+    '.navbox-inner',
+    '.catlinks',
+    '.mw-indicators',
+    '.mw-empty-elt',
+    '.sistersitebox',
+    '.portalbox',
+    '.metadata',
+    '.hatnote',
+    '.ambox',
+    '.infobox',
+    '.mw-authority-control',
+    '#mw-navigation',
+    '#mw-panel',
+
+    // WordPress-specific noise
+    '.wp-block-latest-comments',
+    '.wp-block-archives',
+    '.wp-block-calendar',
+    '.wp-block-tag-cloud',
+
+    // Newsletter / signup / promo
+    '[class*="newsletter"]',
+    '[class*="subscribe"]',
+    '[class*="signup"]',
+    '[class*="promo"]',
+
+    // Utility / back-to-top
+    '.back-to-top',
+    '[class*="backtotop"]',
+    '[class*="go-to-top"]',
   ];
+
   for (const sel of removeSelectors) {
     try {
-      clone.querySelectorAll(sel).forEach((el) => el.remove());
+      clone.querySelectorAll(sel).forEach((el) => {
+        // Never remove <html> or <body>
+        if (el === clone.documentElement || el === clone.body) return;
+        el.remove();
+      });
     } catch {
       /* skip invalid selectors in some DOMs */
     }
   }
+
+  // ── Phase 2: Remove empty container elements (2 passes for nested cleanup) ──
+  const emptyCheckTags = 'div, section, span, p, li, ul, ol, dl, dd, dt, figure, figcaption, aside, header, footer, article';
+  for (let pass = 0; pass < 2; pass++) {
+    clone.querySelectorAll(emptyCheckTags).forEach((el) => {
+      if (el === clone.documentElement || el === clone.body) return;
+      // Keep elements that contain media even if no text
+      if (!el.textContent.trim() && !el.querySelector('img, video, audio, canvas, picture')) {
+        el.remove();
+      }
+    });
+  }
+
   return clone;
+}
+
+/**
+ * Robustly extract text from a DOM tree by injecting spaces/newlines
+ * after block elements, preventing them from being glued together.
+ * Especially critical for div-heavy SPAs like Twitter/X.
+ */
+function extractTextContent(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return node.textContent;
+  }
+  if (node.nodeType !== Node.ELEMENT_NODE) {
+    return '';
+  }
+
+  const tag = node.tagName.toLowerCase();
+  const isBlock = /^(div|p|article|section|header|footer|aside|nav|li|h[1-6]|blockquote|pre|table|tr|td|th)$/.test(tag);
+
+  let text = '';
+  for (const child of node.childNodes) {
+    text += extractTextContent(child);
+  }
+
+  // Add a space or newline after block elements if there isn't one already
+  if (isBlock && text.trim().length > 0) {
+    text += '\n';
+  }
+
+  return text;
+}
+
+/**
+ * Aggressive whitespace normalization for clean text output.
+ * Converts tabs/nbsp to spaces, collapses runs, limits blank lines.
+ */
+function normalizeWhitespace(text) {
+  if (!text) return '';
+  return text
+    .replace(/\t/g, ' ')                // Tabs → single space
+    .replace(/\xA0/g, ' ')              // NBSP → space
+    .replace(/\u200B/g, '')             // Zero-width space → remove
+    .replace(/\uFEFF/g, '')             // BOM → remove
+    .replace(/ {2,}/g, ' ')             // Collapse multiple spaces
+    .replace(/^ +| +$/gm, '')          // Trim each line
+    .replace(/\n{3,}/g, '\n\n')         // Max 1 blank line (2 newlines)
+    .trim();
 }
 
 function extractSiteName(doc, url) {

@@ -46,6 +46,13 @@
         margin-top: 28px;
         margin-bottom: 12px;
       }
+      h3 {
+        font-size: 15px;
+        font-weight: 600;
+        color: #b0b0c0;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
       p,
       li {
         font-size: 14px;
@@ -100,7 +107,7 @@
   <body>
     <div class="container">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: February 23, 2026</p>
+      <p class="updated">Last updated: February 27, 2026</p>
 
       <div class="highlight">
         <p>
@@ -141,6 +148,7 @@
         </li>
         <li><strong>Usage counters:</strong> extraction count and feedback interaction dates</li>
         <li><strong>Error logs:</strong> local error records for debugging (last 50 entries)</li>
+        <li><strong>MCP Bridge state:</strong> whether the MCP Bridge toggle is enabled or disabled</li>
       </ul>
       <p>
         This data <strong>never leaves your device</strong>. It is stored locally and can be
@@ -148,6 +156,8 @@
       </p>
 
       <h2>4. Permissions Explained</h2>
+
+      <h3>4a. Required Permissions</h3>
       <ul>
         <li>
           <strong><code>activeTab</code>:</strong> Access the content of the currently active tab
@@ -170,14 +180,46 @@
           extraction
         </li>
         <li>
-          <strong><code>alarms</code>:</strong> Schedule periodic checks for the optional feedback
-          prompt (no network calls)
+          <strong><code>alarms</code>:</strong> Schedule periodic checks for MCP Bridge reconnection
+          and the optional feedback prompt (no network calls beyond localhost)
         </li>
         <li>
           <strong><code>scripting</code>:</strong> Inject the content extraction script into the
           active tab when needed
         </li>
+        <li>
+          <strong><code>offscreen</code>:</strong> Create an offscreen document for HTML parsing
+          using Mozilla Readability — runs entirely in the background with no visible UI
+        </li>
       </ul>
+
+      <h3>4b. MCP Bridge — Optional Permissions</h3>
+      <p>
+        When you enable the MCP Bridge feature in the popup, Decant requests two
+        <strong>optional permissions</strong> that are not granted by default:
+      </p>
+      <ul>
+        <li>
+          <strong><code>tabs</code>:</strong> List open tabs so that Claude Desktop can see which
+          pages are available for extraction
+        </li>
+        <li>
+          <strong><code>&lt;all_urls&gt;</code> (host permission):</strong> Allow content extraction
+          from any tab, not just the active one — required for the <code>extract_tab</code> and
+          <code>extract_url</code> MCP tools
+        </li>
+      </ul>
+      <p>
+        These permissions are <strong>only requested when you explicitly enable the MCP Bridge
+        toggle</strong>. If you decline or disable the toggle, Decant continues to work normally
+        without them.
+      </p>
+      <p>
+        The MCP Bridge communicates exclusively over a <strong>local WebSocket connection</strong>
+        (<code>ws://localhost:22816</code>). This connection stays on your machine — no data is
+        sent to external servers. The WebSocket connects the Chrome extension to a locally-running
+        MCP server process (Node.js) that communicates with Claude Desktop via stdio.
+      </p>
 
       <h2>5. Your Rights (GDPR / RGPD)</h2>
       <p>Since all data stays on your device, you have full control:</p>
@@ -227,7 +269,7 @@
         <a href="mailto:contact@zoplop.com">contact@zoplop.com</a>.
       </p>
 
-      <div class="footer">Decant v1.0.0 — Zoplop Studio — Open Source (MIT License)</div>
+      <div class="footer">Decant v2.0.0 — Zoplop Studio — Open Source (MIT License)</div>
     </div>
   </body>
 </html>

@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - 웹 추출기 & MCP Bridge AI 도구",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "웹을 정제하세요. 모든 페이지에서 순수한 AI 지원 콘텐츠를 추출 — Markdown, JSON, MCP — 원클릭으로.",
-    "description": "Extension description"
+    "message": "모든 웹페이지에서 Markdown 추출. Chrome 탭을 Model Context Protocol(MCP)로 Claude Desktop에 직접 연결.",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "페이지 콘텐츠 추출",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "개인정보 보호정책"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "처음 사용 시 추가 권한이 필요합니다."
+  },
+  "batchPermDenied": {
+    "message": "권한이 거부되었습니다 — 일괄 추출에는 모든 탭에 대한 접근이 필요합니다."
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "연결됨"
+  },
+  "mcpDisconnected": {
+    "message": "오프라인"
+  },
+  "mcpPermDenied": {
+    "message": "권한이 거부되었습니다 — MCP 브리지는 모든 탭에 대한 접근이 필요합니다."
   }
 }

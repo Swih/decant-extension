@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - Web Extractor & MCP Bridge for AI",
+    "description": "Extension name (SEO-optimized for Chrome Web Store)"
   },
   "extDescription": {
-    "message": "Decant the web. Extract pure, AI-ready content from any page — Markdown, JSON, MCP — one click.",
-    "description": "Extension description"
+    "message": "Extract clean Markdown from any webpage. Connect Chrome tabs directly to Claude Desktop via Model Context Protocol (MCP).",
+    "description": "Extension description (132 chars max for Chrome Web Store)"
   },
   "cmdExtract": {
     "message": "Extract page content",
@@ -150,6 +150,10 @@
   "pageReadError": {
     "message": "Unable to read page",
     "description": "Error reading page"
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
   },
   "historyEmpty": {
     "message": "No extractions yet",
@@ -387,5 +391,64 @@
   },
   "optionsPrivacy": {
     "message": "Privacy Policy"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract",
+    "description": "DOM Picker keyboard shortcut description"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)",
+    "description": "DOM Picker button tooltip"
+  },
+  "batchExtract": {
+    "message": "Batch Extract",
+    "description": "Batch extract toggle label"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once.",
+    "description": "Batch extract description"
+  },
+  "batchAll": {
+    "message": "All Tabs",
+    "description": "Batch extract all tabs button"
+  },
+  "batchDownload": {
+    "message": "Download All",
+    "description": "Batch download all results button"
+  },
+  "batchDone": {
+    "message": "tabs extracted",
+    "description": "Batch extraction complete suffix"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found",
+    "description": "Batch no tabs error"
+  },
+  "batchNoResults": {
+    "message": "No content extracted",
+    "description": "Batch no results error"
+  },
+  "batchPermHint": {
+    "message": "Requires additional permission on first use.",
+    "description": "Batch permission hint in panel"
+  },
+  "batchPermDenied": {
+    "message": "Permission denied — batch extract needs access to all tabs.",
+    "description": "Batch permission denied toast"
+  },
+  "mcpConnected": {
+    "message": "Connected",
+    "description": "MCP bridge connected status"
+  },
+  "mcpDisconnected": {
+    "message": "Offline",
+    "description": "MCP bridge disconnected status"
+  },
+  "mcpPermDenied": {
+    "message": "Permission denied — MCP bridge needs access to all tabs.",
+    "description": "MCP bridge permission denied toast"
   }
 }

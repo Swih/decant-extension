@@ -295,6 +295,154 @@
   font-size: var(--font-size-xs);
 }
 
+/* ── Extract Row (Extract + Picker) ── */
+.extract-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.extract-row .extract-btn {
+  flex: 1;
+}
+
+/* ── DOM Picker Button ── */
+.picker-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.picker-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-hover);
+  color: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.15);
+}
+
+.picker-btn:active {
+  transform: scale(0.95);
+}
+
+.picker-btn.active {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.25);
+}
+
+/* ── Batch Extract ── */
+#batchSection {
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.batch-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.batch-header:hover {
+  background: var(--bg-tertiary);
+}
+
+.batch-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.batch-chevron {
+  color: var(--text-tertiary);
+  transition: transform var(--transition-fast);
+}
+
+.batch-header[aria-expanded="true"] .batch-chevron {
+  transform: rotate(180deg);
+}
+
+.batch-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md) var(--space-md);
+  border-top: 1px solid var(--border);
+  animation: slideInUp var(--transition-normal) forwards;
+}
+
+.batch-info {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  line-height: 1.4;
+  margin: 0;
+  padding-top: var(--space-sm);
+}
+
+.batch-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.batch-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.batch-btn:hover:not(:disabled) {
+  background: var(--bg-glass-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.batch-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.batch-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.batch-progress-text {
+  font-size: var(--font-size-xs);
+  color: var(--accent-primary);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
 /* ── Spinner ── */
 .spinner {
   width: 18px;
@@ -318,4 +466,118 @@
   stroke-dasharray: 24;
   stroke-dashoffset: 24;
   animation: checkmark 0.4s ease forwards;
+}
+
+/* ── MCP Bridge ── */
+.mcp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+}
+
+.mcp-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.mcp-beta {
+  font-size: 9px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.12);
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+}
+
+.mcp-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.mcp-status {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mcp-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.mcp-status.connected {
+  color: var(--success);
+}
+
+.mcp-status.connected::before {
+  background: var(--success);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+
+.mcp-status.disconnected {
+  color: var(--text-tertiary);
+}
+
+/* ── Toggle Switch ── */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  transition: all var(--transition-fast);
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--text-tertiary);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-primary);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateY(-50%) translateX(16px);
+  background: var(--accent-primary);
 }

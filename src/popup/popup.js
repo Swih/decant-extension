@@ -23,7 +23,8 @@ import {
 } from '../feedback/collector.js';
 import { trackExtraction } from '../feedback/analytics.js';
 import { applyI18n } from '../utils/i18n-apply.js';
-import { STORE_URL, isPublished } from '../utils/config.js';
+import { STORE_URL, SITE_URL, isPublished } from '../utils/config.js';
+import { isInjectableUrl } from '../utils/url.js';
 
 // ── i18n helper ──
 const msg = (key) => chrome.i18n?.getMessage(key) || key;
@@ -48,6 +49,7 @@ const wordCount = $('wordCount');
 const imageCount = $('imageCount');
 const historyList = $('historyList');
 const themeToggle = $('themeToggle');
+const helpLink = $('helpLink');
 const feedbackArea = $('feedbackArea');
 const feedbackLink = $('feedbackLink');
 const rateLink = $('rateLink');
@@ -55,11 +57,22 @@ const optImages = $('optImages');
 const optTables = $('optTables');
 const optSmartExtract = $('optSmartExtract');
 const optFullPage = $('optFullPage');
+const pickerBtn = $('pickerBtn');
+const batchToggle = $('batchToggle');
+const batchPanel = $('batchPanel');
+const batchAllBtn = $('batchAllBtn');
+const batchDownloadBtn = $('batchDownloadBtn');
+const batchProgress = $('batchProgress');
+const batchProgressText = $('batchProgressText');
+const batchProgressFill = $('batchProgressFill');
+const mcpToggle = $('mcpToggle');
+const mcpStatus = $('mcpStatus');
 
 // ── State ──
 let currentResult = null;
 let currentFormat = 'markdown';
 let cachedPageData = null;
+let batchResults = [];
 
 // ── Init ──
 async function init() {
@@ -88,6 +101,9 @@ async function init() {
   document.documentElement.dataset.theme = prefs.theme;
   updateThemeIcon(prefs.theme);
 
+  // MCP Bridge status
+  await initMcpBridge();
+
   // Get current page info
   await loadPageInfo();
 
@@ -105,6 +121,15 @@ async function loadPageInfo() {
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab) return;
+
+    if (!isInjectableUrl(tab.url)) {
+      setFavicon(tab.url);
+      pageTitle.textContent = msg('pageNotExtractable');
+      pageTitle.title = tab.url;
+      wordCount.textContent = `-- ${msg('words')}`;
+      imageCount.textContent = `-- ${msg('images')}`;
+      return;
+    }
 
     // Set favicon
     setFavicon(tab.url);
@@ -194,6 +219,11 @@ function setupEvents() {
     toast.show(msg('toastSaved'), 'success');
   });
 
+  // Help link
+  helpLink.addEventListener('click', () => {
+    chrome.tabs.create({ url: SITE_URL + '/help' });
+  });
+
   // Theme toggle
   themeToggle.addEventListener('click', async () => {
     const current = document.documentElement.dataset.theme;
@@ -216,6 +246,29 @@ function setupEvents() {
   optFullPage.addEventListener('change', () =>
     storage.setPreference('fullPage', optFullPage.checked),
   );
+
+  // MCP Bridge toggle
+  mcpToggle.addEventListener('change', handleMcpToggle);
+
+  // DOM Picker button
+  pickerBtn.addEventListener('click', handleStartPicker);
+
+  // Batch Extract toggle
+  const toggleBatch = () => {
+    const expanded = batchToggle.getAttribute('aria-expanded') === 'true';
+    batchToggle.setAttribute('aria-expanded', String(!expanded));
+    batchPanel.hidden = expanded;
+  };
+  batchToggle.addEventListener('click', toggleBatch);
+  batchToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleBatch(); }
+  });
+
+  // Batch Extract All
+  batchAllBtn.addEventListener('click', handleBatchExtract);
+
+  // Batch Download All
+  batchDownloadBtn.addEventListener('click', handleBatchDownload);
 
   // History item click
   historyList.addEventListener('click', (e) => {
@@ -275,10 +328,17 @@ async function handleExtract() {
       fullPage: optFullPage.checked,
     };
 
-    // Get raw HTML from the content script
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab) throw new Error('No active tab');
+    if (!isInjectableUrl(tab.url)) {
+      toast.show(msg('pageNotExtractable'), 'error');
+      setButtonState('error');
+      hideProgress();
+      setTimeout(() => setButtonState('default'), 2000);
+      return;
+    }
 
+    // Get raw HTML from the content script
     let pageData;
     try {
       pageData = await chrome.tabs.sendMessage(tab.id, { action: 'extract', options });
@@ -359,6 +419,167 @@ async function handleExtract() {
     // Show retry state after error animation
     setTimeout(() => setButtonState('retry'), 2000);
   }
+}
+
+// ── DOM Picker ──
+async function handleStartPicker() {
+  try {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (!tab) return;
+
+    if (!isInjectableUrl(tab.url)) {
+      toast.show(msg('pageNotExtractable'), 'error');
+      return;
+    }
+
+    // Inject the DOM picker script
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['src/content/dom-picker.js'],
+    });
+
+    // Close the popup so the user can interact with the page
+    window.close();
+  } catch (error) {
+    console.error('[Decant] Picker injection error:', error);
+    toast.show(msg('toastError'), 'error');
+  }
+}
+
+// ── Batch Extract ──
+
+/**
+ * Check if we have the permissions needed for batch extraction.
+ * activeTab only grants access to the SINGLE active tab.
+ * To inject scripts into ALL tabs, we need tabs + <all_urls>.
+ */
+async function ensureBatchPermissions() {
+  const has = await chrome.permissions.contains({
+    permissions: ['tabs'],
+    origins: ['<all_urls>'],
+  });
+  if (has) return true;
+
+  // Request inside user gesture (click handler) — required by Chrome
+  const granted = await chrome.permissions.request({
+    permissions: ['tabs'],
+    origins: ['<all_urls>'],
+  });
+  return granted;
+}
+
+async function handleBatchExtract() {
+  try {
+    // Step 1: Ensure we have cross-tab permissions
+    const granted = await ensureBatchPermissions();
+    if (!granted) {
+      toast.show(msg('batchPermDenied'), 'error');
+      return;
+    }
+
+    // Step 2: Query all tabs (now we have tabs permission → url/title accessible)
+    const tabs = await chrome.tabs.query({ currentWindow: true });
+    const extractableTabs = tabs.filter(
+      (t) => t.url && isInjectableUrl(t.url),
+    );
+
+    if (extractableTabs.length === 0) {
+      toast.show(msg('batchNoTabs'), 'error');
+      return;
+    }
+
+    // Step 3: Show progress
+    batchResults = [];
+    batchProgress.hidden = false;
+    batchAllBtn.disabled = true;
+    batchDownloadBtn.disabled = true;
+    const total = extractableTabs.length;
+
+    const options = {
+      format: currentFormat,
+      includeImages: optImages.checked,
+      detectTables: optTables.checked,
+      smartExtract: optSmartExtract.checked,
+      fullPage: optFullPage.checked,
+    };
+
+    // Step 4: Extract each tab sequentially (host_permissions → scripting API works)
+    for (let i = 0; i < extractableTabs.length; i++) {
+      const tab = extractableTabs[i];
+      batchProgressText.textContent = `${i + 1} / ${total}`;
+      batchProgressFill.style.width = `${((i + 1) / total) * 100}%`;
+
+      try {
+        // Inject content script if needed
+        let pageData;
+        try {
+          pageData = await chrome.tabs.sendMessage(tab.id, { action: 'extract', options });
+        } catch {
+          await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            files: ['src/content/extractor.js'],
+          });
+          await new Promise((r) => setTimeout(r, 150));
+          pageData = await chrome.tabs.sendMessage(tab.id, { action: 'extract', options });
+        }
+
+        if (pageData?.success) {
+          const result = extract({ ...pageData.data, ...options });
+          batchResults.push({
+            title: pageData.data.title || tab.title,
+            url: pageData.data.url || tab.url,
+            domain: pageData.data.domain || new URL(tab.url).hostname,
+            output: result.output,
+            metadata: result.metadata,
+            format: currentFormat,
+          });
+        }
+      } catch (err) {
+        console.warn(`[Decant] Batch: skipped tab ${tab.url}:`, err.message);
+      }
+    }
+
+    // Step 5: Done
+    batchAllBtn.disabled = false;
+    batchDownloadBtn.disabled = batchResults.length === 0;
+    batchProgressText.textContent = `${batchResults.length} / ${total} ${msg('done')}`;
+
+    if (batchResults.length > 0) {
+      toast.show(`${batchResults.length} ${msg('batchDone')}`, 'success');
+    } else {
+      toast.show(msg('batchNoResults'), 'error');
+    }
+  } catch (error) {
+    console.error('[Decant] Batch extract error:', error);
+    toast.show(msg('toastError'), 'error');
+    batchAllBtn.disabled = false;
+  }
+}
+
+function handleBatchDownload() {
+  if (batchResults.length === 0) return;
+
+  const ext = { markdown: 'md', json: 'json', mcp: 'json' }[currentFormat] || 'txt';
+  const separator = currentFormat === 'markdown' ? '\n\n---\n\n' : '\n';
+
+  // Combine all results into a single file
+  const combined = batchResults
+    .map((r) => {
+      if (currentFormat === 'markdown') {
+        return `<!-- Source: ${r.url} -->\n${r.output}`;
+      }
+      return r.output;
+    })
+    .join(separator);
+
+  const blob = new Blob([combined], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `decant-batch-${new Date().toISOString().slice(0, 10)}.${ext}`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast.show(msg('toastSaved'), 'success');
 }
 
 // ── UI Helpers ──
@@ -474,6 +695,85 @@ function showFeedbackWidget() {
   const widget = document.createElement('dc-feedback');
   feedbackArea.innerHTML = '';
   feedbackArea.appendChild(widget);
+}
+
+// ── MCP Bridge ──
+async function initMcpBridge() {
+  const { mcpBridgeEnabled } = await storage.get('mcpBridgeEnabled');
+  mcpToggle.checked = mcpBridgeEnabled;
+
+  // Query live connection status from the service worker
+  if (mcpBridgeEnabled) {
+    try {
+      const response = await chrome.runtime.sendMessage({ action: 'getMcpStatus' });
+      updateMcpStatus(response?.connected);
+    } catch {
+      updateMcpStatus(false);
+    }
+  } else {
+    updateMcpStatus(false);
+  }
+}
+
+async function handleMcpToggle() {
+  const enabling = mcpToggle.checked;
+
+  if (enabling) {
+    // Request permissions dynamically (tabs + <all_urls> needed for cross-tab extraction)
+    const granted = await chrome.permissions.contains({
+      permissions: ['tabs'],
+      origins: ['<all_urls>'],
+    });
+
+    if (!granted) {
+      try {
+        const ok = await chrome.permissions.request({
+          permissions: ['tabs'],
+          origins: ['<all_urls>'],
+        });
+        if (!ok) {
+          mcpToggle.checked = false;
+          toast.show(msg('mcpPermDenied'), 'error');
+          return;
+        }
+      } catch {
+        mcpToggle.checked = false;
+        toast.show(msg('mcpPermDenied'), 'error');
+        return;
+      }
+    }
+
+    // Enable bridge
+    chrome.runtime.sendMessage({ action: 'enableMcpBridge' });
+    updateMcpStatus(false); // Will connect shortly
+
+    // Poll for connection after a brief delay
+    setTimeout(async () => {
+      try {
+        const response = await chrome.runtime.sendMessage({ action: 'getMcpStatus' });
+        updateMcpStatus(response?.connected);
+      } catch {
+        updateMcpStatus(false);
+      }
+    }, 1500);
+  } else {
+    // Disable bridge
+    chrome.runtime.sendMessage({ action: 'disableMcpBridge' });
+    updateMcpStatus(false);
+  }
+}
+
+function updateMcpStatus(connected) {
+  if (connected) {
+    mcpStatus.textContent = msg('mcpConnected');
+    mcpStatus.className = 'mcp-status connected';
+  } else if (mcpToggle.checked) {
+    mcpStatus.textContent = msg('mcpDisconnected');
+    mcpStatus.className = 'mcp-status disconnected';
+  } else {
+    mcpStatus.textContent = '';
+    mcpStatus.className = 'mcp-status';
+  }
 }
 
 // ── Utilities ──

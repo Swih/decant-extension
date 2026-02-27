@@ -1,81 +1,65 @@
 # Decant — Description Chrome Web Store (FR)
 
 ## Description courte (132 chars max)
-Decantez le web. Extrayez le contenu pur de n'importe quelle page — Markdown, JSON, MCP — en un clic.
+Extrayez du Markdown & JSON depuis n'importe quelle page. Texte propre pour ChatGPT, Claude, Notion et vos workflows IA en un clic.
 
-## Description detaillee
+## Description détaillée
 
-### 🔥 Extrayez du contenu propre de n'importe quelle page en un clic
+Extrayez du contenu propre de n'importe quelle page web en un clic pour alimenter vos workflows IA.
 
-Decant supprime le bruit — pubs, navigation, popups — et vous donne le contenu pur de n'importe quelle page web en Markdown, JSON structure, ou format MCP. Parfait pour les workflows IA, la recherche, la prise de notes et la collecte de donnees.
+Naviguer sur le web aujourd'hui, c'est se battre contre les pubs, popups, bannières cookies et barres latérales infinies. Decant supprime tout le bruit. Il convertit instantanément n'importe quel article, billet de blog ou documentation en texte pur et formaté — prêt à coller dans ChatGPT, Claude, Gemini ou n'importe quel LLM.
 
-### Pourquoi Decant ?
+Arrêtez de copier-coller manuellement des blocs de code et des liens cassés dans ChatGPT ou Notion. Decant fait le travail pour vous.
 
-Chaque page web est enfouie sous les menus, barres laterales, publicites et bannieres cookies. Quand vous avez besoin du contenu reel — pour alimenter une IA, sauvegarder une recherche ou archiver — vous perdez du temps a copier-coller et nettoyer. Decant le fait en un clic.
+🏆 POURQUOI DECANT ?
 
-### ✨ Fonctionnalites cles
+Format prêt pour l'IA : Sortie en Markdown, JSON ou MCP (Model Context Protocol) — parfaitement structurée pour alimenter ChatGPT, Claude, Gemini et les autres LLMs sans gaspiller de contexte avec du HTML inutile.
+100% local et privé : Nous utilisons l'algorithme Readability de Mozilla directement dans votre navigateur. Aucune donnée n'est envoyée à un serveur. Aucun compte requis.
 
-**Trois formats de sortie :**
-• **Markdown** — Texte propre et lisible avec titres, liens et images preserves
-• **JSON** — Donnees structurees avec metadonnees, ideal pour l'automatisation et les APIs
-• **MCP** — Format Model Context Protocol, optimise pour la consommation IA/LLM
+⚡ FONCTIONNALITÉS CLÉS
 
-**Extraction intelligente :**
-• Moteur Mozilla Readability (le meme que le mode lecture Firefox)
-• Detection et conversion automatique des tableaux
-• Extraction d'emails, dates et prix
-• Preservation des URLs d'images avec texte alternatif
+Export Markdown : Texte propre et lisible avec titres, blocs de code, liens propres et images préservées. Parfait pour coller dans ChatGPT, Claude, ou sauvegarder dans Obsidian et Notion.
+Export JSON : Données structurées avec métadonnées — idéal pour les développeurs, workflows automatisés et APIs.
+Sortie MCP (Model Context Protocol) : Le format natif pour Claude et les workflows d'agents IA. Alimentez directement vos outils compatibles MCP et assistants IA avec du contenu web.
+Extraction intelligente : Détection automatique des tableaux, dates, emails et prix. Résolution automatique des URLs relatives en URLs absolues.
+Ultra rapide : Zéro clic nécessaire. Appuyez sur Ctrl+Shift+C pour extraire et copier directement dans le presse-papier.
 
-**Concu pour la vitesse :**
-• Ctrl+Shift+E pour extraire, Ctrl+Shift+C pour copier — zero clic necessaire
-• Menu contextuel clic-droit pour un acces rapide
-• Panneau lateral pour previsualisation instantanee
-• Historique des extractions recentes
+👨‍💻 PARFAIT POUR
 
-**Vie privee d'abord :**
-• Traitement 100% local — rien n'est envoye a aucun serveur
-• Pas de compte, pas de tracking, pas d'analytics
-• Toutes les donnees restent sur votre appareil
-• Conformite RGPD complete avec export/suppression des donnees
+Prompt Engineers & utilisateurs ChatGPT/Claude : Récupérez des pages de documentation entières et collez-les en Markdown propre dans ChatGPT, Claude, Gemini ou Copilot. Plus de formatage cassé ni de bruit HTML dans vos prompts.
+Chercheurs & étudiants : Sauvegardez des articles dans Obsidian, Roam ou Notion sans le bruit du site web.
+Développeurs IA & utilisateurs MCP : Exportez du contenu web au format MCP (Model Context Protocol) pour vos agents Claude et chaînes d'outils IA.
+Développeurs : Utilisez la sortie JSON comme un web scraper léger et respectueux de la vie privée.
 
-### 🎯 Parfait pour
+⌨️ RACCOURCIS CLAVIER
 
-• **Utilisateurs IA & LLM** — Alimentez ChatGPT, Claude ou tout outil IA avec du contenu propre
-• **Chercheurs** — Archivez des articles dans des formats structures et recherchables
-• **Developpeurs** — Extrayez des donnees structurees pour le scraping, les tests ou les APIs
-• **Createurs de contenu** — Recuperez rapidement du contenu pour reutilisation ou reference
-• **Etudiants** — Sauvegardez notes de cours et articles en Markdown propre
+Ctrl+Shift+E (Mac : Cmd+Shift+E) — Ouvrir le panneau latéral Decant
+Ctrl+Shift+C (Mac : Cmd+Shift+C) — Extraire la page et copier directement
+Ctrl+Shift+S (Mac : Cmd+Shift+S) — Extraire et sauvegarder en fichier (.md / .json)
 
-### ⚡ Raccourcis clavier
-
-• Ctrl+Shift+E — Extraire le contenu de la page
-• Ctrl+Shift+C — Extraire et copier dans le presse-papier
-• Ctrl+Shift+S — Extraire et sauvegarder en fichier
-
-### 🔒 Vie privee & Permissions
-
-Decant accede uniquement a la page que vous consultez (activeTab). Les preferences sont stockees localement sur votre appareil. Aucune donnee n'est jamais transmise a des serveurs externes. Consultez notre politique de confidentialite pour plus de details.
-
-### Open Source
-
-Decant est open source sous licence MIT. Consultez le code, signalez des bugs ou contribuez sur GitHub.
+🔒 Engagement vie privée : Decant ne demande que la permission 'activeTab' pour lire la page que vous consultez. Nous ne vous trackons pas. Open source sur GitHub (licence MIT).
 
 ---
 
-## Categorie
-Productivite
+## Catégorie
+Productivité
 
 ## Langue
-Anglais, Francais
+Anglais, Français
 
-## Tags/Mots-cles
-- extraction web
+## Tags/Mots-clés
+- ChatGPT web clipper
+- Claude markdown extracteur
+- MCP Model Context Protocol
+- web scraper
 - convertisseur markdown
 - extraction contenu IA
-- lecteur de page
-- protocole MCP
+- Gemini outil web
 - readability
 - extracteur d'articles
-- contenu propre
-- web clipper
+- Obsidian web clipper
+- Notion clipper
 - outils LLM
+- web vers markdown
+- outil prompt engineering
+- lecteur de page

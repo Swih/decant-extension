@@ -1,64 +1,66 @@
 # Decant — Chrome Web Store Listing
 
 ## Short Description (132 chars max)
-Decant the web. Extract pure, AI-ready content from any page — Markdown, JSON, MCP — one click.
+Extract clean Markdown from any webpage. Connect Chrome tabs directly to Claude Desktop via Model Context Protocol (MCP).
 
 ## Detailed Description
 
-### 🔥 Extract clean content from any web page in one click
+NEW IN V2.0: MCP BRIDGE — LET CLAUDE READ YOUR BROWSER
 
-Decant strips away the noise — ads, navigation, popups — and gives you the pure content of any web page in Markdown, structured JSON, or MCP format. Perfect for AI workflows, research, note-taking, and data collection.
+Decant now connects your Chrome tabs directly to Claude Desktop. Ask Claude to summarize what you're reading, compare multiple pages, or research any URL — all through Anthropic's Model Context Protocol (MCP).
 
-### Why Decant?
+No copy-pasting. No prompt formatting. Just tell Claude what you need, and Decant feeds it the clean web content.
 
-Every web page is buried under menus, sidebars, ads, and cookie banners. When you need the actual content — for feeding into an AI, saving research, or archiving — you waste time copy-pasting and cleaning up. Decant does it in one click.
+FOR AI POWER USERS
 
-### ✨ Key Features
+"Claude, summarize the article in my active tab."
+"Claude, compare the pricing pages in tabs 2 and 5."
+"Claude, go to docs.example.com and extract the API reference."
 
-**Three output formats:**
-• **Markdown** — Clean, readable text with headings, links, and images preserved
-• **JSON** — Structured data with metadata, ideal for automation and APIs
-• **MCP** — Model Context Protocol format, optimized for AI/LLM consumption
+Decant's MCP Bridge gives Claude Desktop real-time access to your browser. Four MCP tools at your fingertips:
 
-**Smart extraction:**
-• Powered by Mozilla's Readability algorithm (same as Firefox Reader View)
-• Automatic table detection and conversion
-• Email, date, and price extraction
-• Image URL preservation with alt text
+- list_tabs — See all open Chrome tabs
+- extract_active_tab — Read the page you're currently viewing
+- extract_tab — Read any specific tab by ID
+- extract_url — Open a URL, extract it, close the tab automatically
 
-**Built for speed:**
-• Ctrl+Shift+E to extract, Ctrl+Shift+C to copy — zero clicks needed
-• Right-click context menu for quick access
-• Side panel for instant preview
-• Extraction history for recent pages
+All communication happens over a local WebSocket (localhost:22816). Your data never touches the internet.
 
-**Privacy first:**
-• 100% local processing — nothing is sent to any server
-• No accounts, no tracking, no analytics
-• All data stays on your device
-• Full GDPR compliance with export/delete controls
+FOR HUMANS: ONE-CLICK WEB EXTRACTION
 
-### 🎯 Perfect For
+Even without MCP, Decant is the fastest way to extract clean content from any web page:
 
-• **AI & LLM users** — Feed clean content to ChatGPT, Claude, or any AI tool
-• **Researchers** — Archive articles in structured, searchable formats
-• **Developers** — Extract structured data for scraping, testing, or APIs
-• **Content creators** — Quickly grab content for repurposing or reference
-• **Students** — Save lecture notes and articles in clean Markdown
+- Markdown Export — Clean text with headings, code blocks, links, and images. Perfect for pasting into ChatGPT, Claude, Gemini, Obsidian, or Notion.
+- JSON Export — Structured data with metadata for developers and automated workflows.
+- MCP Format — Native Model Context Protocol output for Claude-powered agents and AI tool chains.
 
-### ⚡ Keyboard Shortcuts
+KEY FEATURES
 
-• Ctrl+Shift+E — Extract page content
-• Ctrl+Shift+C — Extract and copy to clipboard
-• Ctrl+Shift+S — Extract and save to file
+- MCP Bridge (V2.0) — Connect Chrome to Claude Desktop via Model Context Protocol. Let AI agents browse and extract web pages.
+- Three Output Formats — Markdown, JSON, and MCP. Choose the right format for your workflow.
+- DOM Picker — Visually select specific elements on a page. Extract exactly what you need with Ctrl+Shift+P.
+- Smart Extraction — Automatic detection of tables, dates, emails, and prices. Relative URLs resolved automatically.
+- Keyboard Shortcuts — Ctrl+Shift+E (open panel), Ctrl+Shift+C (extract + copy), Ctrl+Shift+S (extract + save).
+- Batch Processing — Extract multiple pages in sequence from the side panel.
+- 16 Languages — English, French, German, Spanish, Italian, Portuguese, Japanese, Korean, Chinese (Simplified & Traditional), Arabic, Hindi, Indonesian, Russian, Turkish, Vietnamese.
 
-### 🔒 Privacy & Permissions
+PRIVACY-FIRST DESIGN
 
-Decant only accesses the page you're currently viewing (activeTab). It stores preferences locally on your device. No data is ever transmitted to external servers. Read our full privacy policy for details.
+- 100% local processing — Mozilla Readability runs in your browser, not on a server
+- MCP Bridge uses localhost WebSocket only — no cloud relay, no external servers
+- Optional permissions — MCP Bridge requests tabs + host access only when you enable it
+- No accounts, no tracking, no analytics — zero data collection
+- Open source (MIT License) — inspect every line on GitHub
 
-### Open Source
+PERFECT FOR
 
-Decant is open source under the MIT license. View the code, report bugs, or contribute on GitHub.
+- AI Power Users — Give Claude Desktop real-time access to web content via MCP Bridge
+- MCP Developers — Build agentic workflows that browse and extract the web
+- Prompt Engineers — Feed clean, structured Markdown into ChatGPT, Claude, Gemini, or Copilot
+- Researchers & Students — Save articles to Obsidian, Roam, or Notion without the clutter
+- Developers — Use JSON output as a lightweight, privacy-first web scraper
+
+Decant uses Mozilla's Readability algorithm — the same engine behind Firefox Reader View. Clean content extraction, no AI hallucination, no server-side processing.
 
 ---
 
@@ -66,16 +68,21 @@ Decant is open source under the MIT license. View the code, report bugs, or cont
 Productivity
 
 ## Language
-English, French
+English, French, German, Spanish, Italian, Portuguese, Japanese, Korean, Chinese (Simplified), Chinese (Traditional), Arabic, Hindi, Indonesian, Russian, Turkish, Vietnamese
 
 ## Tags/Keywords
-- web scraping
+- MCP Bridge
+- Model Context Protocol
+- Claude Desktop MCP
+- MCP Chrome extension
+- AI web scraper
+- agentic web crawler
+- web to markdown
 - markdown converter
-- AI content extraction
-- page reader
-- MCP protocol
-- readability
+- LLM context extraction
+- Readability
+- ChatGPT web clipper
+- Claude markdown extractor
 - article extractor
-- clean content
-- web clipper
-- LLM tools
+- Obsidian web clipper
+- prompt engineering tool

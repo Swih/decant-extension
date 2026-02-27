@@ -91,8 +91,24 @@ function createTurndown(options = {}) {
     replacement: (content) => content,
   });
 
-  // Remove common noise elements
-  td.remove(['script', 'style', 'noscript', 'iframe']);
+  // Remove common noise & interactive elements from Turndown output
+  td.remove([
+    'script', 'style', 'noscript', 'iframe',
+    'button', 'input', 'select', 'textarea', 'fieldset',
+    'nav', 'svg', 'form',
+  ]);
+
+  // Remove elements that contain only whitespace or tiny "action" text
+  td.addRule('removeNoiseSpans', {
+    filter: (node) => {
+      // Remove empty or whitespace-only spans/divs
+      if ((node.nodeName === 'SPAN' || node.nodeName === 'DIV') && !node.textContent.trim()) {
+        return true;
+      }
+      return false;
+    },
+    replacement: () => '',
+  });
 
   return td;
 }
@@ -133,10 +149,14 @@ export function toMarkdown(article, metadata, options = {}) {
   // Main content
   const content = td.turndown(article.content);
 
-  // Post-process: clean up excessive whitespace
+  // Post-process: aggressive whitespace minification
   md += content
-    .replace(/\n{4,}/g, '\n\n\n') // Max 3 newlines
-    .replace(/^[ \t]+$/gm, '') // Remove whitespace-only lines
+    .replace(/\t/g, ' ')              // Tabs → single space
+    .replace(/\xA0/g, ' ')            // NBSP → space
+    .replace(/\u200B/g, '')           // Zero-width space → remove
+    .replace(/ {2,}/g, ' ')           // Collapse multiple spaces
+    .replace(/^ +| +$/gm, '')        // Trim each line
+    .replace(/\n{3,}/g, '\n\n')       // Max 1 blank line
     .trim();
 
   // Append tables section if separately extracted

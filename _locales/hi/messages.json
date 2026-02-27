@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - वेब एक्सट्रैक्टर & MCP Bridge AI के लिए",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "वेब को छानें। किसी भी पेज से शुद्ध, AI-तैयार सामग्री निकालें — Markdown, JSON, MCP — एक क्लिक में।",
-    "description": "Extension description"
+    "message": "किसी भी वेबपेज से Markdown निकालें। Chrome टैब को Model Context Protocol (MCP) से Claude Desktop से सीधे जोड़ें।",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "पेज की सामग्री निकालें",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "गोपनीयता नीति"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "पहली बार उपयोग करने पर अतिरिक्त अनुमति आवश्यक है।"
+  },
+  "batchPermDenied": {
+    "message": "अनुमति अस्वीकृत — बैच निष्कर्षण के लिए सभी टैब तक पहुँच आवश्यक है।"
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "कनेक्टेड"
+  },
+  "mcpDisconnected": {
+    "message": "ऑफ़लाइन"
+  },
+  "mcpPermDenied": {
+    "message": "अनुमति अस्वीकृत — MCP ब्रिज को सभी टैब तक पहुँच चाहिए।"
   }
 }

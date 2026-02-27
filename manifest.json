@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "default_locale": "en",
   "icons": {
     "16": "assets/icons/icon-16.png",
@@ -37,6 +37,9 @@
     "scripting",
     "offscreen"
   ],
+  "optional_permissions": ["tabs"],
+  "optional_host_permissions": ["<all_urls>"],
+  "minimum_chrome_version": "116",
   "commands": {
     "extract-page": {
       "suggested_key": {
@@ -58,6 +61,13 @@
         "mac": "Command+Shift+S"
       },
       "description": "__MSG_cmdExtractSave__"
+    },
+    "dom-picker": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "__MSG_cmdDomPicker__"
     }
   },
   "options_page": "src/options/options.html",
@@ -66,7 +76,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["src/content/extractor.js"],
+      "resources": ["src/content/extractor.js", "src/content/dom-picker.js"],
       "matches": ["<all_urls>"]
     }
   ]

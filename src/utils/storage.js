@@ -5,7 +5,7 @@
 const DEFAULTS = {
   // User preferences
   format: 'markdown',
-  theme: 'dark',
+  theme: 'light',
   includeImages: true,
   detectTables: true,
   smartExtract: true,
@@ -25,6 +25,9 @@ const DEFAULTS = {
 
   // History
   history: [],
+
+  // MCP Bridge
+  mcpBridgeEnabled: false,
 };
 
 const MAX_HISTORY = 50;

@@ -4,7 +4,7 @@ import { copyFileSync, mkdirSync } from 'fs';
 import manifest from './manifest.json';
 import { resolve } from 'path';
 
-/** Copy content script to dist (not bundled by Vite — injected on-demand via scripting API) */
+/** Copy content scripts to dist (not bundled by Vite — injected on-demand via scripting API) */
 function copyContentScript() {
   return {
     name: 'copy-content-script',
@@ -13,6 +13,10 @@ function copyContentScript() {
       copyFileSync(
         resolve(__dirname, 'src/content/extractor.js'),
         resolve(__dirname, 'dist/src/content/extractor.js'),
+      );
+      copyFileSync(
+        resolve(__dirname, 'src/content/dom-picker.js'),
+        resolve(__dirname, 'dist/src/content/dom-picker.js'),
       );
     },
   };

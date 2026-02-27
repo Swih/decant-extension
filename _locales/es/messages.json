@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - Extractor Web & MCP Bridge para IA",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "Decanta la web. Extrae contenido puro y listo para IA de cualquier página — Markdown, JSON, MCP — con un clic.",
-    "description": "Extension description"
+    "message": "Extrae Markdown limpio de cualquier página web. Conecta tus pestañas de Chrome a Claude Desktop vía Model Context Protocol (MCP).",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "Extraer contenido de la página",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "Política de privacidad"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "Requiere un permiso adicional en el primer uso."
+  },
+  "batchPermDenied": {
+    "message": "Permiso denegado: la extracción por lotes necesita acceso a todas las pestañas."
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "Conectado"
+  },
+  "mcpDisconnected": {
+    "message": "Sin conexión"
+  },
+  "mcpPermDenied": {
+    "message": "Permiso denegado — el puente MCP necesita acceso a todas las pestañas."
   }
 }

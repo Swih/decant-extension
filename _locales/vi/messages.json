@@ -1,11 +1,11 @@
 {
   "extName": {
-    "message": "Decant",
-    "description": "Extension name"
+    "message": "Decant - Trích xuất Web & MCP Bridge cho AI",
+    "description": "Extension name (SEO-optimized)"
   },
   "extDescription": {
-    "message": "Lọc web. Trích xuất nội dung tinh khiết, sẵn sàng cho AI từ bất kỳ trang nào — Markdown, JSON, MCP — chỉ một cú nhấp.",
-    "description": "Extension description"
+    "message": "Trích xuất Markdown sạch từ mọi trang web. Kết nối tab Chrome trực tiếp với Claude Desktop qua Model Context Protocol (MCP).",
+    "description": "Extension description (132 chars max)"
   },
   "cmdExtract": {
     "message": "Trích xuất nội dung trang",
@@ -387,5 +387,54 @@
   },
   "optionsPrivacy": {
     "message": "Chính sách bảo mật"
+  },
+  "cmdDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "ctxDomPicker": {
+    "message": "Pick element to extract"
+  },
+  "btnPickerTooltip": {
+    "message": "Pick a specific element (Ctrl+Shift+P)"
+  },
+  "batchExtract": {
+    "message": "Batch Extract"
+  },
+  "batchInfo": {
+    "message": "Extract all open tabs at once."
+  },
+  "batchAll": {
+    "message": "All Tabs"
+  },
+  "batchDownload": {
+    "message": "Download All"
+  },
+  "batchDone": {
+    "message": "tabs extracted"
+  },
+  "batchNoTabs": {
+    "message": "No extractable tabs found"
+  },
+  "batchNoResults": {
+    "message": "No content extracted"
+  },
+  "batchPermHint": {
+    "message": "Yêu cầu quyền bổ sung khi sử dụng lần đầu."
+  },
+  "batchPermDenied": {
+    "message": "Quyền bị từ chối — trích xuất hàng loạt cần quyền truy cập tất cả các tab."
+  },
+  "pageNotExtractable": {
+    "message": "This page cannot be extracted (Chrome security restriction).",
+    "description": "Error when trying to extract on a restricted page"
+  },
+  "mcpConnected": {
+    "message": "Đã kết nối"
+  },
+  "mcpDisconnected": {
+    "message": "Ngoại tuyến"
+  },
+  "mcpPermDenied": {
+    "message": "Quyền bị từ chối — cầu MCP cần quyền truy cập tất cả các tab."
   }
 }

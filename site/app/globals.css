@@ -1,0 +1,252 @@
+/* Reset */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* CSS Variables */
+:root {
+  --accent: #8b5cf6;
+  --accent2: #6366f1;
+  --bg: #0a0a10;
+  --bg2: #12121c;
+  --text: #e8e8ed;
+  --text2: #8b8b9e;
+  --text3: #5c5c6f;
+  --border: rgba(255, 255, 255, 0.06);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Content page shared styles (help, privacy, guides) */
+.content-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.7;
+}
+
+.content-page nav { margin-bottom: 32px; }
+.content-page nav a {
+  color: var(--accent);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.content-page h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.content-page .subtitle {
+  font-size: 14px;
+  color: var(--text3);
+  margin-bottom: 32px;
+}
+
+.content-page .updated {
+  font-size: 13px;
+  color: var(--text3);
+  margin-bottom: 32px;
+}
+
+.content-page h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #c0c0d0;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.content-page h2:first-of-type { border-top: none; margin-top: 0; }
+
+.content-page h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.content-page p,
+.content-page li {
+  font-size: 14px;
+  color: var(--text2);
+  margin-bottom: 10px;
+}
+
+.content-page ul,
+.content-page ol { padding-left: 20px; }
+.content-page li { margin-bottom: 6px; }
+.content-page strong { color: var(--text); font-weight: 600; }
+
+.content-page code {
+  background: rgba(139, 92, 246, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #a78bfa;
+}
+
+.content-page kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  background: #1a1a28;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Tip / Highlight box */
+.tip {
+  background: rgba(139, 92, 246, 0.06);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.tip p { margin-bottom: 0; color: #c0c0d0; }
+
+/* Format grid (help page) */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.format-card {
+  padding: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.format-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.format-card p { font-size: 13px; margin-bottom: 0; }
+
+/* Shortcut table */
+.shortcut-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.shortcut-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 14px;
+}
+.shortcut-table td:first-child { color: var(--text2); width: 60%; }
+.shortcut-table td:last-child { text-align: right; }
+
+/* Tools table (guides) */
+.tools-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.tools-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+}
+.tools-table td {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+}
+.tools-table code { font-size: 12px; }
+
+/* Pre / code blocks (guides) */
+.content-page pre {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.content-page pre code {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Step list (guides) */
+.steps { counter-reset: step; list-style: none; padding-left: 0; }
+.steps li {
+  counter-increment: step;
+  padding-left: 36px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Guide nav sidebar */
+.guide-nav { list-style: none; padding: 0; margin: 0 0 32px; }
+.guide-nav li { margin-bottom: 4px; }
+.guide-nav a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text2);
+  transition: all 0.15s;
+}
+.guide-nav a:hover { background: rgba(139, 92, 246, 0.08); color: var(--text); text-decoration: none; }
+.guide-nav a.active {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Page footer */
+.site-footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text3);
+}
+.site-footer a { color: var(--text2); }
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .content-page { padding: 24px 16px; }
+  .content-page h1 { font-size: 24px; }
+}

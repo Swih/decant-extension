@@ -65,8 +65,17 @@ function buildLLMContent(article, metadata, tables) {
   }
   parts.push('');
 
-  // Main content — clean text
-  parts.push(article.textContent.trim());
+  // Main content — clean text (belt-and-suspenders whitespace cleanup)
+  const cleanText = article.textContent
+    .replace(/\t/g, ' ')
+    .replace(/\xA0/g, ' ')
+    .replace(/\u200B/g, '')
+    .replace(/\uFEFF/g, '')
+    .replace(/ {2,}/g, ' ')
+    .replace(/^ +| +$/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  parts.push(cleanText);
 
   // Tables in a clear, parseable format
   if (tables.length > 0) {
