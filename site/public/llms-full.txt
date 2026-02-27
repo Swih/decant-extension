@@ -166,6 +166,7 @@ Extract content from all open tabs in the current window at once. Results are co
 
 ## Links
 
+- Chrome Web Store: https://chromewebstore.google.com/detail/decant/iddjjbfkefeikdjcnhlklblfanhdignj
 - Website: https://decant-extension.vercel.app
 - Help & FAQ: https://decant-extension.vercel.app/help
 - Privacy Policy: https://decant-extension.vercel.app/privacy

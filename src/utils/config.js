@@ -2,8 +2,7 @@
  * Centralized configuration constants.
  */
 
-// TODO: Replace with real extension ID after Chrome Web Store publication
-export const EXTENSION_ID = '';
+export const EXTENSION_ID = 'iddjjbfkefeikdjcnhlklblfanhdignj';
 
 export const STORE_URL = EXTENSION_ID
   ? `https://chrome.google.com/webstore/detail/decant/${EXTENSION_ID}/reviews`
