@@ -1,287 +1,252 @@
 <!doctype html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=340" />
-    <link rel="stylesheet" href="../styles/design-tokens.css" />
-    <link rel="stylesheet" href="../styles/animations.css" />
-    <link rel="stylesheet" href="../styles/themes.css" />
-    <link rel="stylesheet" href="../styles/rtl.css" />
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body>
-    <div class="popup" role="main">
-      <!-- Header -->
-      <header class="header">
-        <div class="header-left">
-          <div class="logo">
-            <svg width="40" height="40" viewBox="0 0 512 512" aria-hidden="true">
-              <g transform="translate(256, 256)">
-                <path d="M -55 -130 C -90 -130, -108 -108, -108 -75 L -108 -25 C -108 -5, -118 5, -135 5 C -118 5, -108 15, -108 35 L -108 85 C -108 118, -90 140, -55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 55 -130 C 90 -130, 108 -108, 108 -75 L 108 -25 C 108 -5, 118 5, 135 5 C 118 5, 108 15, 108 35 L 108 85 C 108 118, 90 140, 55 140" fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 0 -65 C 0 -65, 50 20, 50 55 C 50 82.6, 27.6 105, 0 105 C -27.6 105, -50 82.6, -50 55 C -50 20, 0 -65, 0 -65 Z" fill="#8B5CF6"/>
-              </g>
-            </svg>
-            <span class="logo-text">Decant</span>
-          </div>
-        </div>
-        <div class="header-right">
-          <button
-            class="btn-icon"
-            id="helpLink"
-            aria-label="Help"
-            title="Help"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-              <line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-          </button>
-          <button
-            class="btn-icon"
-            id="themeToggle"
-            data-i18n-title="toggleTheme"
-            aria-label="Toggle dark/light theme"
-          >
-            <svg
-              id="themeIcon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-        </div>
-      </header>
 
-      <!-- Page Info Card -->
-      <section class="page-info glass-card" id="pageInfo" aria-label="Current page information">
-        <div class="page-info-icon" id="pageIcon" aria-hidden="true">
-          <img id="pageFavicon" width="18" height="18" src="" alt="" style="border-radius: 4px; display: none;" />
-          <svg id="pageFaviconFallback" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=340" />
+  <link rel="stylesheet" href="../styles/design-tokens.css" />
+  <link rel="stylesheet" href="../styles/animations.css" />
+  <link rel="stylesheet" href="../styles/themes.css" />
+  <link rel="stylesheet" href="../styles/rtl.css" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="popup" role="main">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <svg width="40" height="40" viewBox="0 0 512 512" aria-hidden="true">
+            <g transform="translate(256, 256)">
+              <path
+                d="M -55 -130 C -90 -130, -108 -108, -108 -75 L -108 -25 C -108 -5, -118 5, -135 5 C -118 5, -108 15, -108 35 L -108 85 C -108 118, -90 140, -55 140"
+                fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M 55 -130 C 90 -130, 108 -108, 108 -75 L 108 -25 C 108 -5, 118 5, 135 5 C 118 5, 108 15, 108 35 L 108 85 C 108 118, 90 140, 55 140"
+                fill="none" stroke="#C0C0D0" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M 0 -65 C 0 -65, 50 20, 50 55 C 50 82.6, 27.6 105, 0 105 C -27.6 105, -50 82.6, -50 55 C -50 20, 0 -65, 0 -65 Z"
+                fill="#8B5CF6" />
+            </g>
           </svg>
+          <span class="logo-text">Decant</span>
         </div>
-        <div class="page-info-content">
-          <div class="page-title" id="pageTitle" data-i18n="loading">Loading...</div>
-          <div class="page-stats" id="pageStats">
-            <span class="stat" id="wordCount">-- words</span>
-            <span class="stat-sep">&middot;</span>
-            <span class="stat" id="imageCount">-- images</span>
-            <span class="stat-sep" id="tokenSep" style="display: none">&middot;</span>
-            <span class="stat" id="tokenCount" style="display: none">-- tokens</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Format Toggle -->
-      <section class="section">
-        <div class="section-label" data-i18n="outputFormat">Output format</div>
-        <dc-format-toggle id="formatToggle" value="markdown"></dc-format-toggle>
-      </section>
-
-      <!-- Extract Buttons -->
-      <section class="section">
-        <div class="extract-row">
-          <button class="extract-btn" id="extractBtn" aria-label="Extract page content">
-            <span class="extract-btn-icon" id="extractIcon" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                <polyline points="13 2 13 9 20 9" />
-              </svg>
-            </span>
-            <span class="extract-btn-text" id="extractText" data-i18n="btnExtract">Extract Content</span>
-          </button>
-          <button class="picker-btn" id="pickerBtn" aria-label="Pick element" data-i18n-title="btnPickerTooltip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
-              <path d="M13 13l6 6"/>
-            </svg>
-          </button>
-        </div>
-        <!-- Progress bar (hidden by default) -->
-        <div class="progress-bar" id="progressBar">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
-      </section>
-
-      <!-- Options -->
-      <section class="section options" id="optionsSection">
-        <label class="checkbox-row">
-          <input type="checkbox" id="optImages" checked />
-          <span data-i18n="optImages">Include images</span>
-        </label>
-        <label class="checkbox-row">
-          <input type="checkbox" id="optTables" checked />
-          <span data-i18n="optTables">Detect tables</span>
-        </label>
-        <label class="checkbox-row">
-          <input type="checkbox" id="optSmartExtract" checked />
-          <span data-i18n="optSmartExtract">Extract emails/dates</span>
-        </label>
-        <label class="checkbox-row">
-          <input type="checkbox" id="optFullPage" />
-          <span data-i18n="optFullPage">Full page (vs Reader)</span>
-        </label>
-      </section>
-
-      <!-- Preview (hidden by default, shown after extraction) -->
-      <section class="section" id="previewSection" style="display: none">
-        <dc-preview id="preview"></dc-preview>
-      </section>
-
-      <!-- Action Buttons -->
-      <section
-        class="section action-row"
-        id="actionRow"
-        style="display: none"
-        aria-label="Export actions"
-      >
-        <button class="btn btn-secondary action-btn" id="copyBtn" aria-label="Copy to clipboard">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </div>
+      <div class="header-right">
+        <button class="btn-icon" id="helpLink" aria-label="Help" title="Help">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
           </svg>
-          <span data-i18n="btnCopy">Copy</span>
         </button>
-        <button class="btn btn-secondary action-btn" id="saveBtn" aria-label="Save to file">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
+        <button class="btn-icon" id="themeToggle" data-i18n-title="toggleTheme" aria-label="Toggle dark/light theme">
+          <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
-          <span data-i18n="btnSave">Save</span>
         </button>
-      </section>
+      </div>
+    </header>
 
-      <!-- MCP Bridge -->
-      <section class="section" id="mcpSection">
-        <div class="mcp-row">
-          <div class="mcp-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/>
-            </svg>
-            <span>MCP Bridge</span>
-            <span class="mcp-beta">Beta</span>
-          </div>
-          <div class="mcp-controls">
-            <span class="mcp-status" id="mcpStatus" aria-live="polite"></span>
-            <label class="toggle-switch" for="mcpToggle">
-              <input type="checkbox" id="mcpToggle" />
-              <span class="toggle-slider"></span>
-            </label>
-          </div>
+    <!-- Page Info Card -->
+    <section class="page-info glass-card" id="pageInfo" aria-label="Current page information">
+      <div class="page-info-icon" id="pageIcon" aria-hidden="true">
+        <img id="pageFavicon" width="18" height="18" src="" alt="" style="border-radius: 4px; display: none;" />
+        <svg id="pageFaviconFallback" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="var(--accent-primary)" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+        </svg>
+      </div>
+      <div class="page-info-content">
+        <div class="page-title" id="pageTitle" data-i18n="loading">Loading...</div>
+        <div class="page-stats" id="pageStats">
+          <span class="stat" id="wordCount">-- words</span>
+          <span class="stat-sep">&middot;</span>
+          <span class="stat" id="imageCount">-- images</span>
+          <span class="stat-sep" id="tokenSep" style="display: none">&middot;</span>
+          <span class="stat" id="tokenCount" style="display: none">-- tokens</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Batch Extract -->
-      <section class="section" id="batchSection">
-        <div class="batch-header" id="batchToggle" role="button" tabindex="0" aria-expanded="false">
-          <div class="batch-header-left">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="6" height="6" rx="1"/>
-              <rect x="16" y="2" width="6" height="6" rx="1"/>
-              <rect x="2" y="16" width="6" height="6" rx="1"/>
-              <rect x="16" y="16" width="6" height="6" rx="1"/>
+    <!-- Format Toggle -->
+    <section class="section">
+      <div class="section-label" data-i18n="outputFormat">Output format</div>
+      <dc-format-toggle id="formatToggle" value="markdown"></dc-format-toggle>
+    </section>
+
+    <!-- Extract Buttons -->
+    <section class="section">
+      <div class="extract-row">
+        <button class="extract-btn" id="extractBtn" aria-label="Extract page content">
+          <span class="extract-btn-icon" id="extractIcon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+              <polyline points="13 2 13 9 20 9" />
             </svg>
-            <span data-i18n="batchExtract">Batch Extract</span>
-          </div>
-          <svg class="batch-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"/>
+          </span>
+          <span class="extract-btn-text" id="extractText" data-i18n="btnExtract">Extract Content</span>
+        </button>
+        <button class="picker-btn" id="pickerBtn" aria-label="Pick element" data-i18n-title="btnPickerTooltip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+            <path d="M13 13l6 6" />
           </svg>
-        </div>
-        <div class="batch-body" id="batchPanel" hidden>
-          <p class="batch-info" data-i18n="batchInfo">Extract all open tabs at once.</p>
-          <div class="batch-progress" id="batchProgress" hidden>
-            <div class="batch-progress-text" id="batchProgressText">0 / 0</div>
-            <div class="progress-bar visible">
-              <div class="progress-fill" id="batchProgressFill"></div>
-            </div>
-          </div>
-          <div class="batch-actions">
-            <button class="batch-btn" id="batchAllBtn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
-              </svg>
-              <span data-i18n="batchAll">All Tabs</span>
-            </button>
-            <button class="batch-btn" id="batchDownloadBtn" disabled>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span data-i18n="batchDownload">Download All</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Divider -->
-      <div class="divider" id="historyDivider"></div>
-
-      <!-- Recent History -->
-      <section class="section history-section" aria-label="Recent extractions">
-        <div class="section-label" data-i18n="recentHistory">Recent history</div>
-        <nav class="history-list" id="historyList" aria-label="Extraction history">
-          <div class="history-empty" data-i18n="historyEmpty">No extractions yet</div>
-        </nav>
-      </section>
-
-      <!-- Feedback Area -->
-      <div id="feedbackArea" aria-live="polite"></div>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <button class="footer-link" id="feedbackLink" aria-label="Give feedback" data-i18n="feedback">Feedback</button>
-        <span class="footer-sep" aria-hidden="true">&middot;</span>
-        <button class="footer-link" id="rateLink" aria-label="Rate on Chrome Web Store" data-i18n="rate">
-          Rate
         </button>
-      </footer>
-    </div>
+      </div>
+      <!-- Progress bar (hidden by default) -->
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </section>
 
-    <!-- Toast container -->
-    <dc-toast id="toast"></dc-toast>
+    <!-- Options -->
+    <section class="section options" id="optionsSection">
+      <label class="checkbox-row">
+        <input type="checkbox" id="optImages" checked />
+        <span data-i18n="optImages">Include images</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="optTables" checked />
+        <span data-i18n="optTables">Detect tables</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="optSmartExtract" checked />
+        <span data-i18n="optSmartExtract">Extract emails/dates</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="optFullPage" />
+        <span data-i18n="optFullPage">Full page (vs Reader)</span>
+      </label>
+    </section>
 
-    <script type="module" src="popup.js"></script>
-  </body>
+    <!-- Preview (hidden by default, shown after extraction) -->
+    <section class="section" id="previewSection" style="display: none">
+      <dc-preview id="preview"></dc-preview>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="section action-row" id="actionRow" style="display: none" aria-label="Export actions">
+      <button class="btn btn-secondary action-btn" id="copyBtn" aria-label="Copy to clipboard">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+        <span data-i18n="btnCopy">Copy</span>
+      </button>
+      <button class="btn btn-secondary action-btn" id="saveBtn" aria-label="Save to file">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        <span data-i18n="btnSave">Save</span>
+      </button>
+    </section>
+
+    <!-- MCP Bridge -->
+    <section class="section" id="mcpSection">
+      <div class="mcp-row">
+        <div class="mcp-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4" />
+          </svg>
+          <span>MCP Bridge</span>
+          <span class="mcp-beta">Beta</span>
+        </div>
+        <div class="mcp-controls">
+          <span class="mcp-status" id="mcpStatus" aria-live="polite"></span>
+          <label class="toggle-switch" for="mcpToggle">
+            <input type="checkbox" id="mcpToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Batch Extract -->
+    <section class="section" id="batchSection">
+      <div class="batch-header" id="batchToggle" role="button" tabindex="0" aria-expanded="false">
+        <div class="batch-header-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="6" height="6" rx="1" />
+            <rect x="16" y="2" width="6" height="6" rx="1" />
+            <rect x="2" y="16" width="6" height="6" rx="1" />
+            <rect x="16" y="16" width="6" height="6" rx="1" />
+          </svg>
+          <span data-i18n="batchExtract">Batch Extract</span>
+        </div>
+        <svg class="batch-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+      <div class="batch-body" id="batchPanel" hidden>
+        <p class="batch-info" data-i18n="batchInfo">Extract all open tabs at once.</p>
+        <div class="batch-progress" id="batchProgress" hidden>
+          <div class="batch-progress-text" id="batchProgressText">0 / 0</div>
+          <div class="progress-bar visible">
+            <div class="progress-fill" id="batchProgressFill"></div>
+          </div>
+        </div>
+        <div class="batch-actions">
+          <button class="batch-btn" id="batchAllBtn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+            </svg>
+            <span data-i18n="batchAll">All Tabs</span>
+          </button>
+          <button class="batch-btn" id="batchDownloadBtn" disabled>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span data-i18n="batchDownload">Download All</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider" id="historyDivider"></div>
+
+    <!-- Recent History -->
+    <section class="section history-section" aria-label="Recent extractions">
+      <div class="section-label" data-i18n="recentHistory">Recent history</div>
+      <nav class="history-list" id="historyList" aria-label="Extraction history">
+        <div class="history-empty" data-i18n="historyEmpty">No extractions yet</div>
+      </nav>
+    </section>
+
+    <!-- Feedback Area -->
+    <div id="feedbackArea" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button class="footer-link" id="feedbackLink" aria-label="Give feedback" data-i18n="feedback">Feedback</button>
+      <span class="footer-sep" aria-hidden="true">&middot;</span>
+      <button class="footer-link" id="rateLink" aria-label="Rate on Chrome Web Store" data-i18n="rate">
+        Rate
+      </button>
+    </footer>
+  </div>
+
+  <!-- Toast container -->
+  <dc-toast id="toast"></dc-toast>
+
+  <script type="module" src="popup.js"></script>
+</body>
+
 </html>
