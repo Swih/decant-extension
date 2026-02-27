@@ -1,0 +1,37 @@
+# Decant
+
+> Extract pure, AI-ready content from any web page. Chrome Extension + MCP Server.
+
+Decant is a Chrome extension that extracts clean, structured content from any web page and outputs it in Markdown, JSON, or MCP format. All processing is 100% local — no data leaves the user's device.
+
+## MCP Integration
+
+Decant includes an MCP (Model Context Protocol) server that lets AI assistants extract web page content directly from Chrome.
+
+- Package: `decant-mcp` (npm)
+- Transport: stdio
+- Bridge: WebSocket on `ws://localhost:22816`
+
+### Available MCP Tools
+
+- `list_tabs`: List all open Chrome tabs (title, URL, ID)
+- `extract_active_tab`: Extract content from the currently active tab
+- `extract_tab`: Extract content from a specific tab by ID
+- `extract_url`: Open a URL in background, extract content, then close the tab
+
+### Quick Setup
+
+1. Install: `npm install -g decant-mcp`
+2. Add to your MCP client config:
+   ```json
+   { "mcpServers": { "decant": { "command": "decant-mcp" } } }
+   ```
+3. Enable "MCP Bridge" toggle in the Decant extension popup
+
+## Links
+
+- Website: https://decant-extention.vercel.app
+- Help: https://decant-extention.vercel.app/help
+- MCP Guide: https://decant-extention.vercel.app/guides/mcp-bridge
+- Extraction Guide: https://decant-extention.vercel.app/guides/extraction
+- Full documentation: https://decant-extention.vercel.app/llms-full.txt

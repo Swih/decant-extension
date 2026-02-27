@@ -1,0 +1,175 @@
+# Decant — Complete Documentation for LLMs
+
+> Extract pure, AI-ready content from any web page. Chrome Extension (MV3) + MCP Server.
+
+## Overview
+
+Decant is a Chrome extension that extracts clean, structured content from any web page. It uses Mozilla Readability for article detection and Turndown for HTML-to-Markdown conversion. All processing happens locally in the browser — no servers, no tracking, no accounts.
+
+**Version:** 2.0.0
+**License:** Open source
+**Website:** https://decant-extention.vercel.app
+
+---
+
+## Output Formats
+
+### Markdown
+Clean text with headings, links, and images preserved. Ideal for notes, Obsidian, Notion.
+
+### JSON
+Structured output with fields: `title`, `url`, `content`, `metadata` (wordCount, imageCount, tables, dates, emails). Ideal for automation and data pipelines.
+
+### MCP (Model Context Protocol)
+AI-optimized format including source URL, word count, token estimate, and structured metadata. Best for feeding content to Claude, ChatGPT, or other LLMs.
+
+---
+
+## MCP Server Integration
+
+Decant includes an MCP server that allows AI assistants to extract web content directly through Chrome.
+
+### Architecture
+
+```
+AI Client (Claude Desktop, Cursor, etc.)
+  ↕ stdio
+MCP Server (decant-mcp, Node.js)
+  ↕ WebSocket (ws://localhost:22816)
+Chrome Extension (Decant service worker)
+  ↕ content script injection
+Web Page (DOM extraction via Readability)
+```
+
+The MCP server is a pure relay — no data is stored or processed on the server side.
+
+### Installation
+
+```bash
+npm install -g decant-mcp
+```
+
+### Configuration
+
+Add to your MCP client configuration file:
+
+For Claude Desktop (`claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "decant": {
+      "command": "decant-mcp"
+    }
+  }
+}
+```
+
+For Cursor, Windsurf, or other MCP clients, use the same pattern with their respective config files.
+
+After configuration:
+1. Restart your AI client
+2. Open Chrome with the Decant extension installed
+3. Enable "MCP Bridge (Beta)" toggle in the Decant popup
+4. The extension will request additional permissions (tabs + all URLs)
+
+### MCP Tools Reference
+
+#### list_tabs
+List all extractable Chrome tabs in the current window.
+
+- **Parameters:** none
+- **Returns:** Array of `{ id, title, url, active }`
+- **Example usage:** "What tabs do I have open?" or "List my Chrome tabs"
+
+#### extract_active_tab
+Extract content from the currently active Chrome tab.
+
+- **Parameters:**
+  - `format` (optional): `"markdown"` | `"json"` | `"mcp"` — default: `"markdown"`
+- **Returns:** Extracted content with metadata (title, URL, word count, image count)
+- **Example usage:** "Extract this page" or "Get the content of my current tab"
+
+#### extract_tab
+Extract content from a specific tab by its ID.
+
+- **Parameters:**
+  - `tabId` (required): numeric tab ID (get from `list_tabs`)
+  - `format` (optional): `"markdown"` | `"json"` | `"mcp"` — default: `"markdown"`
+- **Returns:** Extracted content with metadata
+- **Example usage:** "Extract tab 12345" or "Get content from that Wikipedia tab"
+
+#### extract_url
+Open a URL in a background tab, extract its content, then close the tab.
+
+- **Parameters:**
+  - `url` (required): full URL to extract (must be http/https)
+  - `format` (optional): `"markdown"` | `"json"` | `"mcp"` — default: `"markdown"`
+- **Returns:** Extracted content with metadata
+- **Timeout:** 60 seconds (for page load + extraction)
+- **Example usage:** "Extract https://example.com" or "Read this article for me: [URL]"
+
+### Troubleshooting
+
+- **Bridge disconnected:** Ensure `decant-mcp` is running and Chrome has the Decant extension with MCP Bridge enabled.
+- **Permission denied:** The extension needs `tabs` and `<all_urls>` permissions. Re-toggle MCP Bridge to re-request.
+- **Timeout on extract_url:** Some heavy JS pages need more time. Try extracting after loading the page manually with `extract_active_tab`.
+- **chrome:// URLs fail:** Chrome internal pages, the Web Store, and extension pages cannot be extracted (Chrome security restriction).
+
+---
+
+## Extension Features
+
+### Smart Extraction
+Uses Mozilla Readability to identify the main article content, stripping ads, navigation, sidebars, and clutter.
+
+### DOM Picker
+Visual element selector — click on any page element to extract just that part. Useful for extracting specific sections like a table, sidebar, or comment thread.
+
+### Batch Extraction
+Extract content from all open tabs in the current window at once. Results are combined into a single downloadable file.
+
+### Keyboard Shortcuts
+- `Ctrl+Shift+E` — Extract page content
+- `Ctrl+Shift+C` — Extract and copy to clipboard
+- `Ctrl+Shift+S` — Extract and save to file
+(On macOS, replace Ctrl with Cmd)
+
+### Right-Click Context Menu
+- "Extract selection" — extract only selected text
+- "Extract full page" — extract the entire page
+- "Copy for AI" — extract and copy in MCP format
+
+### Extraction Options
+- **Smart Extract:** On/off — use Readability vs. full page HTML
+- **Include Images:** Keep or strip image references
+- **Detect Tables:** Convert HTML tables to Markdown/JSON tables
+- **Full Page:** Extract entire page body vs. detected article
+
+---
+
+## Internationalization
+
+16 languages supported: English, French, German, Spanish, Italian, Portuguese (BR), Japanese, Korean, Chinese (Simplified), Chinese (Traditional), Arabic (RTL), Hindi, Indonesian, Russian, Turkish, Vietnamese.
+
+---
+
+## Privacy
+
+- 100% local processing — no data sent to any server
+- No accounts, no analytics, no tracking
+- Data stored in `chrome.storage.local` only
+- GDPR compliant: export and delete all data from extension settings
+- Permissions: `activeTab`, `storage`, `clipboardWrite`, `sidePanel`, `contextMenus`, `alarms`, `scripting`
+- Additional permissions for MCP/Batch: `tabs`, `<all_urls>` (requested dynamically, only when needed)
+
+---
+
+## Links
+
+- Website: https://decant-extention.vercel.app
+- Help & FAQ: https://decant-extention.vercel.app/help
+- Privacy Policy: https://decant-extention.vercel.app/privacy
+- Guide — MCP Bridge: https://decant-extention.vercel.app/guides/mcp-bridge
+- Guide — Extraction: https://decant-extention.vercel.app/guides/extraction
+- Guide — DOM Picker: https://decant-extention.vercel.app/guides/selector
+- Guide — Batch: https://decant-extention.vercel.app/guides/batch

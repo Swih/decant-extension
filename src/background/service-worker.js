@@ -216,8 +216,12 @@ chrome.runtime.onInstalled.addListener((details) => {
   // Set up NPS check alarm (once daily)
   chrome.alarms.create('decant-nps-check', { periodInMinutes: 1440 });
 
-  // MCP Bridge reconnect (every 30s)
-  chrome.alarms.create('mcp-reconnect', { periodInMinutes: 0.5 });
+  // MCP Bridge reconnect — only if user has enabled MCP
+  storage.get('mcpBridgeEnabled').then(({ mcpBridgeEnabled }) => {
+    if (mcpBridgeEnabled) {
+      chrome.alarms.create('mcp-reconnect', { periodInMinutes: 0.5 });
+    }
+  });
 });
 
 // ── Alarms (synchronous registration) ──
@@ -237,7 +241,8 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
   }
 
   if (alarm.name === 'mcp-reconnect') {
-    if (!mcpSocket || mcpSocket.readyState !== WebSocket.OPEN) {
+    const { mcpBridgeEnabled } = await storage.get('mcpBridgeEnabled');
+    if (mcpBridgeEnabled && (!mcpSocket || mcpSocket.readyState !== WebSocket.OPEN)) {
       connectMcpBridge();
     }
   }

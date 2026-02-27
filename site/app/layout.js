@@ -6,6 +6,12 @@ export const metadata = {
     template: '%s — Decant',
   },
   description: 'Decant the web. Extract clean Markdown, JSON, or MCP content from any page. 100% local, no data sent anywhere.',
+  openGraph: {
+    title: 'Decant — Decant the web',
+    description: 'Extract pure, AI-ready content from any page. Markdown, JSON, MCP. 100% local.',
+    type: 'website',
+    url: 'https://decant-extention.vercel.app',
+  },
 };
 
 export default function RootLayout({ children }) {
