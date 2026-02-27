@@ -10,7 +10,7 @@ export const STORE_URL = EXTENSION_ID
   : '';
 
 // Public website (Vercel) — update after deployment
-export const SITE_URL = 'https://decant-extention.vercel.app';
+export const SITE_URL = 'https://decant-extension.vercel.app';
 
 export const VERSION = chrome.runtime?.getManifest?.()?.version || '1.0.0';
 

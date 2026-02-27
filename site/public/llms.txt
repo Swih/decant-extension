@@ -30,8 +30,8 @@ Decant includes an MCP (Model Context Protocol) server that lets AI assistants e
 
 ## Links
 
-- Website: https://decant-extention.vercel.app
-- Help: https://decant-extention.vercel.app/help
-- MCP Guide: https://decant-extention.vercel.app/guides/mcp-bridge
-- Extraction Guide: https://decant-extention.vercel.app/guides/extraction
-- Full documentation: https://decant-extention.vercel.app/llms-full.txt
+- Website: https://decant-extension.vercel.app
+- Help: https://decant-extension.vercel.app/help
+- MCP Guide: https://decant-extension.vercel.app/guides/mcp-bridge
+- Extraction Guide: https://decant-extension.vercel.app/guides/extraction
+- Full documentation: https://decant-extension.vercel.app/llms-full.txt

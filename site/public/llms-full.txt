@@ -8,7 +8,7 @@ Decant is a Chrome extension that extracts clean, structured content from any we
 
 **Version:** 2.0.0
 **License:** Open source
-**Website:** https://decant-extention.vercel.app
+**Website:** https://decant-extension.vercel.app
 
 ---
 
@@ -166,10 +166,10 @@ Extract content from all open tabs in the current window at once. Results are co
 
 ## Links
 
-- Website: https://decant-extention.vercel.app
-- Help & FAQ: https://decant-extention.vercel.app/help
-- Privacy Policy: https://decant-extention.vercel.app/privacy
-- Guide — MCP Bridge: https://decant-extention.vercel.app/guides/mcp-bridge
-- Guide — Extraction: https://decant-extention.vercel.app/guides/extraction
-- Guide — DOM Picker: https://decant-extention.vercel.app/guides/selector
-- Guide — Batch: https://decant-extention.vercel.app/guides/batch
+- Website: https://decant-extension.vercel.app
+- Help & FAQ: https://decant-extension.vercel.app/help
+- Privacy Policy: https://decant-extension.vercel.app/privacy
+- Guide — MCP Bridge: https://decant-extension.vercel.app/guides/mcp-bridge
+- Guide — Extraction: https://decant-extension.vercel.app/guides/extraction
+- Guide — DOM Picker: https://decant-extension.vercel.app/guides/selector
+- Guide — Batch: https://decant-extension.vercel.app/guides/batch

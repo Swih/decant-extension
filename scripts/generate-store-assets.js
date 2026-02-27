@@ -397,7 +397,7 @@ async function screenshot3() {
       <text x="555" y="420" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#E8E8ED">Open Source (MIT)</text>
       <text x="510" y="450" font-family="system-ui, sans-serif" font-size="12" fill="#8B8B9E">Every line of code is auditable.</text>
       <text x="510" y="470" font-family="system-ui, sans-serif" font-size="12" fill="#8B8B9E">Community-driven development.</text>
-      <text x="510" y="490" font-family="system-ui, sans-serif" font-size="12" fill="#8B8B9E">decant-ext.vercel.app</text>
+      <text x="510" y="490" font-family="system-ui, sans-serif" font-size="12" fill="#8B8B9E">decant-extension.vercel.app</text>
 
       <!-- Card 6: Keyboard -->
       <rect x="840" y="375" width="340" height="170" rx="16" fill="#14141E" stroke="rgba(236,72,153,0.15)" stroke-width="1.5" />
