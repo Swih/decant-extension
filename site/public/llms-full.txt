@@ -27,12 +27,12 @@ AI-optimized format including source URL, word count, token estimate, and struct
 
 ## MCP Server Integration
 
-Decant includes an MCP server that allows AI assistants to extract web content directly through Chrome.
+Decant includes an MCP server that allows AI assistants to extract web content directly through Chrome. Compatible with Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT Desktop, and any MCP-compatible client.
 
 ### Architecture
 
 ```
-AI Client (Claude Desktop, Cursor, etc.)
+AI Client (Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT Desktop, etc.)
   ↕ stdio
 MCP Server (decant-mcp, Node.js)
   ↕ WebSocket (ws://localhost:22816)
@@ -53,7 +53,7 @@ npm install -g decant-mcp
 
 Add to your MCP client configuration file:
 
-For Claude Desktop (`claude_desktop_config.json`):
+Add to your MCP client's config file (same JSON for all clients):
 ```json
 {
   "mcpServers": {
@@ -64,7 +64,12 @@ For Claude Desktop (`claude_desktop_config.json`):
 }
 ```
 
-For Cursor, Windsurf, or other MCP clients, use the same pattern with their respective config files.
+Config file locations:
+- Claude Desktop: `claude_desktop_config.json` (Settings → Developer → Edit Config)
+- Claude Code: `~/.claude/settings.json` or project `.claude/settings.json`
+- Cursor: Settings → MCP Servers → Add Server
+- Windsurf: Settings → MCP → Add Configuration
+- ChatGPT Desktop: Settings → Beta → MCP Servers
 
 After configuration:
 1. Restart your AI client

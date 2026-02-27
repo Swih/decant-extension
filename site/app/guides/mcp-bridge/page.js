@@ -6,22 +6,22 @@ export default function McpBridgePage() {
   return (
     <>
       <h1>MCP Bridge</h1>
-      <p className="subtitle">Connect Decant to AI assistants like Claude Desktop via the Model Context Protocol.</p>
+      <p className="subtitle">Connect Decant to any AI assistant via the Model Context Protocol.</p>
 
       <h2>What is MCP Bridge?</h2>
       <p>
         MCP Bridge allows AI assistants to extract web page content through Decant.
         It creates a WebSocket bridge between a local MCP server and the Decant extension,
-        enabling tools like Claude Desktop to read and process any web page you can see in Chrome.
+        enabling any MCP-compatible tool to read and process any web page you can see in Chrome.
       </p>
       <TipBox>
-        <p>MCP Bridge is in Beta. It works with Claude Desktop and any MCP-compatible client.</p>
+        <p>MCP Bridge works with Claude Desktop, Claude Code, Cursor, Windsurf, ChatGPT Desktop, and any MCP-compatible client.</p>
       </TipBox>
 
       <h2>Prerequisites</h2>
       <ul>
         <li>Node.js 18+ installed</li>
-        <li>Claude Desktop (or another MCP-compatible client)</li>
+        <li>An MCP-compatible client (Claude Desktop, Cursor, Windsurf, ChatGPT Desktop, Claude Code, etc.)</li>
         <li>Decant extension installed in Chrome</li>
       </ul>
 
@@ -35,10 +35,8 @@ export default function McpBridgePage() {
           <pre><code>{`cd mcp-server && npm install && npm link`}</code></pre>
         </li>
         <li>
-          <strong>Configure Claude Desktop</strong>
-          <p>
-            Open Claude Desktop settings &rarr; Developer &rarr; Edit Config &rarr; add to <code>mcpServers</code>:
-          </p>
+          <strong>Configure your AI client</strong>
+          <p>Add Decant to your MCP configuration. The JSON config is the same for all clients:</p>
           <pre><code>{`{
   "mcpServers": {
     "decant": {
@@ -46,7 +44,15 @@ export default function McpBridgePage() {
     }
   }
 }`}</code></pre>
-          <p>Restart Claude Desktop after saving.</p>
+          <h4>Where to add this config:</h4>
+          <ul>
+            <li><strong>Claude Desktop</strong> &mdash; Settings &rarr; Developer &rarr; Edit Config (<code>claude_desktop_config.json</code>)</li>
+            <li><strong>Claude Code</strong> &mdash; <code>~/.claude/settings.json</code> or project <code>.claude/settings.json</code></li>
+            <li><strong>Cursor</strong> &mdash; Settings &rarr; MCP Servers &rarr; Add Server</li>
+            <li><strong>Windsurf</strong> &mdash; Settings &rarr; MCP &rarr; Add Configuration</li>
+            <li><strong>ChatGPT Desktop</strong> &mdash; Settings &rarr; Beta &rarr; MCP Servers</li>
+          </ul>
+          <p>Restart your AI client after saving.</p>
         </li>
         <li>
           <strong>Enable in Decant</strong>
@@ -94,7 +100,7 @@ export default function McpBridgePage() {
       <h2>Architecture</h2>
       <p>
         The data flow is straightforward: <strong>Extension</strong> &harr; WebSocket
-        (port 22816) &harr; <strong>MCP Server</strong> &harr; stdio &harr; <strong>Claude Desktop</strong>.
+        (port 22816) &harr; <strong>MCP Server</strong> &harr; stdio &harr; <strong>Your AI client</strong>.
       </p>
       <TipBox>
         <p>The MCP server is a pure relay. No data is stored or processed on the server side.</p>
@@ -104,8 +110,8 @@ export default function McpBridgePage() {
 
       <h3>Bridge shows disconnected</h3>
       <p>
-        Check that <code>decant-mcp</code> is running. Verify your Claude Desktop config
-        file is correct. Try toggling the MCP Bridge off and on again in the Decant popup.
+        Check that <code>decant-mcp</code> is running. Verify your MCP client config
+        file is correct (Claude Desktop, Cursor, Windsurf, etc.). Try toggling the MCP Bridge off and on again in the Decant popup.
       </p>
 
       <h3>Permission denied</h3>
