@@ -108,7 +108,7 @@ PRIVACY & SECURITY
 • No analytics, no tracking, no telemetry
 • All data stored locally in chrome.storage.local
 • Full GDPR compliance: export all your data as JSON, or delete everything in one click
-• Open source — verify the code yourself
+• Open source (MIT License) — inspect the code on GitHub
 
 Permissions explained:
 • activeTab: read the page you're currently viewing (only when you click Decant)
@@ -125,4 +125,5 @@ English, French, German, Spanish, Italian, Portuguese, Japanese, Korean, Chinese
 ——————————————————
 
 Free & open source. Made by Zoplop Studio.
+GitHub: github.com/Swih/decant-extension
 Website: decant-extension.vercel.app

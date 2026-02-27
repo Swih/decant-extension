@@ -27,7 +27,7 @@ export default function HomePage() {
           </svg>
           Install for Chrome
         </a>
-        <p className={styles.subCta}>Free &amp; open source &middot; 100% local processing</p>
+        <p className={styles.subCta}>Free &amp; open source &middot; 100% local &middot; No tracking</p>
       </section>
 
       {/* Features */}

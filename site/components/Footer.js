@@ -6,8 +6,9 @@ export default function Footer() {
         <a href="/privacy">Privacy</a>
         <a href="/help">Help</a>
         <a href="/guides/mcp-bridge">Guides</a>
+        <a href="https://github.com/Swih/decant-extension" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p>Decant v2.1.0 &mdash; Zoplop Studio</p>
+      <p>Decant v2.1.0 &mdash; Zoplop Studio &mdash; Open Source (MIT)</p>
     </footer>
   );
 }

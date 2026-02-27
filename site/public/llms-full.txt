@@ -7,7 +7,8 @@
 Decant is a Chrome extension that extracts clean, structured content from any web page. It uses Mozilla Readability for article detection and Turndown for HTML-to-Markdown conversion. All processing happens locally in the browser — no servers, no tracking, no accounts.
 
 **Version:** 2.1.0
-**License:** Open source
+**License:** MIT (Open Source)
+**GitHub:** https://github.com/Swih/decant-extension
 **Website:** https://decant-extension.vercel.app
 
 ---
@@ -172,6 +173,7 @@ Extract content from all open tabs in the current window at once. Results are co
 
 ## Links
 
+- GitHub: https://github.com/Swih/decant-extension
 - Chrome Web Store: https://chromewebstore.google.com/detail/decant/iddjjbfkefeikdjcnhlklblfanhdignj
 - Website: https://decant-extension.vercel.app
 - Help & FAQ: https://decant-extension.vercel.app/help
