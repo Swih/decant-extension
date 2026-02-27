@@ -1,6 +1,6 @@
 {
   "name": "decant",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "description": "Decant the web. Extract pure, AI-ready content from any page — Markdown, JSON, MCP.",
   "scripts": {

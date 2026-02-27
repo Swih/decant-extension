@@ -7,7 +7,7 @@ export default function Footer() {
         <a href="/help">Help</a>
         <a href="/guides/mcp-bridge">Guides</a>
       </div>
-      <p>Decant v2.0.0 &mdash; Zoplop Studio</p>
+      <p>Decant v2.1.0 &mdash; Zoplop Studio</p>
     </footer>
   );
 }
