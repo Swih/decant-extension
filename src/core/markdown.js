@@ -113,22 +113,64 @@ function createTurndown(options = {}) {
   return td;
 }
 
-function detectLanguage(codeElement) {
+/**
+ * Detect programming language from a code element's class names and attributes.
+ * Supports: standard language-*, Prism, Rouge, SyntaxHighlighter, Pandoc, data attributes.
+ * @param {Element} codeElement
+ * @returns {string} Normalized language identifier or empty string
+ */
+export function detectLanguage(codeElement) {
   if (!codeElement) return '';
-  const classes = codeElement.className || '';
-  // Common patterns: language-js, lang-python, hljs-javascript, etc.
-  const match = classes.match(/(?:language|lang|hljs)-(\w+)/);
-  if (match) return match[1];
 
-  // Check parent
-  const parent = codeElement.parentElement;
-  if (parent) {
-    const parentClasses = parent.className || '';
-    const parentMatch = parentClasses.match(/(?:language|lang|hljs)-(\w+)/);
-    if (parentMatch) return parentMatch[1];
+  // Collect all class + attribute hints from element and parent
+  const candidates = [
+    codeElement.className || '',
+    codeElement.parentElement?.className || '',
+    codeElement.getAttribute('data-lang') || '',
+    codeElement.getAttribute('data-language') || '',
+  ].join(' ');
+
+  // Patterns ordered by specificity
+  const patterns = [
+    /(?:language|lang|hljs|highlight)-(\w[\w+#]*)/,      // Standard: language-js, hljs-python
+    /brush:\s*(\w+)/,                                      // SyntaxHighlighter: brush:python
+    /prism-(\w+)/,                                         // Prism.js
+    /rouge-(\w+)/,                                         // Rouge (Jekyll/GitHub Pages)
+    /sourceCode\s+(\w+)/,                                  // Pandoc
+    /\b(javascript|typescript|python|ruby|go|rust|java|kotlin|swift|scala|php|perl|bash|shell|zsh|powershell|sql|html|css|scss|less|json|yaml|toml|xml|markdown|dockerfile|graphql|terraform|hcl|lua|elixir|clojure|haskell|ocaml|r|matlab|dart|zig|nim|crystal|vue|jsx|tsx)\b/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = candidates.match(pattern);
+    if (match) return normalizeLang(match[1]);
   }
 
   return '';
+}
+
+/**
+ * Normalize language identifiers to common names.
+ * @param {string} lang
+ * @returns {string}
+ */
+function normalizeLang(lang) {
+  const map = {
+    js: 'javascript',
+    ts: 'typescript',
+    py: 'python',
+    rb: 'ruby',
+    sh: 'bash',
+    zsh: 'bash',
+    yml: 'yaml',
+    md: 'markdown',
+    cs: 'csharp',
+    'c++': 'cpp',
+    'c#': 'csharp',
+    dockerfile: 'docker',
+    tf: 'terraform',
+  };
+  const lower = lang.toLowerCase();
+  return map[lower] || lower;
 }
 
 /**
@@ -144,6 +186,7 @@ export function toMarkdown(article, metadata, options = {}) {
   if (metadata.siteName) md += `> **Site:** ${metadata.siteName}\n`;
   if (metadata.excerpt) md += `> **Summary:** ${metadata.excerpt}\n`;
   md += `> **Extracted:** ${metadata.extractedAt} | ${metadata.wordCount} words\n`;
+  if (metadata.llmsTxtLink) md += `> **llms.txt:** ${metadata.llmsTxtLink}\n`;
   md += '\n---\n\n';
 
   // Main content
@@ -177,6 +220,14 @@ export function toMarkdown(article, metadata, options = {}) {
     if (sd.dates?.length) md += `**Dates:** ${sd.dates.join(', ')}\n\n`;
     if (sd.prices?.length) md += `**Prices:** ${sd.prices.join(', ')}\n\n`;
     if (sd.phones?.length) md += `**Phone numbers:** ${sd.phones.join(', ')}\n\n`;
+  }
+
+  // Append structured data if present (JSON-LD)
+  if (metadata.structuredData?.jsonLd?.length > 0) {
+    md += '\n\n---\n\n## Structured Data\n\n';
+    md += '```json\n';
+    md += JSON.stringify(metadata.structuredData.jsonLd, null, 2);
+    md += '\n```\n';
   }
 
   return md;

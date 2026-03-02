@@ -11,10 +11,30 @@
  */
 import * as storage from '../utils/storage.js';
 import { isInjectableUrl } from '../utils/url.js';
+import { detectLlmsTxt } from '../core/llms-txt.js';
 
 // ── MCP Bridge State ──
 /** @type {WebSocket | null} */
 let mcpSocket = null;
+
+// llms.txt cache (per domain, TTL 1 hour)
+const llmsTxtCache = new Map();
+const LLMS_CACHE_TTL = 60 * 60 * 1000; // 1h
+
+async function checkLlmsTxt(url) {
+  try {
+    const domain = new URL(url).hostname;
+    const cached = llmsTxtCache.get(domain);
+    if (cached && Date.now() - cached.ts < LLMS_CACHE_TTL) {
+      return cached.result;
+    }
+    const result = await detectLlmsTxt(url);
+    llmsTxtCache.set(domain, { result, ts: Date.now() });
+    return result;
+  } catch {
+    return { found: false };
+  }
+}
 
 // ── Offscreen Document Helper ──
 const OFFSCREEN_URL = chrome.runtime.getURL('src/offscreen/offscreen.html');
@@ -95,6 +115,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   if (message.action === 'extractionResult') {
     // Relay extraction result to the side panel (it listens for this message)
+    // Non-blocking llms.txt check
+    if (message.result?.metadata?.url) {
+      checkLlmsTxt(message.result.metadata.url).then(llmsResult => {
+        if (llmsResult.found) {
+          chrome.runtime.sendMessage({
+            action: 'llmsTxtDetected',
+            data: { url: llmsResult.url, domain: message.result.metadata?.domain },
+          }).catch(() => {});
+        }
+      });
+    }
     // No sendResponse needed — fire and forget
     return;
   }

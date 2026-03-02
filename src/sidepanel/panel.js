@@ -90,6 +90,29 @@ function setupEvents() {
 function displayResult(result) {
   currentData = result;
 
+  // Stats bar
+  const panelStats = $('panelStats');
+  if (panelStats && result.metadata) {
+    panelStats.style.display = '';
+    const panelWords = $('panelWords');
+    const panelTokens = $('panelTokens');
+    if (panelWords) panelWords.textContent = `${result.metadata.wordCount} ${msg('words')}`;
+    if (panelTokens) {
+      const tokens = result.metadata.estimatedTokens || 0;
+      panelTokens.textContent = `~${tokens.toLocaleString()} ${msg('tokens')}`;
+    }
+    // llms.txt badge
+    if (result.metadata.llmsTxtLink) {
+      const sep = $('panelLlmsSep');
+      const badge = $('panelLlmsBadge');
+      if (sep) sep.style.display = '';
+      if (badge) {
+        badge.style.display = '';
+        badge.title = result.metadata.llmsTxtLink;
+      }
+    }
+  }
+
   // Content tab
   const editor = $('contentEditor');
   if (editor) {
@@ -121,6 +144,20 @@ function displayResult(result) {
     }
     if (sd.phones?.length) {
       html += buildDataSection(msg('dataPhones'), sd.phones);
+    }
+
+    // Structured data (JSON-LD, Open Graph)
+    if (result.metadata?.structuredData) {
+      const sd2 = result.metadata.structuredData;
+      if (sd2.jsonLd?.length > 0) {
+        html += buildDataSection('JSON-LD', sd2.jsonLd.map(item => item['@type'] || 'Schema'));
+      }
+      if (sd2.openGraph) {
+        html += buildDataSection('Open Graph', Object.entries(sd2.openGraph).map(([k, v]) => `${k}: ${v}`));
+      }
+      if (sd2.twitterCard) {
+        html += buildDataSection('Twitter Card', Object.entries(sd2.twitterCard).map(([k, v]) => `${k}: ${v}`));
+      }
     }
 
     dataPanel.innerHTML = html || `<div class="empty-state"><p>${msg('noDataFound')}</p></div>`;

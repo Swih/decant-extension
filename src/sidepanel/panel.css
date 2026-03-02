@@ -280,3 +280,28 @@
   margin-left: auto;
   flex-shrink: 0;
 }
+
+/* Stats bar */
+.panel-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-stats .stat {
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-stats .stat-sep {
+  opacity: 0.4;
+}
+
+.panel-stats .llms-badge {
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 11px;
+}

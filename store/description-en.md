@@ -50,7 +50,7 @@ PRIVACY-FIRST DESIGN
 - MCP Bridge uses localhost WebSocket only — no cloud relay, no external servers
 - Optional permissions — MCP Bridge requests tabs + host access only when you enable it
 - No accounts, no tracking, no analytics — zero data collection
-- Open source (MIT License) — inspect every line on GitHub
+- Free to use — no accounts, no subscriptions
 
 PERFECT FOR
 

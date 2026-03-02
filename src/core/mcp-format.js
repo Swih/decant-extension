@@ -28,15 +28,18 @@ export function toMCP(article, metadata, tables = []) {
         domain: metadata.domain,
         siteName: metadata.siteName,
         extractedAt: metadata.extractedAt,
+        llmsTxtUrl: metadata.llmsTxtLink || null,
       },
       contentType: classifyContent(metadata, tables),
       stats: {
         wordCount: metadata.wordCount,
         imageCount: metadata.imageCount,
         estimatedTokens: metadata.estimatedTokens || 0,
+        tokensByModel: metadata.tokensByModel || {},
         tableCount: tables.length,
       },
       extractedEntities: metadata.smartData || {},
+      structuredData: metadata.structuredData || null,
       tables: tables.map((t, i) => ({
         index: i,
         caption: t.caption || null,

@@ -2,6 +2,8 @@
  * Export structured JSON for data pipelines and programmatic consumption.
  */
 
+import { detectLanguage } from './markdown.js';
+
 /**
  * Convert article + metadata to structured JSON.
  */
@@ -18,7 +20,10 @@ export function toJSON(article, metadata, tables = []) {
       description: metadata.excerpt,
       wordCount: metadata.wordCount,
       imageCount: metadata.imageCount,
+      estimatedTokens: metadata.estimatedTokens || 0,
+      tokensByModel: metadata.tokensByModel || {},
       extractedAt: metadata.extractedAt,
+      llmsTxtUrl: metadata.llmsTxtLink || null,
     },
     content: {
       plain: article.textContent.trim(),
@@ -39,6 +44,10 @@ export function toJSON(article, metadata, tables = []) {
 
   if (metadata.smartData && Object.keys(metadata.smartData).length > 0) {
     structure.extractedData = metadata.smartData;
+  }
+
+  if (metadata.structuredData) {
+    structure.structuredData = metadata.structuredData;
   }
 
   return JSON.stringify(structure, null, 2);
@@ -99,10 +108,10 @@ function extractImages(doc) {
 }
 
 function extractCodeBlocks(doc) {
-  return Array.from(doc.querySelectorAll('pre code')).map((code) => {
-    const lang = (code.className.match(/(?:language|lang)-(\w+)/) || [])[1] || '';
-    return { language: lang, code: code.textContent };
-  });
+  return Array.from(doc.querySelectorAll('pre code')).map((code) => ({
+    language: detectLanguage(code),
+    code: code.textContent,
+  }));
 }
 
 function extractLists(doc) {

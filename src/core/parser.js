@@ -8,6 +8,9 @@ import { toJSON } from './json-export.js';
 import { toMCP } from './mcp-format.js';
 import { extractSmartData } from './smart-extract.js';
 import { extractTables } from './table-detect.js';
+import { estimateForModel, estimateAllModels } from './token-models.js';
+import { extractStructuredData } from './structured-data.js';
+import { detectLlmsLink } from './llms-txt.js';
 
 /**
  * Main extraction function.
@@ -93,6 +96,16 @@ export function extract(options) {
 
   // Estimate token count (helps users know context window usage)
   const estimatedTokens = estimateTokens(article.textContent);
+  const tokensByModel = estimateAllModels(article.textContent);
+
+  // Extract structured data (JSON-LD, Open Graph, Twitter Cards, meta)
+  const structuredData = extractStructuredData(doc);
+  const hasStructuredData = structuredData.jsonLd.length > 0
+    || structuredData.openGraph
+    || structuredData.twitterCard;
+
+  // Detect llms.txt link in page head
+  const llmsTxtLink = detectLlmsLink(doc);
 
   // Build metadata
   const metadata = {
@@ -104,9 +117,12 @@ export function extract(options) {
     wordCount,
     imageCount,
     estimatedTokens,
+    tokensByModel,
     extractedAt: new Date().toISOString(),
     tables: tables.length,
     ...(Object.keys(smartData).length > 0 ? { smartData } : {}),
+    ...(hasStructuredData ? { structuredData } : {}),
+    ...(llmsTxtLink ? { llmsTxtLink } : {}),
   };
 
   // Convert to requested format

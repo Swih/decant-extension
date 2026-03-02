@@ -67,12 +67,20 @@ const batchProgressText = $('batchProgressText');
 const batchProgressFill = $('batchProgressFill');
 const mcpToggle = $('mcpToggle');
 const mcpStatus = $('mcpStatus');
+const llmsBadge = $('llmsBadge');
+const llmsSep = $('llmsSep');
 
 // ── State ──
 let currentResult = null;
 let currentFormat = 'markdown';
 let cachedPageData = null;
 let batchResults = [];
+let currentTokenModel = 'claude';
+const TOKEN_MODEL_CYCLE = ['claude', 'gpt4o', 'gpt5', 'llama', 'gemini', 'mistral'];
+const TOKEN_MODEL_LABELS = {
+  claude: 'Claude', gpt4o: 'GPT-4o', gpt5: 'GPT-5',
+  llama: 'Llama', gemini: 'Gemini', mistral: 'Mistral',
+};
 
 // ── Init ──
 async function init() {
@@ -253,6 +261,13 @@ function setupEvents() {
   // DOM Picker button
   pickerBtn.addEventListener('click', handleStartPicker);
 
+  // Token model cycling
+  $('tokenCount')?.addEventListener('click', () => {
+    const idx = TOKEN_MODEL_CYCLE.indexOf(currentTokenModel);
+    currentTokenModel = TOKEN_MODEL_CYCLE[(idx + 1) % TOKEN_MODEL_CYCLE.length];
+    updateTokenDisplay();
+  });
+
   // Batch Extract toggle
   const toggleBatch = () => {
     const expanded = batchToggle.getAttribute('aria-expanded') === 'true';
@@ -388,13 +403,26 @@ async function handleExtract() {
     wordCount.textContent = `${formatNumber(currentResult.metadata.wordCount)} ${msg('words')}`;
     imageCount.textContent = `${currentResult.metadata.imageCount} ${msg('images')}`;
 
-    // Show token estimate (helps users gauge context window usage)
-    if (currentResult.metadata.estimatedTokens) {
+    // Show token estimate with model-specific counts
+    if (currentResult.metadata.tokensByModel) {
+      const tokenSep = $('tokenSep');
+      const tokenCountEl = $('tokenCount');
+      tokenSep.style.display = '';
+      tokenCountEl.style.display = '';
+      updateTokenDisplay();
+    } else if (currentResult.metadata.estimatedTokens) {
       const tokenSep = $('tokenSep');
       const tokenCountEl = $('tokenCount');
       tokenSep.style.display = '';
       tokenCountEl.style.display = '';
       tokenCountEl.textContent = `~${formatNumber(currentResult.metadata.estimatedTokens)} ${msg('tokens')}`;
+    }
+
+    // Show llms.txt badge if detected
+    if (currentResult.metadata.llmsTxtLink) {
+      llmsSep.style.display = '';
+      llmsBadge.style.display = '';
+      llmsBadge.title = currentResult.metadata.llmsTxtLink;
     }
 
     // Send result to side panel via service worker
@@ -560,17 +588,23 @@ function handleBatchDownload() {
   if (batchResults.length === 0) return;
 
   const ext = { markdown: 'md', json: 'json', mcp: 'json' }[currentFormat] || 'txt';
-  const separator = currentFormat === 'markdown' ? '\n\n---\n\n' : '\n';
 
-  // Combine all results into a single file
-  const combined = batchResults
-    .map((r) => {
-      if (currentFormat === 'markdown') {
-        return `<!-- Source: ${r.url} -->\n${r.output}`;
+  let combined;
+  if (currentFormat === 'markdown') {
+    combined = batchResults
+      .map((r) => `<!-- Source: ${r.url} -->\n${r.output}`)
+      .join('\n\n---\n\n');
+  } else {
+    // JSON / MCP: parse each output and wrap in a valid JSON array
+    const items = batchResults.map((r) => {
+      try {
+        return JSON.parse(r.output);
+      } catch {
+        return r.output;
       }
-      return r.output;
-    })
-    .join(separator);
+    });
+    combined = JSON.stringify(items, null, 2);
+  }
 
   const blob = new Blob([combined], { type: 'text/plain' });
   const url = URL.createObjectURL(blob);
@@ -800,5 +834,23 @@ function formatNumber(n) {
   return String(n);
 }
 
+
+function updateTokenDisplay() {
+  if (!currentResult?.metadata?.tokensByModel) return;
+  const data = currentResult.metadata.tokensByModel[currentTokenModel];
+  if (!data) return;
+  const tokenCountEl = $('tokenCount');
+  const label = TOKEN_MODEL_LABELS[currentTokenModel] || currentTokenModel;
+  const pctStr = data.pctContext > 0 ? ` (${data.pctContext}%)` : '';
+  tokenCountEl.textContent = `~${formatNumber(data.tokens)} tkn · ${label}${pctStr}`;
+
+  // Color coding
+  tokenCountEl.classList.remove('token-warn', 'token-danger');
+  if (data.pctContext > 100) {
+    tokenCountEl.classList.add('token-danger');
+  } else if (data.pctContext > 80) {
+    tokenCountEl.classList.add('token-warn');
+  }
+}
 // ── Boot ──
 init();

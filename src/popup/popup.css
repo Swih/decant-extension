@@ -581,3 +581,25 @@
   transform: translateY(-50%) translateX(16px);
   background: var(--accent-primary);
 }
+
+/* Token model cycling */
+.token-cycle {
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.token-cycle:hover {
+  color: var(--accent-primary);
+}
+.token-warn {
+  color: var(--warning, #f59e0b) !important;
+}
+.token-danger {
+  color: var(--danger, #ef4444) !important;
+}
+
+/* llms.txt badge */
+.llms-badge {
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 11px;
+}
